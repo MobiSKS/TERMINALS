@@ -390,11 +390,135 @@ namespace HPCL_DP_Terminal.Models
         public string Userid { get; set; }
         public string Useragent { get; set; }
     }
-    
 
+    public class SaveDTPLoyaltyByCard_Input
+    {
+        public int? ROC_No { get; set; }
+        public Int64? Card_no { get; set; }
+        public decimal? Amount { get; set; }
+        public int? Terminal_Pin { get; set; }
+        public int? TID { get; set; }
+        public int? OutletId { get; set; }
+        public string Userip { get; set; }
+        public string Userid { get; set; }
+        public string Useragent { get; set; }
+    }
+
+    public class SaveDTPLoyaltyByCard
+    {
+        public string TransactionDate { get; set; }
+        public string Batchid { get; set; }
+        public decimal TransactionAmount { get; set; }
+
+    }
+
+
+    public class SaveDTPLoyaltyByMobileNo_Input
+    {
+        public int ROC_No { get; set; }
+        public Int64 Mobile_no { get; set; }
+        public decimal Amount { get; set; }
+        public int Terminal_Pin { get; set; }
+        public int OTP { get; set; }
+        public int TID { get; set; }
+        public int OutletId { get; set; }
+        public string Userip { get; set; }
+        public string Userid { get; set; }
+        public string Useragent { get; set; }
+    }
+
+    public class SaveDTPLoyaltyByMobileNo
+    {
+        public string TransactionDate { get; set; }
+        public string Batchid { get; set; }
+        public decimal TransactionAmount { get; set; }
+    }
+
+
+    public class SaveNonDTPLoyaltyByCard_Input
+    {
+        public Int64? Card_no { get; set; }
+        public decimal? Amount { get; set; }
+        public int? Terminal_Pin { get; set; }
+        public int? TID { get; set; }
+        public int? OutletId { get; set; }
+        public string Userip { get; set; }
+        public string Userid { get; set; }
+        public string Useragent { get; set; }
+    }
+
+
+    public class SaveNonDTPLoyaltyByCard
+    {
+        public string TransactionDate { get; set; }
+        public string Batchid { get; set; }
+        public decimal TransactionAmount { get; set; }
+    }
+
+    public class SaveNonDTPLoyaltyByMobileNo_Input
+    {
+        public Int64 Mobile_No { get; set; }
+        public decimal? Amount { get; set; }
+        public int? Terminal_Pin { get; set; }
+        public int? TID { get; set; }
+        public int? OutletId { get; set; }
+        public string Userip { get; set; }
+        public string Userid { get; set; }
+        public string Useragent { get; set; }
+    }
+
+
+    public class SaveNonDTPLoyaltyByMobileNo
+    {
+        public string TransactionDate { get; set; }
+        public string Batchid { get; set; }
+        public decimal TransactionAmount { get; set; }
+    }
+
+    public class GetPointEquivAmtInput
+    {
+        public int Card_no { get; set; }
+        public int Card_pin { get; set; }
+        public string Fuel { get; set; }
+        public int Pointstoredeem { get; set; }
+        public int TID { get; set; }
+        public int OutletId { get; set; }
+        public string Userip { get; set; }
+        public string Userid { get; set; }
+        public string Useragent { get; set; }
+    }
+
+    public class GetPointEquivAmt
+    {
+        public int Points { get; set; }
+        public int Actual_points { get; set; }
+        public decimal Amount { get; set; }
+        public decimal Message { get; set; }
+    }
+
+
+
+
+
+    public class LoyaltyBalanceByCardNoInput
+    {
+        public Int64 Controlcardno { get; set; }
+        public int Controlpin { get; set; }
+        public int TID { get; set; }
+        public int OutletId { get; set; }
+        public string Userip { get; set; }
+        public string Userid { get; set; }
+        public string Useragent { get; set; }
+    }
+
+
+    public class LoyaltyBalanceByCardNo
+    {
+        public decimal Drive_stars { get; set; }
+    }
 
     public class GetWalletBalanceLimit
-    { 
+    {
         public Decimal SingleTransactionLimit { get; set; }
         public Decimal DailyTransactionLimit { get; set; }
         public Decimal MonthlyTransactionLimit { get; set; }
@@ -427,22 +551,6 @@ namespace HPCL_DP_Terminal.Models
         public Decimal Daily_cash_limit_balance { get; set; }
     }
 
-    public class LoyaltyBalanceByCardNoInput
-    {
-        public Int64 Controlcardno { get; set; }
-        public int Controlpin { get; set; }
-        public int TID { get; set; }
-        public int OutletId { get; set; }
-        public string Userip { get; set; }
-        public string Userid { get; set; }
-        public string Useragent { get; set; }
-    }
-
-
-    public class LoyaltyBalanceByCardNo
-    {
-        public decimal Drive_stars { get; set; }
-    }
 
     public class CCMSBalanceByCardNoInput
     {
@@ -504,110 +612,9 @@ namespace HPCL_DP_Terminal.Models
         public string Userip { get; set; }
         public string Userid { get; set; }
     }
-    public class GetPointEquivAmtInput
-    {
-        public int Card_no { get; set; }
-        public int Card_pin { get; set; }
-        public string Fuel { get; set; }
-        public int Pointstoredeem { get; set; }
-        public int TID { get; set; }
-        public int OutletId { get; set; }
-        public string Userip { get; set; }
-        public string Userid { get; set; }
-        public string Useragent { get; set; }
-    }
+   
 
-    public class GetPointEquivAmt
-    {
-        public int Points { get; set; }
-        public int Actual_points { get; set; }
-        public decimal Amount { get; set; }
-        public decimal Message { get; set; }
-    }
-
-    public class SaveDTPLoyaltyByCard_Input
-    {
-        public int? ROC_No { get; set; }
-        public Int64? Card_no { get; set; }
-        public decimal? Amount { get; set; }
-        public int? Terminal_Pin { get; set; }
-        public int? TID { get; set; }
-        public int? OutletId { get; set; }
-        public string Userip { get; set; }
-        public string Userid { get; set; }
-        public string Useragent { get; set; }
-    }
-
-    public class SaveDTPLoyaltyByCard
-    {
-        public string TransactionDate { get; set; }
-        public string Batchid { get; set; }
-        public decimal TransactionAmount { get; set; }
-        
-    }
-
-
-    public class SaveDTPLoyaltyByMobileNo_Input
-    {
-        public int ROC_No { get; set; }
-        public Int64 Mobile_no { get; set; }
-        public decimal Amount { get; set; }
-        public int Terminal_Pin { get; set; }
-        public int OTP { get; set; }
-        public int TID { get; set; }
-        public int OutletId { get; set; }
-        public string Userip { get; set; }
-        public string Userid { get; set; }
-        public string Useragent { get; set; }
-    }
-
-    public class SaveDTPLoyaltyByMobileNo
-    {
-        public string TransactionDate { get; set; }
-        public string Batchid { get; set; }
-        public decimal TransactionAmount { get; set; }
-    }
-
-
-    public class SaveNonDTPLoyaltyByCard_Input
-    {       
-        public Int64? Card_no { get; set; }
-        public decimal? Amount { get; set; }
-        public int? Terminal_Pin { get; set; }      
-        public int? TID { get; set; }
-        public int? OutletId { get; set; }
-        public string Userip { get; set; }
-        public string Userid { get; set; }
-        public string Useragent { get; set; }
-    }
-
-
-    public class SaveNonDTPLoyaltyByCard
-    {
-        public string TransactionDate { get; set; }
-        public string Batchid { get; set; }
-        public decimal TransactionAmount { get; set; }
-    }
-
-    public class SaveNonDTPLoyaltyByMobileNo_Input
-    {
-        public Int64 Mobile_No { get; set; }
-        public decimal? Amount { get; set; }
-        public int? Terminal_Pin { get; set; }
-        public int? TID { get; set; }
-        public int? OutletId { get; set; }
-        public string Userip { get; set; }
-        public string Userid { get; set; }
-        public string Useragent { get; set; }
-    }
-
-
-    public class SaveNonDTPLoyaltyByMobileNo
-    {
-        public string TransactionDate { get; set; }
-        public string Batchid { get; set; }
-        public decimal TransactionAmount { get; set; }
-    }
+    
 
     public class CheckTransactionValuevsLimit_Input
     {

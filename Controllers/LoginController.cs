@@ -1,6 +1,6 @@
-﻿using MQWebAPI.App_Start;
-using MQWebAPI.Helpers;
-using MQWebAPI.MQSupportClass;
+﻿using HPCL_DP_Terminal.App_Start;
+using HPCL_DP_Terminal.Helpers;
+using HPCL_DP_Terminal.MQSupportClass;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,51 +11,51 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using static MQWebAPI.Models.Login;
-using static MQWebAPI.MQSupportClass.StatusMessage;
+using static HPCL_DP_Terminal.Models.Login;
+using static HPCL_DP_Terminal.MQSupportClass.StatusMessage;
 
-namespace MQWebAPI.Controllers
+namespace HPCL_DP_Terminal.Controllers
 {
     public class LoginController : ApiController
     {
-        [HttpPost]
-        [CustomAuthenticationFilter]
-        [Route("api/dtplus/login/get_user_login")]
-        public async Task<Object> User_Login([FromBody] LoginInput ObjClass)
-        {
+        //[HttpPost]
+        //[CustomAuthenticationFilter]
+        //[Route("api/dtplus/login/get_user_login")]
+        //public async Task<Object> User_Login([FromBody] LoginInput ObjClass)
+        //{
 
-            if (ObjClass == null)
-            {
-                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
-            }
-            else
-            {
-                Dictionary<string, object> parameters = new Dictionary<string, object>
-                    {
-                        { "username", ObjClass.Username },
-                        { "password", ObjClass.Password }
-                    };
-                var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Login_Get_User_Login", parameters)
-               .With<LoginOutput>()
-               .Execute());
-                List<LoginOutput> item = results[0].Cast<LoginOutput>().ToList();
-                if (item.Count > 0)
-                {
-                    if (results[0].Cast<LoginOutput>().ToList()[0].Status == 1)
-                        return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
-                    else if (results[0].Cast<LoginOutput>().ToList()[0].Status == 2)
-                        return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.User_deactivate, results[0]);
-                    else if (results[0].Cast<LoginOutput>().ToList()[0].Status == 3)
-                        return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Customer_deactivate, results[0]);
-                    else if (results[0].Cast<LoginOutput>().ToList()[0].Status == 4)
-                        return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Merchant_deactivate, results[0]);
-                    else return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
-                }
-                else return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
-            }
+        //    if (ObjClass == null)
+        //    {
+        //        return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
+        //    }
+        //    else
+        //    {
+        //        Dictionary<string, object> parameters = new Dictionary<string, object>
+        //            {
+        //                { "username", ObjClass.Username },
+        //                { "password", ObjClass.Password }
+        //            };
+        //        var results = await Task.Run(() => new DefaultContext()
+        //       .MultipleResults("Usp_Login_Get_User_Login", parameters)
+        //       .With<LoginOutput>()
+        //       .Execute());
+        //        List<LoginOutput> item = results[0].Cast<LoginOutput>().ToList();
+        //        if (item.Count > 0)
+        //        {
+        //            if (results[0].Cast<LoginOutput>().ToList()[0].Status == 1)
+        //                return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
+        //            else if (results[0].Cast<LoginOutput>().ToList()[0].Status == 2)
+        //                return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.User_deactivate, results[0]);
+        //            else if (results[0].Cast<LoginOutput>().ToList()[0].Status == 3)
+        //                return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Customer_deactivate, results[0]);
+        //            else if (results[0].Cast<LoginOutput>().ToList()[0].Status == 4)
+        //                return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Merchant_deactivate, results[0]);
+        //            else return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
+        //        }
+        //        else return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
+        //    }
 
-        }
+        //}
 
 
         #region comment code
@@ -240,101 +240,103 @@ namespace MQWebAPI.Controllers
         //}
         #endregion
 
-        [HttpPost]
-        [CustomAuthenticationFilter]
-        [Route("api/dtplus/login/get_dashboard_data")]
-        public async Task<Object> GetDashboardData([FromBody] DashboardInput ObjClass)
-        {
+        //[HttpPost]
+        //[CustomAuthenticationFilter]
+        //[Route("api/dtplus/login/get_dashboard_data")]
+        //public async Task<Object> GetDashboardData([FromBody] DashboardInput ObjClass)
+        //{
 
-            if (ObjClass == null)
-            {
-                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
-            }
-            else
-            {
-                Dictionary<string, object> parameters = new Dictionary<string, object>
-                    {
-                        { "username", ObjClass.Username },
-                        { "userrole", ObjClass.Userrole },
-                    };
-                var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Login_Get_Dashbaord_Data", parameters)
-               .With<DashboardOutput>()
-               .Execute());
-                List<DashboardOutput> item = results[0].Cast<DashboardOutput>().ToList();
-                if (item.Count > 0)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
-                else
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
-            }
+        //    if (ObjClass == null)
+        //    {
+        //        return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
+        //    }
+        //    else
+        //    {
+        //        Dictionary<string, object> parameters = new Dictionary<string, object>
+        //            {
+        //                { "username", ObjClass.Username },
+        //                { "userrole", ObjClass.Userrole },
+        //            };
+        //        var results = await Task.Run(() => new DefaultContext()
+        //       .MultipleResults("Usp_Login_Get_Dashbaord_Data", parameters)
+        //       .With<DashboardOutput>()
+        //       .Execute());
+        //        List<DashboardOutput> item = results[0].Cast<DashboardOutput>().ToList();
+        //        if (item.Count > 0)
+        //            return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
+        //        else
+        //            return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
+        //    }
 
-        }
+        //}
 
-        [HttpPost]
-        [CustomAuthenticationFilter]
-        [Route("api/dtplus/login/forgot_password")]
-        public async Task<Object> Forgot_Password([FromBody] ForgotPasswordInput ObjClass)
-        {
-            if (ObjClass == null)
-            {
-                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
-            }
-            else
-            {
-                Dictionary<string, object> parameters = new Dictionary<string, object>
-                {
-                    { "Userid", ObjClass.Userid },
-                    { "User_Type", ObjClass.User_Type },
-                    { "Userid", ObjClass.Userid },
-                    { "Useremail", ObjClass.Useremail }
-                };
+        //[HttpPost]
+        //[CustomAuthenticationFilter]
+        //[Route("api/dtplus/login/forgot_password")]
+        //public async Task<Object> Forgot_Password([FromBody] ForgotPasswordInput ObjClass)
+        //{
+        //    if (ObjClass == null)
+        //    {
+        //        return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
+        //    }
+        //    else
+        //    {
+        //        Dictionary<string, object> parameters = new Dictionary<string, object>
+        //        {
+        //            { "Userid", ObjClass.Userid },
+        //            { "User_Type", ObjClass.User_Type },
+        //            { "Userid", ObjClass.Userid },
+        //            { "Useremail", ObjClass.Useremail }
+        //        };
 
-                var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Login_Change_Password", parameters)
-               .With<ForgotPasswordOutput>()
-               .Execute());
-                if (results[0].Cast<ForgotPasswordOutput>().ToList()[0].Status == 1)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success_Message_Change_Password, results[0]);
-                else
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
-            }
+        //        var results = await Task.Run(() => new DefaultContext()
+        //       .MultipleResults("Usp_Login_Change_Password", parameters)
+        //       .With<ForgotPasswordOutput>()
+        //       .Execute());
+        //        if (results[0].Cast<ForgotPasswordOutput>().ToList()[0].Status == 1)
+        //            return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success_Message_Change_Password, results[0]);
+        //        else
+        //            return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
+        //    }
 
-        }
+        //}
 
-        [HttpPost]
-        [CustomAuthenticationFilter]
-        [Route("api/dtplus/login/change_password")]
-        public async Task<Object> Change_Password([FromBody] ChangePasswordInput ObjClass)
-        {
+        //[HttpPost]
+        //[CustomAuthenticationFilter]
+        //[Route("api/dtplus/login/change_password")]
+        //public async Task<Object> Change_Password([FromBody] ChangePasswordInput ObjClass)
+        //{
 
-            if (ObjClass == null)
-            {
-                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
-            }
-            else
-            {
-                Dictionary<string, object> parameters = new Dictionary<string, object>
-                {
-                    { "user_mobile", ObjClass.User_mobile },
-                    { "User_Type", ObjClass.User_Type },
-                    { "Userid", ObjClass.Userid },
-                    { "oldpass", ObjClass.Oldpass },
-                    { "newpass", ObjClass.Newpass },
-                    { "Useragent", ObjClass.Useragent },
-                    { "Userip", ObjClass.Userip }
-                };
+        //    if (ObjClass == null)
+        //    {
+        //        return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
+        //    }
+        //    else
+        //    {
+        //        Dictionary<string, object> parameters = new Dictionary<string, object>
+        //        {
+        //            { "user_mobile", ObjClass.User_mobile },
+        //            { "User_Type", ObjClass.User_Type },
+        //            { "Userid", ObjClass.Userid },
+        //            { "oldpass", ObjClass.Oldpass },
+        //            { "newpass", ObjClass.Newpass },
+        //            { "Useragent", ObjClass.Useragent },
+        //            { "Userip", ObjClass.Userip }
+        //        };
 
-                var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Login_Change_Password", parameters)
-               .With<ChangePasswordOutput>()
-               .Execute());
-                if (results[0].Cast<ChangePasswordOutput>().ToList()[0].Status == 1)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success_Message_Change_Password, results[0]);
-                else
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
-            }
+        //        var results = await Task.Run(() => new DefaultContext()
+        //       .MultipleResults("Usp_Login_Change_Password", parameters)
+        //       .With<ChangePasswordOutput>()
+        //       .Execute());
+        //        if (results[0].Cast<ChangePasswordOutput>().ToList()[0].Status == 1)
+        //            return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success_Message_Change_Password, results[0]);
+        //        else
+        //            return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
+        //    }
 
-        }
+        //}
+
+
 
         [HttpPost]
         [CustomAuthenticationFilter]
@@ -545,66 +547,66 @@ namespace MQWebAPI.Controllers
 
         }
 
-        [HttpPost]
-        [CustomAuthenticationFilter]
-        [Route("api/dtplus/login/genrate_otp_dtplus")]
-        public async Task<Object> Genrate_OTP_DTPlus([FromBody] OTP_DTPlus_Input ObjClass)
-        {
+        //[HttpPost]
+        //[CustomAuthenticationFilter]
+        //[Route("api/dtplus/login/genrate_otp_dtplus")]
+        //public async Task<Object> Genrate_OTP_DTPlus([FromBody] OTP_DTPlus_Input ObjClass)
+        //{
 
-            if (ObjClass == null)
-            {
-                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
-            }
-            else
-            {
-                Dictionary<string, object> parameters = new Dictionary<string, object>
-                {
-                    { "User_Mobile", ObjClass.User_Mobile },
-                    { "DeviceToken", ObjClass.DeviceToken }
-                };
+        //    if (ObjClass == null)
+        //    {
+        //        return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
+        //    }
+        //    else
+        //    {
+        //        Dictionary<string, object> parameters = new Dictionary<string, object>
+        //        {
+        //            { "User_Mobile", ObjClass.User_Mobile },
+        //            { "DeviceToken", ObjClass.DeviceToken }
+        //        };
 
-                var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Login_Genrate_OTP_DTPlus", parameters)
-               .With<OTP_DTPlus_Output>()
-               .Execute());
-                List<OTP_DTPlus_Output> item = results[0].Cast<OTP_DTPlus_Output>().ToList();
-                if (item.Count > 0)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
-                else
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
-            }
+        //        var results = await Task.Run(() => new DefaultContext()
+        //       .MultipleResults("Usp_Login_Genrate_OTP_DTPlus", parameters)
+        //       .With<OTP_DTPlus_Output>()
+        //       .Execute());
+        //        List<OTP_DTPlus_Output> item = results[0].Cast<OTP_DTPlus_Output>().ToList();
+        //        if (item.Count > 0)
+        //            return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
+        //        else
+        //            return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
+        //    }
 
-        }
+        //}
 
-        [HttpPost]
-        [CustomAuthenticationFilter]
-        [Route("api/dtplus/login/validate_otp_dtplus")]
-        public async Task<Object> Validate_OTP_DTPlus([FromBody] Validate_OTP_DTPlus_Input ObjClass)
-        {
+        //[HttpPost]
+        //[CustomAuthenticationFilter]
+        //[Route("api/dtplus/login/validate_otp_dtplus")]
+        //public async Task<Object> Validate_OTP_DTPlus([FromBody] Validate_OTP_DTPlus_Input ObjClass)
+        //{
 
-            if (ObjClass == null)
-            {
-                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
-            }
-            else
-            {
-                Dictionary<string, object> parameters = new Dictionary<string, object>
-                {
-                    { "User_Mobile", ObjClass.User_Mobile },
-                    { "OTP", ObjClass.OTP }
-                };
+        //    if (ObjClass == null)
+        //    {
+        //        return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
+        //    }
+        //    else
+        //    {
+        //        Dictionary<string, object> parameters = new Dictionary<string, object>
+        //        {
+        //            { "User_Mobile", ObjClass.User_Mobile },
+        //            { "OTP", ObjClass.OTP }
+        //        };
 
-                var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Login_Validate_OTP_DTPlus", parameters)
-               .With<Validate_OTP_DTPlus_Output>()
-               .Execute());
-                if (results[0].Cast<Validate_OTP_DTPlus_Output>().ToList()[0].Status == 1)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
-                else
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
-            }
+        //        var results = await Task.Run(() => new DefaultContext()
+        //       .MultipleResults("Usp_Login_Validate_OTP_DTPlus", parameters)
+        //       .With<Validate_OTP_DTPlus_Output>()
+        //       .Execute());
+        //        if (results[0].Cast<Validate_OTP_DTPlus_Output>().ToList()[0].Status == 1)
+        //            return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
+        //        else
+        //            return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
+        //    }
 
-        }
+        //}
 
 
         [HttpPost]

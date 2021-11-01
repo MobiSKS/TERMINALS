@@ -1,16 +1,16 @@
-﻿using MQWebAPI.App_Start;
-using MQWebAPI.Helpers;
-using MQWebAPI.Models;
-using MQWebAPI.MQSupportClass;
+﻿using HPCL_DP_Terminal.App_Start;
+using HPCL_DP_Terminal.Helpers;
+using HPCL_DP_Terminal.Models;
+using HPCL_DP_Terminal.MQSupportClass;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
-using static MQWebAPI.MQSupportClass.StatusMessage;
+using static HPCL_DP_Terminal.MQSupportClass.StatusMessage;
 
-namespace MQWebAPI.Controllers
+namespace HPCL_DP_Terminal.Controllers
 {
     public class WalletController : ApiController
     {

@@ -1,6 +1,6 @@
-﻿using MQWebAPI.App_Start;
-using MQWebAPI.Helpers;
-using MQWebAPI.MQSupportClass;
+﻿using HPCL_DP_Terminal.App_Start;
+using HPCL_DP_Terminal.Helpers;
+using HPCL_DP_Terminal.MQSupportClass;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,10 +12,10 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using static MQWebAPI.Models.User;
-using static MQWebAPI.MQSupportClass.StatusMessage;
+using static HPCL_DP_Terminal.Models.User;
+using static HPCL_DP_Terminal.MQSupportClass.StatusMessage;
 
-namespace MQWebAPI.Controllers
+namespace HPCL_DP_Terminal.Controllers
 {
     public class UserController : ApiController
     {
@@ -218,6 +218,7 @@ namespace MQWebAPI.Controllers
             return DsData;
         }
 
+        /*
         [HttpPost]
         [CustomAuthenticationFilter]
         [Route("api/dtplus/user/customer_user_registration")]
@@ -569,26 +570,26 @@ namespace MQWebAPI.Controllers
             }
             else
             {
-               /* var Image_Id_proof_image = ObjClass.Id_proof_image;
-                var Image_Address_proof_image = ObjClass.Address_proof_image;
+                //var Image_Id_proof_image = ObjClass.Id_proof_image;
+                //var Image_Address_proof_image = ObjClass.Address_proof_image;
 
-                var FilePath_Image_Id_proof_image = Path.Combine("Upload_Document/Upload_Id_proof", Image_Id_proof_image.FileName + "_" + ObjClass.Id_proof_number + "_" + ObjClass.Mobileno);
-                var FilePath_Image_Address_proof_image = Path.Combine("Upload_Document/Upload_Address_proof", Image_Address_proof_image.FileName + "_" + ObjClass.Address_proof_number + "_" + ObjClass.Mobileno);
+                //var FilePath_Image_Id_proof_image = Path.Combine("Upload_Document/Upload_Id_proof", Image_Id_proof_image.FileName + "_" + ObjClass.Id_proof_number + "_" + ObjClass.Mobileno);
+                //var FilePath_Image_Address_proof_image = Path.Combine("Upload_Document/Upload_Address_proof", Image_Address_proof_image.FileName + "_" + ObjClass.Address_proof_number + "_" + ObjClass.Mobileno);
 
-                if (Image_Id_proof_image.Length > 0)
-                {
-                    using (var fileStream = new FileStream(FilePath_Image_Id_proof_image, FileMode.Create))
-                    {
-                        Image_Id_proof_image.CopyTo(fileStream);
-                    }
-                }
-                if (Image_Address_proof_image.Length > 0)
-                {
-                    using (var fileStream = new FileStream(FilePath_Image_Address_proof_image, FileMode.Create))
-                    {
-                        Image_Address_proof_image.CopyTo(fileStream);
-                    }
-                }*/
+                //if (Image_Id_proof_image.Length > 0)
+                //{
+                //    using (var fileStream = new FileStream(FilePath_Image_Id_proof_image, FileMode.Create))
+                //    {
+                //        Image_Id_proof_image.CopyTo(fileStream);
+                //    }
+                //}
+                //if (Image_Address_proof_image.Length > 0)
+                //{
+                //    using (var fileStream = new FileStream(FilePath_Image_Address_proof_image, FileMode.Create))
+                //    {
+                //        Image_Address_proof_image.CopyTo(fileStream);
+                //    }
+                //}
                 Dictionary<string, object> parameters = new Dictionary<string, object>
                     {
                         { "Login_Name", ObjClass.User_Name },
@@ -606,11 +607,11 @@ namespace MQWebAPI.Controllers
                          { "Mobileno", ObjClass.Mobileno },
                          { "Id_proof", ObjClass.Id_proof },
                          { "Id_proof_number", ObjClass.Id_proof_number },
-                        /* { "Id_proof_image_path", FilePath_Image_Id_proof_image },*/
+                         //{ "Id_proof_image_path", FilePath_Image_Id_proof_image },
                          { "Address_proof", ObjClass.Address_proof },
-                         { "Address_proof_number", ObjClass.Address_proof_number }/*,
-                         { "Address_proof_image_path", FilePath_Image_Address_proof_image }
-                         { "RBE_Id", ObjClass.RBE_Id }*/
+                         { "Address_proof_number", ObjClass.Address_proof_number }
+                         //{ "Address_proof_image_path", FilePath_Image_Address_proof_image }
+                         //{ "RBE_Id", ObjClass.RBE_Id }
                     };
                 var results = await Task.Run(() => new DefaultContext()
                .MultipleResults("Usp_User_Create_Manage_Role_Insert", parameters)
@@ -1047,6 +1048,7 @@ namespace MQWebAPI.Controllers
             }
 
         }
+        */
 
         [HttpPost]
         [CustomAuthenticationFilter]
@@ -1077,6 +1079,42 @@ namespace MQWebAPI.Controllers
             }
 
         }
+
+
+        [CustomAuthenticationFilter]
+        [Route("api/dtplus/user/save_operator_info")]
+        public async Task<Object> SaveOperatorInfo([FromBody] SaveOperatorInfo_Input ObjClass)
+        {
+
+            if (ObjClass == null)
+            {
+                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
+            }
+            else
+            {
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    { "OperatorId", ObjClass.OperatorId },
+                    { "UserName", ObjClass.UserName },
+                    { "Password", ObjClass.Password },
+                    { "TerminalId", ObjClass.TerminalId },
+                    { "OutletId", ObjClass.OutletId },
+                    { "Userid", ObjClass.Userid }
+                };
+
+                var results = await Task.Run(() => new DefaultContext()
+               .MultipleResults("Usp_User_Save_Operator_Info", parameters)
+               .With<SaveOperatorInfo_Output>()
+               .Execute());
+                if (results[0].Cast<SaveOperatorInfo_Output>().ToList()[0].Status == 1)
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
+                else
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
+            }
+
+        }
+
+        /*
 
         [HttpPost]
         [CustomAuthenticationFilter]
@@ -1144,38 +1182,7 @@ namespace MQWebAPI.Controllers
 
         }
 
-        [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/save_operator_info")]
-        public async Task<Object> SaveOperatorInfo([FromBody] SaveOperatorInfo_Input ObjClass)
-        {
-
-            if (ObjClass == null)
-            {
-                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
-            }
-            else
-            {
-                Dictionary<string, object> parameters = new Dictionary<string, object>
-                {
-                    { "OperatorId", ObjClass.OperatorId },
-                    { "UserName", ObjClass.UserName },
-                    { "Password", ObjClass.Password },
-                    { "TerminalId", ObjClass.TerminalId },
-                    { "OutletId", ObjClass.OutletId },
-                    { "Userid", ObjClass.Userid }
-                };
-
-                var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_User_Save_Operator_Info", parameters)
-               .With<SaveOperatorInfo_Output>()
-               .Execute());
-                if (results[0].Cast<SaveOperatorInfo_Output>().ToList()[0].Status == 1)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
-                else
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
-            }
-
-        }
+        
 
         [HttpPost]
         [CustomAuthenticationFilter]
@@ -1508,6 +1515,7 @@ namespace MQWebAPI.Controllers
             }
         }
 
+        */
 
     }
 }
