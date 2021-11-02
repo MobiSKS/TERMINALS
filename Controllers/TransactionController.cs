@@ -16,7 +16,7 @@ namespace HPCL_DP_Terminal.Controllers
     {
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/transaction/get_transaction_detail_by_customerid_cardno_mobileno")]
+        [Route("api/edc/transaction/get_transaction_detail_by_customerid_cardno_mobileno")]
         public async Task<Object> Get_Transaction_Detail_By_CustomerId_CardNo_Mobile_No([FromBody] TrnsactionDetail_Input ObjClass)
         {
 
@@ -48,7 +48,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/transaction/get_statement_detail_by_customerid")]
+        [Route("api/edc/transaction/get_statement_detail_by_customerid")]
         public async Task<Object> GetStatementDetailbyCustomerId([FromBody] StatementDetail_Input ObjClass)
         {
 
@@ -82,7 +82,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/transaction/ccms_sale_by_card")]
+        [Route("api/edc/transaction/ccms_sale_by_card")]
         public async Task<Object> CCMS_Sale_By_Card([FromBody] CCMSSaleByCard_Input ObjClass)
         {
 
@@ -123,7 +123,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/transaction/ccms_sale_by_mobile_no")]
+        [Route("api/edc/transaction/ccms_sale_by_mobile_no")]
         public async Task<Object> CCMS_Sale_By_Mobile_No([FromBody] CCMSSaleByMobileNo_Input ObjClass)
         {
 

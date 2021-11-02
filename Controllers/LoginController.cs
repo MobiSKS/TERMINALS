@@ -20,7 +20,7 @@ namespace HPCL_DP_Terminal.Controllers
     {
         //[HttpPost]
         //[CustomAuthenticationFilter]
-        //[Route("api/dtplus/login/get_user_login")]
+        //[Route("api/edc/login/get_user_login")]
         //public async Task<Object> User_Login([FromBody] LoginInput ObjClass)
         //{
 
@@ -242,7 +242,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         //[HttpPost]
         //[CustomAuthenticationFilter]
-        //[Route("api/dtplus/login/get_dashboard_data")]
+        //[Route("api/edc/login/get_dashboard_data")]
         //public async Task<Object> GetDashboardData([FromBody] DashboardInput ObjClass)
         //{
 
@@ -272,7 +272,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         //[HttpPost]
         //[CustomAuthenticationFilter]
-        //[Route("api/dtplus/login/forgot_password")]
+        //[Route("api/edc/login/forgot_password")]
         //public async Task<Object> Forgot_Password([FromBody] ForgotPasswordInput ObjClass)
         //{
         //    if (ObjClass == null)
@@ -303,7 +303,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         //[HttpPost]
         //[CustomAuthenticationFilter]
-        //[Route("api/dtplus/login/change_password")]
+        //[Route("api/edc/login/change_password")]
         //public async Task<Object> Change_Password([FromBody] ChangePasswordInput ObjClass)
         //{
 
@@ -340,7 +340,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/login/validate_pin")]
+        [Route("api/edc/login/validate_pin")]
         public async Task<Object> Validate_Pin([FromBody] ValidatePinInput ObjClass)
         {
 
@@ -373,7 +373,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/login/send_otp")]
+        [Route("api/edc/login/send_otp")]
         public object Send_OTP([FromBody] SendOTPInput ObjClass)
         {
 
@@ -517,7 +517,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/login/authenticate")]
+        [Route("api/edc/login/authenticate")]
         public async Task<Object> Authenticate([FromBody] AunticateInput ObjClass)
         {
 
@@ -549,7 +549,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         //[HttpPost]
         //[CustomAuthenticationFilter]
-        //[Route("api/dtplus/login/genrate_otp_dtplus")]
+        //[Route("api/edc/login/genrate_otp_dtplus")]
         //public async Task<Object> Genrate_OTP_DTPlus([FromBody] OTP_DTPlus_Input ObjClass)
         //{
 
@@ -580,7 +580,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         //[HttpPost]
         //[CustomAuthenticationFilter]
-        //[Route("api/dtplus/login/validate_otp_dtplus")]
+        //[Route("api/edc/login/validate_otp_dtplus")]
         //public async Task<Object> Validate_OTP_DTPlus([FromBody] Validate_OTP_DTPlus_Input ObjClass)
         //{
 
@@ -611,7 +611,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/login/set_all_configurations_for_terminal")]
+        [Route("api/edc/login/set_all_configurations_for_terminal")]
         public async Task<Object> Set_All_Configurations_For_Terminal([FromBody] Set_All_Configurations_For_Terminal_Input ObjClass)
         {
 

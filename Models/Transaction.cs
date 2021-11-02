@@ -868,8 +868,5 @@ namespace HPCL_DP_Terminal.Models
             public Decimal Daily_cash_limit_balance { get; set; }
         }
 
-
-
-
     }
 }

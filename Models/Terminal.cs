@@ -30,6 +30,8 @@ namespace HPCL_DP_Terminal.Models
             public string Userid { get; set; }
         }
 
+
+
         public class GenerateBatchNo
         {
             public int Batch_Id { get; set; }
@@ -37,6 +39,34 @@ namespace HPCL_DP_Terminal.Models
             public int Status { get; set; }
             
             public string Reason { get; set; }
+        }
+
+        public class BatchUpload_Input
+        {
+            public string Batch_Id { get; set; }
+            public List<Transaction_Details> Transaction_Details { get; set; }
+            //public List<Unmatched_Trasnactions> Unmatched_Trasnactions { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 Outlet_Id { get; set; }
+        }
+
+        public class Transaction_Details
+        {
+            public Int64 Card_No { get; set; }
+            public Int64 Mobile_No { get; set; }
+            public decimal Amount { get; set; }
+            public string Product_Name { get; set; }
+            public string Sale_Type { get; set; }
+            public Int32 ROC { get; set; }
+
+        }
+        public class Unmatched_Trasnactions
+        {
+            public Int64 Customer_Id { get; set; }
+            public Int64 Mobile_No { get; set; }
+            public string Transaction_Id { get; set; }
+            public decimal Transaction_Amount { get; set; }
+            public string Remarks { get; set; }
         }
 
         public class TerminalInput

@@ -21,7 +21,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/generate_batch_no")]
+        [Route("api/edc/terminals/generate_batch_no")]
         public async Task<Object> Generate_Batch_No([FromBody] GenerateBatchNo_Input ObjClass)
         {
 
@@ -51,9 +51,74 @@ namespace HPCL_DP_Terminal.Controllers
 
         }
 
+
+
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/get_all_terminal_status")]
+        [Route("api/edc/terminals/batch_upload")]
+        public async Task<Object> Batch_Upload([FromBody] BatchUpload_Input ObjClass)
+        {
+
+            if (ObjClass == null)
+            {
+                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
+            }
+            else
+            {
+
+                var dtDBR = new System.Data.DataTable("udt_Batch_Upload_Transaction_Det");
+                dtDBR.Columns.Add("Card_No", typeof(Int64));
+                dtDBR.Columns.Add("Mobile_No", typeof(Int64));
+                dtDBR.Columns.Add("Amount", typeof(decimal));
+                dtDBR.Columns.Add("Product_Name", typeof(string));
+                dtDBR.Columns.Add("Sale_Type", typeof(string));
+                dtDBR.Columns.Add("ROC", typeof(Int32));
+
+                if (ObjClass.Transaction_Details != null)
+                {
+                    foreach (Transaction_Details item in ObjClass.Transaction_Details)
+                    {
+                        System.Data.DataRow dr = dtDBR.NewRow();
+                        dr["Card_No"] = item.Card_No;
+                        dr["Mobile_No"] = item.Mobile_No;
+                        dr["Amount"] = item.Amount;
+                        dr["Product_Name"] = item.Product_Name;
+                        dr["Sale_Type"] = item.Sale_Type;
+                        dr["ROC"] = item.ROC;
+                        dtDBR.Rows.Add(dr);
+                        dtDBR.AcceptChanges();
+                    }
+                }
+
+
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    { "Batch_Id", ObjClass.Batch_Id },
+                    { "Transaction_Details", dtDBR },
+                    //{ "Unmatched_Trasnactions", ObjClass.Unmatched_Trasnactions },
+                    { "TID", ObjClass.TID },
+                    { "Outlet_Id", ObjClass.Outlet_Id }                   
+
+                };
+
+                var results = await Task.Run(() => new DefaultContext()
+               .MultipleResults("Usp_Terminal_Batch_Upload", parameters)
+               .With<GenerateBatchNo>()
+               .Execute());
+
+                if (results[0].Cast<GenerateBatchNo>().ToList()[0].Status == 1)
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
+                else
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<GenerateBatchNo>().ToList()[0].Reason);
+            }
+
+        }
+
+
+
+        [HttpPost]
+        [CustomAuthenticationFilter]
+        [Route("api/edc/terminals/get_all_terminal_status")]
         public async Task<Object> Get_All_Terminal_Status([FromBody] TerminalInput ObjClass)
         {
             string MethodName = this.ActionContext.ActionDescriptor.ActionName;
@@ -79,7 +144,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/get_all_terminals")]
+        [Route("api/edc/terminals/get_all_terminals")]
         public async Task<Object> Get_All_Terminals([FromBody] Get_All_Terminal_Input ObjClass)
         {
             string MethodName = this.ActionContext.ActionDescriptor.ActionName;
@@ -111,7 +176,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/insert_and_update_iac")]
+        [Route("api/edc/terminals/insert_and_update_iac")]
         public async Task<Object> Insert_And_Update_IAC([FromBody] IAC_Input ObjClass)
         {
 
@@ -143,7 +208,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/unblock_terminal")]
+        [Route("api/edc/terminals/unblock_terminal")]
         public async Task<Object> Unblock_Terminal([FromBody] Unblock_Terminal_Input ObjClass)
         {
 
@@ -174,7 +239,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/get_details_before_terminal_installation_request")]
+        [Route("api/edc/terminals/get_details_before_terminal_installation_request")]
         public async Task<Object> GetDetailsBeforeTerminalInstallationRequest([FromBody] Before_Terminal_Installation_Input ObjClass)
         {
 
@@ -207,7 +272,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/terminal_installation_request")]
+        [Route("api/edc/terminals/terminal_installation_request")]
         public async Task<Object> TerminalInstallationRequest([FromBody] Terminal_Installation_Request_Input ObjClass)
         {
 
@@ -242,7 +307,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/get_pending_terminal_installation")]
+        [Route("api/edc/terminals/get_pending_terminal_installation")]
         public async Task<Object> GetPendingTerminalInstallation([FromBody] Pending_Terminal_Installation_Input ObjClass)
         {
 
@@ -277,7 +342,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/update_pending_terminal_installation")]
+        [Route("api/edc/terminals/update_pending_terminal_installation")]
         public async Task<Object> UpdatePendingTerminalInstallation([FromBody] Update_Pending_Terminal_Installation_Input ObjClass)
         {
 
@@ -309,7 +374,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/get_details_before_terminal_de_installation_request")]
+        [Route("api/edc/terminals/get_details_before_terminal_de_installation_request")]
         public async Task<Object> GetDetailsBeforeTerminalDeInstallationRequest([FromBody] Before_Terminal_DE_Installation_Input ObjClass)
         {
 
@@ -344,7 +409,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/terminal_de_installation_request")]
+        [Route("api/edc/terminals/terminal_de_installation_request")]
         public async Task<Object> TerminalDEInstallationRequest([FromBody] Terminal_DE_Installation_Input ObjClass)
         {
 
@@ -376,7 +441,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/terminal_ide_installation_pending")]
+        [Route("api/edc/terminals/terminal_ide_installation_pending")]
         public async Task<Object> TerminalDEInstallationPending([FromBody] Terminal_IDE_Installation_Pending_Input ObjClass)
         {
 
@@ -412,7 +477,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/update_pending_terminal_ide_installation")]
+        [Route("api/edc/terminals/update_pending_terminal_ide_installation")]
         public async Task<Object> UpdatePendingTerminalDEInstallation([FromBody] Update_Pending_Terminal_IDE_Installation_Input ObjClass)
         {
 
@@ -445,7 +510,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/get_pending_terminal_install_list")]
+        [Route("api/edc/terminals/get_pending_terminal_install_list")]
         public async Task<Object> GetPendingTerminalsInstallList([FromBody] Pending_Terminal_Install_List_Input ObjClass)
         {
             if (ObjClass == null)
@@ -478,7 +543,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/approve_terminal_installation_request")]
+        [Route("api/edc/terminals/approve_terminal_installation_request")]
         public async Task<Object> ApproveTerminalInstallationRequest([FromBody] Approve_Terminal_Installtion_Request_Input ObjClass)
         {
             if (ObjClass == null)
@@ -508,7 +573,7 @@ namespace HPCL_DP_Terminal.Controllers
         }
 
         [HttpPost]
-        [Route("api/terminals/get_pending_terminal_de_install_list")]
+        [Route("api/edc/terminals/get_pending_terminal_de_install_list")]
         public async Task<Object> GetPendingTerminalsDeInstallList([FromBody] Pending_Terminal_DE_Install_List_Input ObjClass)
         {
             if (ObjClass == null)
@@ -542,7 +607,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/approve_terminal_de_installation_request")]
+        [Route("api/edc/terminals/approve_terminal_de_installation_request")]
         public async Task<Object> ApproveTerminalDeInstallationRequest([FromBody] Approve_Terminal_De_Installtion_Request_Input ObjClass)
         {
             if (ObjClass == null)

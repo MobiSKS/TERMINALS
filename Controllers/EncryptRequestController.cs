@@ -150,7 +150,7 @@ namespace HPCL_DP_Terminal.Controllers
 
 		[HttpPost]
 		[CustomAuthenticationFilter]
-		[Route("api/terminals/encrypt_request")]
+		[Route("api/edc/terminals/encrypt_request")]
 		public object Encrypt_Request([FromBody] Encrypt_Request_Input ObjClass)
 		{
 			if (ObjClass == null)

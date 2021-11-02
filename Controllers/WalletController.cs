@@ -16,7 +16,7 @@ namespace HPCL_DP_Terminal.Controllers
     {
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/set_sale_limits_of_cards")]
+        [Route("api/edc/wallet/set_sale_limits_of_cards")]
         public async Task<Object> Set_Sale_Limits_Of_Cards([FromBody] SaleLimitsofCards ObjClass)
         {
             //var actionName = this.ActionContext.ActionDescriptor.ActionName;
@@ -60,7 +60,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/set_ccms_limits_for_all_cards")]
+        [Route("api/edc/wallet/set_ccms_limits_for_all_cards")]
         public async Task<Object> Set_CCMS_Limits_For_All_Cards([FromBody] CCMSLimitsforAllCards ObjClass)
         {
 
@@ -96,7 +96,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/set_ccms_limits_for_indv_cards")]
+        [Route("api/edc/wallet/set_ccms_limits_for_indv_cards")]
         public async Task<Object> Set_CCMS_Limits_For_Indv_Cards([FromBody] CCMSLimitsforIndvCards ObjClass)
         {
 
@@ -134,7 +134,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/set_all_limits_for_indv_cards")]
+        [Route("api/edc/wallet/set_all_limits_for_indv_cards")]
         public async Task<Object> Set_All_Limits_For_Indv_Cards([FromBody] Set_All_Limits_for_Indv_Cards ObjClass)
         {
 
@@ -193,7 +193,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/search_card_mapping")]
+        [Route("api/edc/wallet/search_card_mapping")]
         public async Task<Object> Search_Card_Mapping([FromBody] SearchcardmappingInput ObjClass)
         {
 
@@ -232,7 +232,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/delete_card_mapping")]
+        [Route("api/edc/wallet/delete_card_mapping")]
         public async Task<Object> Delete_Card_Mapping([FromBody] Deletecardmapping ObjClass)
         {
 
@@ -270,7 +270,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/get_all_cards_by_customer_id")]
+        [Route("api/edc/wallet/get_all_cards_by_customer_id")]
         public async Task<Object> Get_All_Cards_By_Customer_Id([FromBody] AllcardsbycustomeridInput ObjClass)
         {
 
@@ -317,7 +317,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/map_card_to_merchant")]
+        [Route("api/edc/wallet/map_card_to_merchant")]
         public async Task<Object> Map_Card_To_Merchant([FromBody] MapcardtomerchantInput ObjClass)
         {
 
@@ -357,7 +357,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/deactivate_reactivate_cards")]
+        [Route("api/edc/wallet/deactivate_reactivate_cards")]
         public async Task<Object> Deactivate_Reactivate_Cards([FromBody] DeactivateReactivatecardsInput ObjClass)
         {
 
@@ -396,7 +396,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/get_enabled_services")]
+        [Route("api/edc/wallet/get_enabled_services")]
         public async Task<Object> Get_Enabled_Services([FromBody] Get_Enabled_ServicesInput ObjClass)
         {
 
@@ -434,7 +434,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/updating_services")]
+        [Route("api/edc/wallet/updating_services")]
         public async Task<Object> Updating_Services([FromBody] UpdatingServicesInput ObjClass)
         {
 
@@ -471,7 +471,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/replacement_cards")]
+        [Route("api/edc/wallet/replacement_cards")]
         public async Task<Object> Replacement_Cards([FromBody] ReplacementCardsInput ObjClass)
         {
 
@@ -543,7 +543,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Search_Card")]
+        [Route("api/edc/wallet/Search_Card")]
         public async Task<Object> Search_Card([FromBody] SearchCardInput ObjClass)
         {
 
@@ -581,7 +581,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Get_Card_details_By_CardNo")]
+        [Route("api/edc/wallet/Get_Card_details_By_CardNo")]
         public async Task<Object> Get_Card_details_By_CardNo([FromBody] CarddetailsByCardNoInput ObjClass)
         {
 
@@ -618,7 +618,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/View_Card_Limits")]
+        [Route("api/edc/wallet/View_Card_Limits")]
         public async Task<Object> View_Card_Limits([FromBody] ViewCardLimitsInput ObjClass)
         {
 
@@ -656,7 +656,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Map_Mobile_No")]
+        [Route("api/edc/wallet/Map_Mobile_No")]
         public async Task<Object> Map_Mobile_No([FromBody] Map_Mobile_NoInput ObjClass)
         {
 
@@ -691,7 +691,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Get_Balance_by_Customerid")]
+        [Route("api/edc/wallet/Get_Balance_by_Customerid")]
         public async Task<Object> Get_Balance_by_Customerid([FromBody] BalancebyCustomeridInput ObjClass)
         {
 
@@ -727,7 +727,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Get_CCMS_Balance_Detail_by_Customerid")]
+        [Route("api/edc/wallet/Get_CCMS_Balance_Detail_by_Customerid")]
         public async Task<Object> Get_CCMS_Balance_Detail_by_Customerid([FromBody] BalancebyCustomeridInput ObjClass)
         {
 
@@ -761,7 +761,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Get_Drive_stars_Detail_by_Customerid")]
+        [Route("api/edc/wallet/Get_Drive_stars_Detail_by_Customerid")]
         public async Task<Object> Get_Drive_stars_Detail_by_Customerid([FromBody] BalancebyCustomeridInput ObjClass)
         {
 
@@ -795,7 +795,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Get_wallet_balance_limit")]
+        [Route("api/edc/wallet/Get_wallet_balance_limit")]
         public async Task<Object> Get_wallet_balance_limit([FromBody] GetWalletBalanceLimitInput ObjClass)
         {
 
@@ -833,7 +833,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Get_wallet_balance_by_MobileNo")]
+        [Route("api/edc/wallet/Get_wallet_balance_by_MobileNo")]
         public async Task<Object> Get_wallet_balance_by_MobileNo([FromBody] GetWalletBalanceByMobileInput ObjClass)
         {
 
@@ -870,7 +870,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Get_Loyalty_Balance_By_Card_No")]
+        [Route("api/edc/wallet/Get_Loyalty_Balance_By_Card_No")]
         public async Task<Object> Get_Loyalty_Balance_By_Card_No([FromBody] LoyaltyBalanceByCardNoInput ObjClass)
         {
 
@@ -908,7 +908,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Get_CCMS_Balance_By_Card_No")]
+        [Route("api/edc/wallet/Get_CCMS_Balance_By_Card_No")]
         public async Task<Object> Get_CCMS_Balance_By_Card_No([FromBody] CCMSBalanceByCardNoInput ObjClass)
         {
 
@@ -946,7 +946,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Request_otc_card_by_region")]
+        [Route("api/edc/wallet/Request_otc_card_by_region")]
         public async Task<Object> Request_otc_card_by_region([FromBody] Request_otc_card_by_region_Input ObjClass)
         {
 
@@ -983,7 +983,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Request_otc_card_by_merchant")]
+        [Route("api/edc/wallet/Request_otc_card_by_merchant")]
         public async Task<Object> Request_otc_card_by_merchant([FromBody] Request_otc_card_by_merchant_Input ObjClass)
         {
 
@@ -1019,7 +1019,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/view_requested_otc_card_by_region")]
+        [Route("api/edc/wallet/view_requested_otc_card_by_region")]
         public async Task<Object> View_Requested_OTC_Card_By_Region([FromBody] Viewrequestedotccardbyregion_Input ObjClass)
         {
 
@@ -1055,7 +1055,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Get_Point_Equiv_Amt")]
+        [Route("api/edc/wallet/Get_Point_Equiv_Amt")]
         public async Task<Object> Get_Point_Equiv_Amt([FromBody] GetPointEquivAmtInput ObjClass)
         {
 
@@ -1096,7 +1096,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Save_DTP_Loyalty_By_Card")]
+        [Route("api/edc/wallet/Save_DTP_Loyalty_By_Card")]
         public async Task<Object> Save_DTP_Loyalty_By_Card([FromBody] SaveDTPLoyaltyByCard_Input ObjClass)
         {
 
@@ -1132,7 +1132,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Save_DTP_Loyalty_By_Mobile_No")]
+        [Route("api/edc/wallet/Save_DTP_Loyalty_By_Mobile_No")]
         public async Task<Object> Save_DTP_Loyalty_By_Mobile_No([FromBody] SaveDTPLoyaltyByMobileNo_Input ObjClass)
         {
 
@@ -1167,7 +1167,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Save_Non_DTP_Loyalty_By_Card")]
+        [Route("api/edc/wallet/Save_Non_DTP_Loyalty_By_Card")]
         public async Task<Object> Save_Non_DTP_Loyalty_By_Card([FromBody] SaveNonDTPLoyaltyByCard_Input ObjClass)
         {
 
@@ -1202,7 +1202,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Save_Non_DTP_Loyalty_By_Mobile_No")]
+        [Route("api/edc/wallet/Save_Non_DTP_Loyalty_By_Mobile_No")]
         public async Task<Object> Save_Non_DTP_Loyalty_By_Mobile_No([FromBody] SaveNonDTPLoyaltyByMobileNo_Input ObjClass)
         {
 
@@ -1238,7 +1238,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Check_Transaction_ValuevsLimit")]
+        [Route("api/edc/wallet/Check_Transaction_ValuevsLimit")]
         public async Task<Object> Check_Transaction_ValuevsLimit([FromBody] CheckTransactionValuevsLimit_Input ObjClass)
         {
 
@@ -1275,7 +1275,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Add_On_Card_Aggregator_Customer")]
+        [Route("api/edc/wallet/Add_On_Card_Aggregator_Customer")]
         public async Task<Object> Add_On_Card_Aggregator_Customer([FromBody] Add_On_Card_Aggregator_Customer_Input ObjClass)
         {
 
@@ -1311,7 +1311,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/List_of_Pending_Card")]
+        [Route("api/edc/wallet/List_of_Pending_Card")]
         public async Task<Object> List_of_Pending_Card([FromBody] List_of_Pending_Card_Input ObjClass)
         {
 
@@ -1350,7 +1350,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Verify_Pending_Addon_Card_of_Aggregator")]
+        [Route("api/edc/wallet/Verify_Pending_Addon_Card_of_Aggregator")]
         public async Task<Object> Verify_Pending_Addon_Card_of_Aggregator([FromBody] Verify_Pending_Addon_Card_of_Aggregator_Input ObjClass)
         {
 
@@ -1386,7 +1386,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/Approve_Card_for_Aggregation_Customer")]
+        [Route("api/edc/wallet/Approve_Card_for_Aggregation_Customer")]
         public async Task<Object> Approve_Card_for_Aggregation_Customer([FromBody] Approve_Card_for_Aggregation_Customer_Input ObjClass)
         {
 
@@ -1423,7 +1423,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/update_ccms_balance")]
+        [Route("api/edc/wallet/update_ccms_balance")]
         public async Task<Object> Update_CCMS_Balance([FromBody] UpdateCCMSBalance_Input ObjClass)
         {
 
@@ -1467,7 +1467,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/ccms_to_card_balance_transfer")]
+        [Route("api/edc/wallet/ccms_to_card_balance_transfer")]
         public async Task<Object> CCMS_To_Card_Balance_Transfer([FromBody] CCMSToCardBalanceTransfer_Input ObjClass)
         {
 
@@ -1504,7 +1504,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/wallet/card_to_card_balance_transfer")]
+        [Route("api/edc/wallet/card_to_card_balance_transfer")]
         public async Task<Object> Card_To_Card_Balance_Transfer([FromBody] CardToCardBalanceTransfer_Input ObjClass)
         {
 

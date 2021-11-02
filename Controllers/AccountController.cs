@@ -198,7 +198,7 @@ namespace HPCL_DP_Terminal.Controllers
         }
 
         [HttpPost]
-        [Route("api/terminals/generatetoken")]
+        [Route("api/edc/terminals/generatetoken")]
         public HttpResponseMessage ValidLogin(GenerateTokenInput ObjClass)
         {
             string MethodName = "GENERATE_TOKEN";
