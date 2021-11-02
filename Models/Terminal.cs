@@ -47,6 +47,7 @@ namespace HPCL_DP_Terminal.Models
             public string Reason { get; set; }
         }
 
+
         public class BatchSettlement_Input
         {
             public string Batch_Id { get; set; }
