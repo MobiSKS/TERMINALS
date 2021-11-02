@@ -164,7 +164,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/reload_api_by_cash")]
+        [Route("api/edc/transaction/reload_api_by_cash")]
         public async Task<Object> Reload_Api_By_Cash([FromBody] ReloadApiByCash_Input ObjClass)
         {
             if (ObjClass == null)
@@ -202,7 +202,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/reload_api_by_cheque")]
+        [Route("api/edc/transaction/reload_api_by_cheque")]
         public async Task<Object> Reload_Api_By_Cheque([FromBody] ReloadApiByCheque_Input ObjClass)
         {
             if (ObjClass == null)
@@ -242,7 +242,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/reload_api_by_neft_rtgs")]
+        [Route("api/edc/transaction/reload_api_by_neft_rtgs")]
         public async Task<Object> Reload_Api_By_NEFT_RTGS([FromBody] ReloadApiByNEFTRTGS_Input ObjClass)
         {
             if (ObjClass == null)
@@ -281,7 +281,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/card_sale_by_card")]
+        [Route("api/edc/transaction/card_sale_by_card")]
         public async Task<Object> Card_Sale_By_Card([FromBody] CardSaleByCard_Input ObjClass)
         {
             if (ObjClass == null)
@@ -317,7 +317,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/credit_sale_by_card")]
+        [Route("api/edc/transaction/credit_sale_by_card")]
         public async Task<Object> Credit_Sale_By_Card([FromBody] CreditSaleByCard_Input ObjClass)
         {
             if (ObjClass == null)
@@ -354,7 +354,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/dealer_credit_sale_by_card")]
+        [Route("api/edc/transaction/dealer_credit_sale_by_card")]
         public async Task<Object> Dealer_Credit_Sale_By_Card([FromBody] DealerCreditSaleByCard_Input ObjClass)
         {
             if (ObjClass == null)
@@ -391,7 +391,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/card_sale_by_mobileno")]
+        [Route("api/edc/transaction/card_sale_by_mobileno")]
         public async Task<Object> Card_Sale_By_MobileNo([FromBody] CardSaleByMobileNo_Input ObjClass)
         {
             if (ObjClass == null)
@@ -429,7 +429,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/credit_sale_by_mobile_no")]
+        [Route("api/edc/transaction/credit_sale_by_mobile_no")]
         public async Task<Object> Credit_Sale_By_Mobile_No([FromBody] CreditSaleByMobileNo_Input ObjClass)
         {
             if (ObjClass == null)
@@ -467,7 +467,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/balance_transfer_by_card")]
+        [Route("api/edc/transaction/balance_transfer_by_card")]
         public async Task<Object> Balance_Transfer_By_Card([FromBody] BalanceTransferByCard_Input ObjClass)
         {
             if (ObjClass == null)
@@ -500,7 +500,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/balance_transfer_by_mobile_no")]
+        [Route("api/edc/transaction/balance_transfer_by_mobile_no")]
         public async Task<Object> Balance_Transfer_By_Mobile_No([FromBody] BalanceTransferByMobileNo_Input ObjClass)
         {
             if (ObjClass == null)
@@ -533,7 +533,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/void_by_card")]
+        [Route("api/edc/transaction/void_by_card")]
         public async Task<Object> Void_By_Card([FromBody] VoidByCard_Input ObjClass)
         {
             if (ObjClass == null)
@@ -567,7 +567,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/void_by_mobile_no")]
+        [Route("api/edc/transaction/void_by_mobile_no")]
         public async Task<Object> Void_By_Mobile_No([FromBody] VoidByMobileNo_Input ObjClass)
         {
             if (ObjClass == null)
@@ -602,7 +602,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/save_tracking_detail_by_card")]
+        [Route("api/edc/transaction/save_tracking_detail_by_card")]
         public async Task<Object> Save_Tracking_Detail_By_Card([FromBody] SaveTrackingDetailByCard_Input ObjClass)
         {
             if (ObjClass == null)
@@ -635,7 +635,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/save_tracking_detail_by_mobile_no")]
+        [Route("api/edc/transaction/save_tracking_detail_by_mobile_no")]
         public async Task<Object> Save_Tracking_Detail_By_Mobile_No([FromBody] SaveTrackingDetailByMobileNo_Input ObjClass)
         {
             if (ObjClass == null)
@@ -670,7 +670,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/pay_merchant_by_pay_code")]
+        [Route("api/edc/transaction/pay_merchant_by_pay_code")]
         public async Task<Object> Pay_Merchant_By_Pay_Code([FromBody] PayMerchantByPayCode_Input ObjClass)
         {
             if (ObjClass == null)
@@ -703,7 +703,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/reverse_pay_merchant_by_pay_code")]
+        [Route("api/edc/transaction/reverse_pay_merchant_by_pay_code")]
         public async Task<Object> Reverse_Pay_Merchant_By_Pay_Code([FromBody] ReversePayMerchantByPayCode_Input ObjClass)
         {
             if (ObjClass == null)
@@ -738,7 +738,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/credit_sale_complete")]
+        [Route("api/edc/transaction/credit_sale_complete")]
         public async Task<Object> Credit_Sale_Complete([FromBody] CreditSaleComplete_Input ObjClass)
         {
             if (ObjClass == null)
@@ -771,7 +771,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/redemption_api_by_card")]
+        [Route("api/edc/transaction/redemption_api_by_card")]
         public async Task<Object> Redemption_Api_By_Card([FromBody] RedemptionApiByCard_Input ObjClass)
         {
             if (ObjClass == null)
@@ -804,42 +804,12 @@ namespace HPCL_DP_Terminal.Controllers
         }
 
 
-        [HttpPost]
-        [CustomAuthenticationFilter]
-        [Route("api/terminals/Change_Terminal_Pin")]
-        public async Task<Object> Change_Terminal_Pin([FromBody] ChangeTerminalPin_Input ObjClass)
-        {
-            if (ObjClass == null)
-            {
-                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
-            }
-            else
-            {
-                Dictionary<string, object> parameters = new Dictionary<string, object>
-                {
-                    { "Old_Pin", ObjClass.Old_Pin },
-                    { "New_Pin", ObjClass.New_Pin },
-                    { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
-                };
-
-                var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Terminal_Change_Terminal_Pin", parameters)
-               .With<Database_Status>()
-               .Execute());
-
-                if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
-                else
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
-            }
-
-        }
+        
 
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/unblock_terminal_pin")]
+        [Route("api/edc/transaction/unblock_terminal_pin")]
         public async Task<Object> Unblock_Terminal_Pin([FromBody] UnblockTerminalPin_Input ObjClass)
         {
             if (ObjClass == null)
@@ -871,7 +841,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/pay_card_fee")]
+        [Route("api/edc/transaction/pay_card_fee")]
         public async Task<Object> Pay_Card_Fee([FromBody] PayCardFee_Input ObjClass)
         {
             if (ObjClass == null)
@@ -905,7 +875,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         //[HttpPost]
         //[CustomAuthenticationFilter]
-        //[Route("api/terminals/save_operator_info")]
+        //[Route("api/edc/transaction/save_operator_info")]
         //public async Task<Object> Save_Operator_Info([FromBody] SaveOperatorInfo_Ter_Input ObjClass)
         //{
         //    if (ObjClass == null)
@@ -937,47 +907,12 @@ namespace HPCL_DP_Terminal.Controllers
 
 
 
-        [HttpPost]
-        [CustomAuthenticationFilter]
-        [Route("api/terminals/batch_settlement")]
-        public async Task<Object> Batch_Settlement([FromBody] BatchSettlement_Input ObjClass)
-        {
-            if (ObjClass == null)
-            {
-                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
-            }
-            else
-            {
-                Dictionary<string, object> parameters = new Dictionary<string, object>
-                {
-                    { "Batch_Id", ObjClass.Batch_Id },
-                    { "Reload_no_of_bills", ObjClass.Reload_no_of_bills },
-                    { "Reload_Amount", ObjClass.Reload_Amount },
-                    { "Recharge_no_of_bills", ObjClass.Recharge_no_of_bills },
-                    { "Recharge_Amount", ObjClass.Recharge_Amount },
-                    { "Sale_no_of_bills", ObjClass.Sale_no_of_bills },
-                    { "Sale_Amount", ObjClass.Sale_Amount },
-                    { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
-                };
-
-                var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Terminal_Batch_Settlement", parameters)
-               .With<Database_Status>()
-               .Execute());
-
-                if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
-                else
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
-            }
-        }
-
+       
 
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/Save_DTP_Loyalty_By_Card")]
+        [Route("api/edc/transaction/Save_DTP_Loyalty_By_Card")]
         public async Task<Object> Save_DTP_Loyalty_By_Card([FromBody] SaveDTPLoyaltyByCard_Input ObjClass)
         {
 
@@ -1015,7 +950,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/Save_DTP_Loyalty_By_Mobile_No")]
+        [Route("api/edc/transaction/Save_DTP_Loyalty_By_Mobile_No")]
         public async Task<Object> Save_DTP_Loyalty_By_Mobile_No([FromBody] SaveDTPLoyaltyByMobileNo_Input ObjClass)
         {
 
@@ -1053,7 +988,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/Save_Non_DTP_Loyalty_By_Card")]
+        [Route("api/edc/transaction/Save_Non_DTP_Loyalty_By_Card")]
         public async Task<Object> Save_Non_DTP_Loyalty_By_Card([FromBody] SaveNonDTPLoyaltyByCard_Input ObjClass)
         {
 
@@ -1090,7 +1025,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/Save_Non_DTP_Loyalty_By_Mobile_No")]
+        [Route("api/edc/transaction/Save_Non_DTP_Loyalty_By_Mobile_No")]
         public async Task<Object> Save_Non_DTP_Loyalty_By_Mobile_No([FromBody] SaveNonDTPLoyaltyByMobileNo_Input ObjClass)
         {
 
@@ -1128,7 +1063,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/Get_Point_Equiv_Amt")]
+        [Route("api/edc/transaction/Get_Point_Equiv_Amt")]
         public async Task<Object> Get_Point_Equiv_Amt([FromBody] GetPointEquivAmtInput ObjClass)
         {
 
@@ -1168,7 +1103,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/Get_CCMS_Balance_By_Card_No")]
+        [Route("api/edc/transaction/Get_CCMS_Balance_By_Card_No")]
         public async Task<Object> Get_CCMS_Balance_By_Card_No([FromBody] CCMSBalanceByCardNoInput ObjClass)
         {
 
@@ -1206,7 +1141,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/terminals/Get_Loyalty_Balance_By_Card_No")]
+        [Route("api/edc/transaction/Get_Loyalty_Balance_By_Card_No")]
         public async Task<Object> Get_Loyalty_Balance_By_Card_No([FromBody] LoyaltyBalanceByCardNoInput ObjClass)
         {
 

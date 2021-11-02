@@ -637,13 +637,7 @@ namespace HPCL_DP_Terminal.Models
             public Int32 Outlet_Id { get; set; }
         }
 
-        public class ChangeTerminalPin_Input
-        {
-            public int Old_Pin { get; set; }
-            public int New_Pin { get; set; }
-            public Int32 TID { get; set; }
-            public Int32 Outlet_Id { get; set; }
-        }
+       
 
         public class UnblockTerminalPin_Input
         {
@@ -671,19 +665,7 @@ namespace HPCL_DP_Terminal.Models
             public Int32 Outlet_Id { get; set; }
         }
 
-        public class BatchSettlement_Input
-        {
-            public string Batch_Id { get; set; }
-            public int Reload_no_of_bills { get; set; }
-            public decimal Reload_Amount { get; set; }
-            public int Recharge_no_of_bills { get; set; }
-            public decimal Recharge_Amount { get; set; }
-            public int Sale_no_of_bills { get; set; }
-            public decimal Sale_Amount { get; set; }
-            public Int32 TID { get; set; }
-            public Int32 Outlet_Id { get; set; }
-
-        }
+       
 
 
         public class SaveDTPLoyaltyByCard_Input

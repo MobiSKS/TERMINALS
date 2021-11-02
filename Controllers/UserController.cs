@@ -221,7 +221,7 @@ namespace HPCL_DP_Terminal.Controllers
         /*
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/customer_user_registration")]
+        [Route("api/edc/user/customer_user_registration")]
         public HttpResponseMessage CUSTOMER_USER_REGISTRATION([FromBody] UserInput ObjClass)
         {
 
@@ -424,7 +424,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/edit_user")]
+        [Route("api/edc/user/edit_user")]
         public async Task<Object> Edit_User([FromBody] Edit_User_Input ObjClass)
         {
             if (ObjClass == null)
@@ -561,7 +561,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/create_manage_role")]
+        [Route("api/edc/user/create_manage_role")]
         public async Task<Object> CREATE_MANAGE_ROLE([FromBody] Input_Manage_Role ObjClass)
         {
             if (ObjClass == null)
@@ -627,7 +627,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/add_edit_manage_role")]
+        [Route("api/edc/user/add_edit_manage_role")]
         public async Task<Object> ADD_EDIT_MANAGE_ROLE([FromBody] Input_Add_Edit_Manage_Role ObjClass)
         {
             if (ObjClass == null)
@@ -660,7 +660,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/create_hpcl_user_loc_role")]
+        [Route("api/edc/user/create_hpcl_user_loc_role")]
         public async Task<Object> CREATE_HPCL_USER_LOC_ROLE([FromBody] Input_Hpcl_User_Loc_Role ObjClass)
         {
             if (ObjClass == null)
@@ -696,7 +696,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/get_pending_user_list")]
+        [Route("api/edc/user/get_pending_user_list")]
         public async Task<Object> Get_Pending_User_List([FromBody] Get_Pending_Input_Detail ObjClass)
         {
 
@@ -726,7 +726,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/get_kyc_detail_by_user")]
+        [Route("api/edc/user/get_kyc_detail_by_user")]
         public async Task<Object> Get_KYC_Detail_By_User([FromBody] Input_KYC_Detail_By_User ObjClass)
         {
 
@@ -755,7 +755,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/approve_admin_user")]
+        [Route("api/edc/user/approve_admin_user")]
         public async Task<Object> APPROVE_ADMIN_USER([FromBody] Input_Approve_Admin_User ObjClass)
         {
             if (ObjClass == null)
@@ -785,7 +785,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/check_form_no")]
+        [Route("api/edc/user/check_form_no")]
         public async Task<Object> Check_Form_No([FromBody] CheckFormNoInput ObjClass)
         {
 
@@ -814,7 +814,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/update_email_by_user_id")]
+        [Route("api/edc/user/update_email_by_user_id")]
         public async Task<Object> Update_Email([FromBody] UpdateEmail_Input ObjClass)
         {
 
@@ -848,7 +848,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/disable_user_by_user_id")]
+        [Route("api/edc/user/disable_user_by_user_id")]
         public async Task<Object> Disable_User([FromBody] DisableUser_Input ObjClass)
         {
             if (ObjClass == null)
@@ -876,7 +876,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/search_user")]
+        [Route("api/edc/user/search_user")]
         public async Task<Object> Search_User([FromBody] SearchUserInput ObjClass)
         {
             if (ObjClass == null)
@@ -907,7 +907,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/add_card")]
+        [Route("api/edc/user/add_card")]
         public async Task<Object> ADD_CARD([FromBody] AddCardInput ObjClass)
         {
 
@@ -954,7 +954,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/upload_rc_doc")]
+        [Route("api/edc/user/upload_rc_doc")]
         public async Task<Object> Upload_Rc_Doc([FromBody] UploadRcDoc_Input ObjClass)
         {
 
@@ -988,7 +988,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/track_application_form_no")]
+        [Route("api/edc/user/track_application_form_no")]
         public async Task<Object> TrackApplication_FormNo([FromBody] TrackApplicationForm_Input ObjClass)
         {
 
@@ -1018,7 +1018,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/search_customer_profile")]
+        [Route("api/edc/user/search_customer_profile")]
         public async Task<Object> SearchCustomerProfile([FromBody] SearchCustomerProfile_Input ObjClass)
         {
 
@@ -1052,7 +1052,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/operator_login")]
+        [Route("api/edc/user/operator_login")]
         public async Task<Object> Operator_Login([FromBody] Operator_Login_Input ObjClass)
         {
 
@@ -1082,7 +1082,7 @@ namespace HPCL_DP_Terminal.Controllers
 
 
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/save_operator_info")]
+        [Route("api/edc/user/save_operator_info")]
         public async Task<Object> SaveOperatorInfo([FromBody] SaveOperatorInfo_Input ObjClass)
         {
 
@@ -1118,7 +1118,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/get_vechile_tracking_by_customerid")]
+        [Route("api/edc/user/get_vechile_tracking_by_customerid")]
         public async Task<Object> GetVehicleTrackingbyCustomerId([FromBody] Vechile_Tracking_Input ObjClass)
         {
 
@@ -1154,7 +1154,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/check_mobileno")]
+        [Route("api/edc/user/check_mobileno")]
         public async Task<Object> CheckMobileNo([FromBody] CheckMobileNo_Input ObjClass)
         {
 
@@ -1186,7 +1186,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/View_Pending_Parent_Customer_Approval")]
+        [Route("api/edc/user/View_Pending_Parent_Customer_Approval")]
         public async Task<Object> View_Pending_Parent_Customer_Approval([FromBody] View_Pending_Parent_Customer_Approval_Input ObjClass)
         {
 
@@ -1218,7 +1218,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/Approve_Pending_Parent_Customer")]
+        [Route("api/edc/user/Approve_Pending_Parent_Customer")]
         public async Task<Object> Approve_Pending_Parent_Customer([FromBody] Approve_Pending_Parent_Customer_Input ObjClass)
         {
 
@@ -1255,7 +1255,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/View_pending_parent_customer_authorization")]
+        [Route("api/edc/user/View_pending_parent_customer_authorization")]
         public async Task<Object> View_pending_parent_customer_authorization([FromBody] View_pending_parent_customer_authorization_Input ObjClass)
         {
 
@@ -1287,7 +1287,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/Authorize_pending_parent_customer")]
+        [Route("api/edc/user/Authorize_pending_parent_customer")]
         public async Task<Object> Authorize_pending_parent_customer([FromBody] Authorize_pending_parent_customer_Input ObjClass)
         {
 
@@ -1324,7 +1324,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/View_pending_aggregator_parent_customer_approval")]
+        [Route("api/edc/user/View_pending_aggregator_parent_customer_approval")]
         public async Task<Object> View_pending_aggregator_parent_customer_approval([FromBody] View_pending_aggregator_parent_customer_approval_Input ObjClass)
         {
 
@@ -1356,7 +1356,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/Approve_pending_aggregator_parent_customer")]
+        [Route("api/edc/user/Approve_pending_aggregator_parent_customer")]
         public async Task<Object> Approve_pending_aggregator_parent_customer([FromBody] Approve_pending_aggregator_parent_customer_Input ObjClass)
         {
 
@@ -1392,7 +1392,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/View_pending_aggregator_child_customer_verify_approve")]
+        [Route("api/edc/user/View_pending_aggregator_child_customer_verify_approve")]
         public async Task<Object> View_pending_aggregator_child_customer_verify_approve([FromBody] View_pending_aggregator_child_customer_verify_approve_Input ObjClass)
         {
 
@@ -1430,7 +1430,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/Verify_approve_pending_aggregator_child_customer")]
+        [Route("api/edc/user/Verify_approve_pending_aggregator_child_customer")]
         public async Task<Object> Verify_approve_pending_aggregator_child_customer([FromBody] Verify_approve_pending_aggregator_child_customer_Input ObjClass)
         {
 
@@ -1468,7 +1468,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/dtplus/user/Create_OEM_Manager_Role")]
+        [Route("api/edc/user/Create_OEM_Manager_Role")]
         public async Task<Object> Create_OEM_Manager_Role([FromBody] Create_OEM_Manager_Role_Input ObjClass)
         {
 

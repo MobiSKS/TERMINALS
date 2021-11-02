@@ -500,16 +500,16 @@ namespace HPCL_DP_Terminal.Models
 
 
 
-    public class LoyaltyBalanceByCardNoInput
-    {
-        public Int64 Controlcardno { get; set; }
-        public int Controlpin { get; set; }
-        public int TID { get; set; }
-        public int OutletId { get; set; }
-        public string Userip { get; set; }
-        public string Userid { get; set; }
-        public string Useragent { get; set; }
-    }
+    //public class LoyaltyBalanceByCardNoInput
+    //{
+    //    public Int64 Controlcardno { get; set; }
+    //    public int Controlpin { get; set; }
+    //    public int TID { get; set; }
+    //    public int OutletId { get; set; }
+    //    public string Userip { get; set; }
+    //    public string Userid { get; set; }
+    //    public string Useragent { get; set; }
+    //}
 
 
     public class LoyaltyBalanceByCardNo
@@ -552,16 +552,16 @@ namespace HPCL_DP_Terminal.Models
     }
 
 
-    public class CCMSBalanceByCardNoInput
-    {
-        public Int64 Controlcardno { get; set; }
-        public int Controlpin { get; set; }
-        public int TID { get; set; }
-        public int OutletId { get; set; }
-        public string Userip { get; set; }
-        public string Userid { get; set; }
-        public string Useragent { get; set; }
-    }
+    //public class CCMSBalanceByCardNoInput
+    //{
+    //    public Int64 Controlcardno { get; set; }
+    //    public int Controlpin { get; set; }
+    //    public int TID { get; set; }
+    //    public int OutletId { get; set; }
+    //    public string Userip { get; set; }
+    //    public string Userid { get; set; }
+    //    public string Useragent { get; set; }
+    //}
 
     public class CCMSBalanceByCardNo
     {

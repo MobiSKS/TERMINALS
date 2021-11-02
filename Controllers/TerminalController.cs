@@ -51,6 +51,41 @@ namespace HPCL_DP_Terminal.Controllers
 
         }
 
+        [HttpPost]
+        [CustomAuthenticationFilter]
+        [Route("api/edc/transaction/batch_settlement")]
+        public async Task<Object> Batch_Settlement([FromBody] BatchSettlement_Input ObjClass)
+        {
+            if (ObjClass == null)
+            {
+                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
+            }
+            else
+            {
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    { "Batch_Id", ObjClass.Batch_Id },
+                    { "Reload_no_of_bills", ObjClass.Reload_no_of_bills },
+                    { "Reload_Amount", ObjClass.Reload_Amount },
+                    { "Recharge_no_of_bills", ObjClass.Recharge_no_of_bills },
+                    { "Recharge_Amount", ObjClass.Recharge_Amount },
+                    { "Sale_no_of_bills", ObjClass.Sale_no_of_bills },
+                    { "Sale_Amount", ObjClass.Sale_Amount },
+                    { "TID", ObjClass.TID },
+                    { "Outlet_Id", ObjClass.Outlet_Id }
+                };
+
+                var results = await Task.Run(() => new DefaultContext()
+               .MultipleResults("Usp_Terminal_Batch_Settlement", parameters)
+               .With<Database_Status>()
+               .Execute());
+
+                if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
+                else
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
+            }
+        }
 
 
         [HttpPost]
@@ -115,7 +150,39 @@ namespace HPCL_DP_Terminal.Controllers
         }
 
 
+        [HttpPost]
+        [CustomAuthenticationFilter]
+        [Route("api/edc/terminals/Change_Terminal_Pin")]
+        public async Task<Object> Change_Terminal_Pin([FromBody] ChangeTerminalPin_Input ObjClass)
+        {
+            if (ObjClass == null)
+            {
+                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
+            }
+            else
+            {
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    { "Old_Pin", ObjClass.Old_Pin },
+                    { "New_Pin", ObjClass.New_Pin },
+                    { "TID", ObjClass.TID },
+                    { "Outlet_Id", ObjClass.Outlet_Id }
+                };
 
+                var results = await Task.Run(() => new DefaultContext()
+               .MultipleResults("Usp_Terminal_Change_Terminal_Pin", parameters)
+               .With<Database_Status>()
+               .Execute());
+
+                if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
+                else
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
+            }
+
+        }
+
+        /*
         [HttpPost]
         [CustomAuthenticationFilter]
         [Route("api/edc/terminals/get_all_terminal_status")]
@@ -637,7 +704,7 @@ namespace HPCL_DP_Terminal.Controllers
         }
 
 
-
+        */
         
 
 

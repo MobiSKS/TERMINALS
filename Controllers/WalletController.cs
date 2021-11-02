@@ -14,6 +14,8 @@ namespace HPCL_DP_Terminal.Controllers
 {
     public class WalletController : ApiController
     {
+        /*
+
         [HttpPost]
         [CustomAuthenticationFilter]
         [Route("api/edc/wallet/set_sale_limits_of_cards")]
@@ -792,6 +794,7 @@ namespace HPCL_DP_Terminal.Controllers
             }
         }
 
+        */
 
         [HttpPost]
         [CustomAuthenticationFilter]
@@ -867,11 +870,10 @@ namespace HPCL_DP_Terminal.Controllers
         }
 
 
-
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/edc/wallet/Get_Loyalty_Balance_By_Card_No")]
-        public async Task<Object> Get_Loyalty_Balance_By_Card_No([FromBody] LoyaltyBalanceByCardNoInput ObjClass)
+        [Route("api/edc/wallet/Check_Transaction_ValuevsLimit")]
+        public async Task<Object> Check_Transaction_ValuevsLimit([FromBody] CheckTransactionValuevsLimit_Input ObjClass)
         {
 
             if (ObjClass == null)
@@ -882,19 +884,17 @@ namespace HPCL_DP_Terminal.Controllers
             {
                 Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
-                { "Controlcardno", ObjClass.Controlcardno },
-                { "Controlpin", ObjClass.Controlpin },
-                //{ "TID", ObjClass.TID },
-                //{ "OutletId", ObjClass.OutletId }
 
+                { "Card_No", ObjClass.Card_No },
+                { "Sale_Amount", ObjClass.Sale_Amount }
             };
 
                 var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Wallet_Get_Loyalty_Balance_By_Card_No", parameters)
-               .With<LoyaltyBalanceByCardNo>()
+               .MultipleResults("Usp_Wallet_Check_Transaction_ValuevsLimit", parameters)
+               .With<CheckTransactionValuevsLimit>()
                .Execute());
 
-                if (results[0].Cast<GetWalletBalanceLimit>().ToList().Count == 0)
+                if (results[0].Cast<CheckTransactionValuevsLimit>().ToList().Count == 0)
                 {
                     return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, null);
                 }
@@ -906,43 +906,82 @@ namespace HPCL_DP_Terminal.Controllers
         }
 
 
-        [HttpPost]
-        [CustomAuthenticationFilter]
-        [Route("api/edc/wallet/Get_CCMS_Balance_By_Card_No")]
-        public async Task<Object> Get_CCMS_Balance_By_Card_No([FromBody] CCMSBalanceByCardNoInput ObjClass)
-        {
+        //[HttpPost]
+        //[CustomAuthenticationFilter]
+        //[Route("api/edc/wallet/Get_Loyalty_Balance_By_Card_No")]
+        //public async Task<Object> Get_Loyalty_Balance_By_Card_No([FromBody] LoyaltyBalanceByCardNoInput ObjClass)
+        //{
 
-            if (ObjClass == null)
-            {
-                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
-            }
-            else
-            {
-                Dictionary<string, object> parameters = new Dictionary<string, object>()
-            {
-                { "Controlcardno", ObjClass.Controlcardno },
-                { "Controlpin", ObjClass.Controlpin }//,
-                //{ "TID", ObjClass.TID },
-                //{ "OutletId", ObjClass.OutletId }
+        //    if (ObjClass == null)
+        //    {
+        //        return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
+        //    }
+        //    else
+        //    {
+        //        Dictionary<string, object> parameters = new Dictionary<string, object>()
+        //    {
+        //        { "Controlcardno", ObjClass.Controlcardno },
+        //        { "Controlpin", ObjClass.Controlpin },
+        //        //{ "TID", ObjClass.TID },
+        //        //{ "OutletId", ObjClass.OutletId }
 
-            };
+        //    };
 
-                var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Wallet_Get_CCMS_Balance_By_Card_No", parameters)
-               .With<CCMSBalanceByCardNo>()
-               .Execute());
+        //        var results = await Task.Run(() => new DefaultContext()
+        //       .MultipleResults("Usp_Wallet_Get_Loyalty_Balance_By_Card_No", parameters)
+        //       .With<LoyaltyBalanceByCardNo>()
+        //       .Execute());
 
-                if (results[0].Cast<GetWalletBalanceLimit>().ToList().Count == 0)
-                {
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, null);
-                }
-                else
-                {
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
-                }
-            }
-        }
+        //        if (results[0].Cast<GetWalletBalanceLimit>().ToList().Count == 0)
+        //        {
+        //            return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, null);
+        //        }
+        //        else
+        //        {
+        //            return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
+        //        }
+        //    }
+        //}
 
+
+        //[HttpPost]
+        //[CustomAuthenticationFilter]
+        //[Route("api/edc/wallet/Get_CCMS_Balance_By_Card_No")]
+        //public async Task<Object> Get_CCMS_Balance_By_Card_No([FromBody] CCMSBalanceByCardNoInput ObjClass)
+        //{
+
+        //    if (ObjClass == null)
+        //    {
+        //        return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
+        //    }
+        //    else
+        //    {
+        //        Dictionary<string, object> parameters = new Dictionary<string, object>()
+        //    {
+        //        { "Controlcardno", ObjClass.Controlcardno },
+        //        { "Controlpin", ObjClass.Controlpin }//,
+        //        //{ "TID", ObjClass.TID },
+        //        //{ "OutletId", ObjClass.OutletId }
+
+        //    };
+
+        //        var results = await Task.Run(() => new DefaultContext()
+        //       .MultipleResults("Usp_Wallet_Get_CCMS_Balance_By_Card_No", parameters)
+        //       .With<CCMSBalanceByCardNo>()
+        //       .Execute());
+
+        //        if (results[0].Cast<GetWalletBalanceLimit>().ToList().Count == 0)
+        //        {
+        //            return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, null);
+        //        }
+        //        else
+        //        {
+        //            return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
+        //        }
+        //    }
+        //}
+        
+        /*
 
         [HttpPost]
         [CustomAuthenticationFilter]
@@ -1236,40 +1275,7 @@ namespace HPCL_DP_Terminal.Controllers
         }
 
 
-        [HttpPost]
-        [CustomAuthenticationFilter]
-        [Route("api/edc/wallet/Check_Transaction_ValuevsLimit")]
-        public async Task<Object> Check_Transaction_ValuevsLimit([FromBody] CheckTransactionValuevsLimit_Input ObjClass)
-        {
-
-            if (ObjClass == null)
-            {
-                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
-            }
-            else
-            {
-                Dictionary<string, object> parameters = new Dictionary<string, object>()
-            {
-
-                { "Card_No", ObjClass.Card_No },
-                { "Sale_Amount", ObjClass.Sale_Amount }
-            };
-
-                var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Wallet_Check_Transaction_ValuevsLimit", parameters)
-               .With<CheckTransactionValuevsLimit>()
-               .Execute());
-
-                if (results[0].Cast<CheckTransactionValuevsLimit>().ToList().Count == 0)
-                {
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, null);
-                }
-                else
-                {
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
-                }
-            }
-        }
+        
 
 
 
@@ -1539,6 +1545,8 @@ namespace HPCL_DP_Terminal.Controllers
                 }
             }
         }
+
+        */
 
         //[HttpPost]
         //[CustomAuthenticationFilter]
