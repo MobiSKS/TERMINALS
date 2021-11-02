@@ -552,7 +552,7 @@ namespace HPCL_DP_Terminal.Controllers
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Terminal_Void_By_Card", parameters)
+               .MultipleResults("Usp_Transaction_Void_By_Card", parameters)
                .With<Database_Status>()
                .Execute());
 
