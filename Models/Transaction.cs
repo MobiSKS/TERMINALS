@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -265,14 +266,24 @@ namespace HPCL_DP_Terminal.Models
 
         public class ReloadApiByCash_Input
         {
-            public Int32 Card_No { get; set; }
+            [Required(ErrorMessage = "Card No Required")]
+            public Int64 Card_No { get; set; }
+
+            [Required(ErrorMessage = "Recharge Amount Required")]
             public decimal Recharge_Amount { get; set; }
+
+            [Required(ErrorMessage = "Sale Type Required")]
             public string Sale_Type { get; set; }
-            public string Transaction_Type { get; set; }
+            //public string Transaction_Type { get; set; }
+            [Required(ErrorMessage = "Transaction Id Required")]
             public string Transaction_Id { get; set; }
-            public string TID { get; set; }
-            public string Outlet_Id { get; set; }
-            public string Batch_Id { get; set; }
+
+            [Required(ErrorMessage = "Terminal Id Required")]
+            public Int32 TID { get; set; }
+            [Required(ErrorMessage = "Outlet Id Required")]
+            public Int32 Outlet_Id { get; set; }
+            [Required(ErrorMessage = "Batch Id Required")]
+            public Int32 Batch_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
