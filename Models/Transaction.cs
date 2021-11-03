@@ -302,6 +302,8 @@ namespace HPCL_DP_Terminal.Models
             public decimal Transaction_Amount { get; set; }
             public string Batch_Id { get; set; }
             public string Product { get; set; }
+
+
         }
 
 
@@ -563,6 +565,15 @@ namespace HPCL_DP_Terminal.Models
             public Int32 TID { get; set; }
             public Int32 Outlet_Id { get; set; }
 
+            [JsonProperty("Userid")]
+            public string Userid { get; set; }
+
+            [JsonProperty("Useragent")]
+            public string Useragent { get; set; }
+
+            [JsonProperty("Userip")]
+            public string Userip { get; set; }
+
         }
 
         public class BalanceTransferByMobileNo_Input
@@ -572,6 +583,15 @@ namespace HPCL_DP_Terminal.Models
             public Int32 TID { get; set; }
             public Int32 Outlet_Id { get; set; }
 
+            [JsonProperty("Userid")]
+            public string Userid { get; set; }
+
+            [JsonProperty("Useragent")]
+            public string Useragent { get; set; }
+
+            [JsonProperty("Userip")]
+            public string Userip { get; set; }
+
         }
         public class VoidByCard_Input
         {
@@ -580,6 +600,15 @@ namespace HPCL_DP_Terminal.Models
             public decimal Amount { get; set; }
             public Int32 TID { get; set; }
             public Int32 Outlet_Id { get; set; }
+
+            [JsonProperty("Userid")]
+            public string Userid { get; set; }
+
+            [JsonProperty("Useragent")]
+            public string Useragent { get; set; }
+
+            [JsonProperty("Userip")]
+            public string Userip { get; set; }
 
         }
 
@@ -592,6 +621,15 @@ namespace HPCL_DP_Terminal.Models
             public Int32 TID { get; set; }
             public Int32 Outlet_Id { get; set; }
 
+            [JsonProperty("Userid")]
+            public string Userid { get; set; }
+
+            [JsonProperty("Useragent")]
+            public string Useragent { get; set; }
+
+            [JsonProperty("Userip")]
+            public string Userip { get; set; }
+
         }
 
 
@@ -601,6 +639,14 @@ namespace HPCL_DP_Terminal.Models
             public decimal Odometer_Reading { get; set; }
             public Int32 TID { get; set; }
             public Int32 Outlet_Id { get; set; }
+            [JsonProperty("Userid")]
+            public string Userid { get; set; }
+
+            [JsonProperty("Useragent")]
+            public string Useragent { get; set; }
+
+            [JsonProperty("Userip")]
+            public string Userip { get; set; }
 
         }
 
@@ -612,6 +658,14 @@ namespace HPCL_DP_Terminal.Models
             public decimal Odometer_Reading { get; set; }
             public Int32 TID { get; set; }
             public Int32 Outlet_Id { get; set; }
+            [JsonProperty("Userid")]
+            public string Userid { get; set; }
+
+            [JsonProperty("Useragent")]
+            public string Useragent { get; set; }
+
+            [JsonProperty("Userip")]
+            public string Userip { get; set; }
         }
 
         public class PayMerchantByPayCode_Input
@@ -619,6 +673,14 @@ namespace HPCL_DP_Terminal.Models
             public string Pay_Code { get; set; }
             public Int32 TID { get; set; }
             public Int32 Outlet_Id { get; set; }
+            [JsonProperty("Userid")]
+            public string Userid { get; set; }
+
+            [JsonProperty("Useragent")]
+            public string Useragent { get; set; }
+
+            [JsonProperty("Userip")]
+            public string Userip { get; set; }
         }
 
         public class ReversePayMerchantByPayCode_Input
@@ -628,6 +690,14 @@ namespace HPCL_DP_Terminal.Models
             public string Batch_Id { get; set; }
             public Int32 TID { get; set; }
             public Int32 Outlet_Id { get; set; }
+            [JsonProperty("Userid")]
+            public string Userid { get; set; }
+
+            [JsonProperty("Useragent")]
+            public string Useragent { get; set; }
+
+            [JsonProperty("Userip")]
+            public string Userip { get; set; }
         }
 
         public class CreditSaleComplete_Input
@@ -636,6 +706,14 @@ namespace HPCL_DP_Terminal.Models
             public decimal Amount { get; set; }
             public Int32 TID { get; set; }
             public Int32 Outlet_Id { get; set; }
+            [JsonProperty("Userid")]
+            public string Userid { get; set; }
+
+            [JsonProperty("Useragent")]
+            public string Useragent { get; set; }
+
+            [JsonProperty("Userip")]
+            public string Userip { get; set; }
         }
 
         public class RedemptionApiByCard_Input
@@ -646,6 +724,14 @@ namespace HPCL_DP_Terminal.Models
             public decimal Amount { get; set; }
             public Int32 TID { get; set; }
             public Int32 Outlet_Id { get; set; }
+            [JsonProperty("Userid")]
+            public string Userid { get; set; }
+
+            [JsonProperty("Useragent")]
+            public string Useragent { get; set; }
+
+            [JsonProperty("Userip")]
+            public string Userip { get; set; }
         }
 
        
@@ -655,6 +741,15 @@ namespace HPCL_DP_Terminal.Models
             public int New_Pin { get; set; }
             public Int32 TID { get; set; }
             public Int32 Outlet_Id { get; set; }
+
+            [JsonProperty("Userid")]
+            public string Userid { get; set; }
+
+            [JsonProperty("Useragent")]
+            public string Useragent { get; set; }
+
+            [JsonProperty("Userip")]
+            public string Userip { get; set; }
         }
 
         public class PayCardFee_Input
@@ -664,6 +759,15 @@ namespace HPCL_DP_Terminal.Models
             public decimal Amount { get; set; }
             public Int32 TID { get; set; }
             public Int32 Outlet_Id { get; set; }
+
+            [JsonProperty("Userid")]
+            public string Userid { get; set; }
+
+            [JsonProperty("Useragent")]
+            public string Useragent { get; set; }
+
+            [JsonProperty("Userip")]
+            public string Userip { get; set; }
         }
 
 
@@ -674,6 +778,15 @@ namespace HPCL_DP_Terminal.Models
             public string Password { get; set; }
             public Int32 TID { get; set; }
             public Int32 Outlet_Id { get; set; }
+
+            [JsonProperty("Userid")]
+            public string Userid { get; set; }
+
+            [JsonProperty("Useragent")]
+            public string Useragent { get; set; }
+
+            [JsonProperty("Userip")]
+            public string Userip { get; set; }
         }
 
        
