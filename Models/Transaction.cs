@@ -754,7 +754,10 @@ namespace HPCL_DP_Terminal.Models
 
         public class PayCardFee_Input
         {
+            [RegularExpression(@"^\d{10}$", ErrorMessage = "Form No 10 digit only.")]
             public Int64 Form_No { get; set; }
+
+            [Required(ErrorMessage = "No Of Cards Required")]
             public int No_Of_Cards { get; set; }
             public decimal Amount { get; set; }
             public Int32 TID { get; set; }
