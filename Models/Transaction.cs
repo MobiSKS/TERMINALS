@@ -754,7 +754,7 @@ namespace HPCL_DP_Terminal.Models
 
         public class PayCardFee_Input
         {
-            public Int32 Form_No { get; set; }
+            public Int64 Form_No { get; set; }
             public int No_Of_Cards { get; set; }
             public decimal Amount { get; set; }
             public Int32 TID { get; set; }
