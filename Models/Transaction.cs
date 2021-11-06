@@ -303,13 +303,17 @@ namespace HPCL_DP_Terminal.Models
 
         public class ReloadApiByCheque_Input
         {
+            [Required(ErrorMessage = "Card No Required")]
             public Int64 Card_No { get; set; }
             public decimal Recharge_Amount { get; set; }
             public string Sale_Type { get; set; }
-            public string Transaction_Type { get; set; }
+            //public string Transaction_Type { get; set; }
             public string Transaction_Id { get; set; }
-            public string TID { get; set; }
-            public string Outlet_Id { get; set; }
+            public Int64 TID { get; set; }
+            [Required(ErrorMessage = "Outlet Id Required")]
+            public Int64 Outlet_Id { get; set; }
+            [Required(ErrorMessage = "Batch Id Required")]
+            public Int64 Batch_Id { get; set; }
             public string Cheque_No { get; set; }
             public string MICR_Code { get; set; }
 
