@@ -279,19 +279,13 @@ namespace HPCL_DP_Terminal.Models
             public string Transaction_Id { get; set; }
 
             [Required(ErrorMessage = "Terminal Id Required")]
-            public Int32 TID { get; set; }
+            public Int64 TID { get; set; }
             [Required(ErrorMessage = "Outlet Id Required")]
-            public Int32 Outlet_Id { get; set; }
+            public Int64 Outlet_Id { get; set; }
             [Required(ErrorMessage = "Batch Id Required")]
-            public Int32 Batch_Id { get; set; }
-
-            [JsonProperty("Userid")]
-            public string Userid { get; set; }
-
-            [JsonProperty("Useragent")]
-            public string Useragent { get; set; }
-
-            [JsonProperty("Userip")]
+            public Int64 Batch_Id { get; set; }            
+            public string Userid { get; set; }            
+            public string Useragent { get; set; }            
             public string Userip { get; set; }
         }
 
@@ -309,7 +303,7 @@ namespace HPCL_DP_Terminal.Models
 
         public class ReloadApiByCheque_Input
         {
-            public Int32 Card_No { get; set; }
+            public Int64 Card_No { get; set; }
             public decimal Recharge_Amount { get; set; }
             public string Sale_Type { get; set; }
             public string Transaction_Type { get; set; }
@@ -754,7 +748,7 @@ namespace HPCL_DP_Terminal.Models
 
         public class PayCardFee_Input
         {
-            [RegularExpression(@"^\d{10}$", ErrorMessage = "Form No 10 digit only.")]
+            [RegularExpression(@"^[0-9]+$", ErrorMessage = "Form No numbers only.")]
             public Int64 Form_No { get; set; }
 
             [Required(ErrorMessage = "No Of Cards Required")]
