@@ -798,7 +798,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/edc/wallet/Get_wallet_balance_limit")]
+        [Route("api/edc/wallet/get_wallet_balance_limit")]
         public async Task<Object> Get_wallet_balance_limit([FromBody] GetWalletBalanceLimitInput ObjClass)
         {
 
@@ -836,7 +836,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/edc/wallet/Get_wallet_balance_by_MobileNo")]
+        [Route("api/edc/wallet/get_wallet_balance_by_mobileno")]
         public async Task<Object> Get_wallet_balance_by_MobileNo([FromBody] GetWalletBalanceByMobileInput ObjClass)
         {
 
@@ -872,7 +872,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/edc/wallet/Check_Transaction_ValuevsLimit")]
+        [Route("api/edc/wallet/check_transaction_valuevslimit")]
         public async Task<Object> Check_Transaction_ValuevsLimit([FromBody] CheckTransactionValuevsLimit_Input ObjClass)
         {
 

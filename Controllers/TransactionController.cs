@@ -81,7 +81,7 @@ namespace HPCL_DP_Terminal.Controllers
 
 
         [HttpPost]
-        //[CustomAuthenticationFilter]
+        [CustomAuthenticationFilter]
         [Route("api/edc/transaction/ccms_sale_by_card")]
         public async Task<Object> CCMS_Sale_By_Card([FromBody] CCMSSaleByCard_Input ObjClass)
         {
@@ -914,7 +914,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/edc/transaction/Save_DTP_Loyalty_By_Card")]
+        [Route("api/edc/transaction/save_dtp_loyalty_by_card")]
         public async Task<Object> Save_DTP_Loyalty_By_Card([FromBody] SaveDTPLoyaltyByCard_Input ObjClass)
         {
 
@@ -952,7 +952,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/edc/transaction/Save_DTP_Loyalty_By_Mobile_No")]
+        [Route("api/edc/transaction/save_dtp_loyalty_by_mobile_no")]
         public async Task<Object> Save_DTP_Loyalty_By_Mobile_No([FromBody] SaveDTPLoyaltyByMobileNo_Input ObjClass)
         {
 
@@ -990,7 +990,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/edc/transaction/Save_Non_DTP_Loyalty_By_Card")]
+        [Route("api/edc/transaction/save_non_dtp_loyalty_by_card")]
         public async Task<Object> Save_Non_DTP_Loyalty_By_Card([FromBody] SaveNonDTPLoyaltyByCard_Input ObjClass)
         {
 
@@ -1027,7 +1027,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/edc/transaction/Save_Non_DTP_Loyalty_By_Mobile_No")]
+        [Route("api/edc/transaction/save_non_dtp_loyalty_by_mobile_no")]
         public async Task<Object> Save_Non_DTP_Loyalty_By_Mobile_No([FromBody] SaveNonDTPLoyaltyByMobileNo_Input ObjClass)
         {
 
@@ -1065,7 +1065,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/edc/transaction/Get_Point_Equiv_Amt")]
+        [Route("api/edc/transaction/get_point_equiv_amt")]
         public async Task<Object> Get_Point_Equiv_Amt([FromBody] GetPointEquivAmtInput ObjClass)
         {
 
@@ -1105,7 +1105,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/edc/transaction/Get_CCMS_Balance_By_Card_No")]
+        [Route("api/edc/transaction/get_ccms_balance_by_card_no")]
         public async Task<Object> Get_CCMS_Balance_By_Card_No([FromBody] CCMSBalanceByCardNoInput ObjClass)
         {
 
@@ -1143,7 +1143,7 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/edc/transaction/Get_Loyalty_Balance_By_Card_No")]
+        [Route("api/edc/transaction/get_loyalty_balance_by_card_no")]
         public async Task<Object> Get_Loyalty_Balance_By_Card_No([FromBody] LoyaltyBalanceByCardNoInput ObjClass)
         {
 
