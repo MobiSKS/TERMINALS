@@ -292,8 +292,8 @@ namespace HPCL_DP_Terminal.Models
             public string Transaction_Id { get; set; }
             public string Transaction_Date { get; set; }
             public decimal Transaction_Amount { get; set; }
-            public string Batch_Id { get; set; }
-            public string Product { get; set; }
+            public Int64 Batch_Id { get; set; }
+            //public string Product { get; set; }
 
 
         }

@@ -164,7 +164,7 @@ namespace HPCL_DP_Terminal.Controllers
 
 
         [HttpPost]
-        [CustomAuthenticationFilter]
+        //[CustomAuthenticationFilter]
         [Route("api/edc/transaction/reload_api_by_cash")]
         public async Task<Object> Reload_Api_By_Cash([FromBody] ReloadApiByCash_Input ObjClass)
         {
