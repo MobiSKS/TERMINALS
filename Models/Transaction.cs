@@ -272,7 +272,9 @@ namespace HPCL_DP_Terminal.Models
 
             [Required(ErrorMessage = "Sale Type Required")]
             public string Sale_Type { get; set; }
-            //public string Transaction_Type { get; set; }
+
+            [Required(ErrorMessage = "Transaction Type Required")]
+            public string Transaction_Type { get; set; }
             [Required(ErrorMessage = "Transaction Id Required")]
             public string Transaction_Id { get; set; }
 
@@ -305,7 +307,7 @@ namespace HPCL_DP_Terminal.Models
             public Int64 Card_No { get; set; }
             public decimal Recharge_Amount { get; set; }
             public string Sale_Type { get; set; }
-            //public string Transaction_Type { get; set; }
+            public string Transaction_Type { get; set; }
             public string Transaction_Id { get; set; }
             public Int64 TID { get; set; }
             [Required(ErrorMessage = "Outlet Id Required")]
@@ -330,8 +332,7 @@ namespace HPCL_DP_Terminal.Models
             public string Transaction_Id { get; set; }
             public string Transaction_Date { get; set; }
             public decimal Transaction_Amount { get; set; }
-            public string Batch_Id { get; set; }
-            public string Product { get; set; }
+            public Int64 Batch_Id { get; set; }
         }
 
 

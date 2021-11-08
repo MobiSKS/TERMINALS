@@ -179,7 +179,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Card_No", ObjClass.Card_No },
                     { "Recharge_Amount", ObjClass.Recharge_Amount },
                     { "Sale_Type", ObjClass.Sale_Type },
-                    //{ "Transaction_Type", ObjClass.Transaction_Type },
+                    { "Transaction_Type", ObjClass.Transaction_Type },
                     { "Transaction_Id", ObjClass.Transaction_Id },
                     { "TID", ObjClass.TID },
                     { "Outlet_Id", ObjClass.Outlet_Id },
@@ -217,7 +217,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Card_No", ObjClass.Card_No },
                     { "Recharge_Amount", ObjClass.Recharge_Amount },
                     { "Sale_Type", ObjClass.Sale_Type },
-                    //{ "Transaction_Type", ObjClass.Transaction_Type },
+                    { "Transaction_Type", ObjClass.Transaction_Type },
                     { "Transaction_Id", ObjClass.Transaction_Id },
                     { "TID", ObjClass.TID },
                     { "Outlet_Id", ObjClass.Outlet_Id },
@@ -227,7 +227,8 @@ namespace HPCL_DP_Terminal.Controllers
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Terminal_Reload_Api_By_Cash", parameters)
+               .MultipleResults("Usp_Terminal_Reload_Api_By_Cheque", parameters)
+               .With<Database_Status>()
                .With<ReloadApiByCheque>()
                .Execute());
 
