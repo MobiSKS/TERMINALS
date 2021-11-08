@@ -81,7 +81,7 @@ namespace HPCL_DP_Terminal.Controllers
 
 
         [HttpPost]
-        [CustomAuthenticationFilter]
+        //[CustomAuthenticationFilter]
         [Route("api/edc/transaction/ccms_sale_by_card")]
         public async Task<Object> CCMS_Sale_By_Card([FromBody] CCMSSaleByCard_Input ObjClass)
         {
@@ -107,14 +107,15 @@ namespace HPCL_DP_Terminal.Controllers
                     };
                 var results = await Task.Run(() => new DefaultContext()
                .MultipleResults("Usp_Transaction_CCMSSale_By_Card", parameters)
+               .With<Database_Status>()
                .With<CCMSSaleByCard>()
                .Execute());
                 //List<CCMSSaleByCard> item = results[0].Cast<CCMSSaleByCard>().ToList();
                 //if (item.Count > 0)
-                if (results[0].Cast<CCMSSaleByCard>().ToList()[0].Status == 1)
+                if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
                     return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
                 else
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
             }
 
         }

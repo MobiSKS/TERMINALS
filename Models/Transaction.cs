@@ -195,9 +195,7 @@ namespace HPCL_DP_Terminal.Models
 
             public string Product { get; set; }
 
-            public string Reason { get; set; }
-
-            public int Status { get; set; }
+            public string Batch_Id { get; set; }
         }
 
 
