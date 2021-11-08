@@ -232,10 +232,10 @@ namespace HPCL_DP_Terminal.Controllers
                .With<ReloadApiByCheque>()
                .Execute());
 
-                if (results[0].Cast<ReloadApiByCheque>().ToList().Count > 0)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
+                if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[1]);
                 else
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
             }
 
         }
@@ -263,19 +263,19 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Transaction_Id", ObjClass.Transaction_Id },
                     { "TID", ObjClass.TID },
                     { "Outlet_Id", ObjClass.Outlet_Id },
-                    { "Cheque_No", ObjClass.Cheque_No },
-                    { "MICR_Code", ObjClass.MICR_Code }
+                    { "UTR_No", ObjClass.UTR_No }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
                .MultipleResults("Usp_Terminal_Reload_Api_By_NEFT_RTGS", parameters)
+               .With<Database_Status>()
                .With<ReloadApiByNEFTRTGS>()
                .Execute());
 
-                if (results[0].Cast<ReloadApiByNEFTRTGS>().ToList().Count > 0)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
+                if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[1]);
                 else
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
             }
 
         }

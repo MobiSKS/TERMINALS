@@ -343,10 +343,11 @@ namespace HPCL_DP_Terminal.Models
             public string Sale_Type { get; set; }
             public string Transaction_Type { get; set; }
             public string Transaction_Id { get; set; }
-            public string TID { get; set; }
-            public string Outlet_Id { get; set; }
-            public string Cheque_No { get; set; }
-            public string MICR_Code { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 Outlet_Id { get; set; }
+            [Required(ErrorMessage = "Batch Id Required")]
+            public Int64 Batch_Id { get; set; }
+            public Int32 UTR_No { get; set; }          
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -363,8 +364,7 @@ namespace HPCL_DP_Terminal.Models
             public string Transaction_Id { get; set; }
             public string Transaction_Date { get; set; }
             public decimal Transaction_Amount { get; set; }
-            public string Product { get; set; }
-            public string Batch_Id { get; set; }
+            public Int64 Batch_Id { get; set; }
         }
 
 
