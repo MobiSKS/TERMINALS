@@ -332,6 +332,8 @@ namespace HPCL_DP_Terminal.Models
             public string Transaction_Date { get; set; }
             public decimal Transaction_Amount { get; set; }
             public Int64 Batch_Id { get; set; }
+            public Int64 Card_No { get; set; }
+            public string Transaction_Type { get; set; }
         }
 
 
@@ -364,6 +366,8 @@ namespace HPCL_DP_Terminal.Models
             public string Transaction_Date { get; set; }
             public decimal Transaction_Amount { get; set; }
             public Int64 Batch_Id { get; set; }
+            public Int64 Card_No { get; set; }
+            public string Transaction_Type { get; set; }
         }
 
 
