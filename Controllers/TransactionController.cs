@@ -301,7 +301,9 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Odometer_Reading", ObjClass.Odometer_Reading },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Outlet_Id", ObjClass.Outlet_Id },
+                    { "Transaction_Id", ObjClass.Transaction_Id },
+                    { "Batch_Id", ObjClass.Batch_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -337,7 +339,9 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Odometer_Reading", ObjClass.Odometer_Reading },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Outlet_Id", ObjClass.Outlet_Id },
+                    { "Transaction_Id", ObjClass.Transaction_Id },
+                    { "Batch_Id", ObjClass.Batch_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -374,7 +378,9 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Odometer_Reading", ObjClass.Odometer_Reading },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Outlet_Id", ObjClass.Outlet_Id },
+                    { "Transaction_Id", ObjClass.Transaction_Id },
+                    { "Batch_Id", ObjClass.Batch_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -412,7 +418,9 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Odometer_Reading", ObjClass.Odometer_Reading },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Outlet_Id", ObjClass.Outlet_Id },
+                    { "Transaction_Id", ObjClass.Transaction_Id },
+                    { "Batch_Id", ObjClass.Batch_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -450,7 +458,9 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Odometer_Reading", ObjClass.Odometer_Reading },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Outlet_Id", ObjClass.Outlet_Id },
+                    { "Transaction_Id", ObjClass.Transaction_Id },
+                    { "Batch_Id", ObjClass.Batch_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
