@@ -98,15 +98,16 @@ namespace HPCL_DP_Terminal.Controllers
                         { "Card_Pin", ObjClass.Card_Pin },
                         { "Product", ObjClass.Product },
                         { "Amount", ObjClass.Amount },
-                        { "Sale_Type", ObjClass.Sale_Type },
-                        { "TID", ObjClass.TID },
+                        { "Sale_Type", ObjClass.Sale_Type },                        
                         { "Terminal_Pin", ObjClass.Terminal_Pin },
                         { "Odometer_Reading", ObjClass.Odometer_Reading },
+                        { "Transaction_Id", ObjClass.Transaction_Id },
+                        { "TID", ObjClass.TID },
                         { "OutletId", ObjClass.OutletId },
                         { "Batch_Id",ObjClass.Batch_Id}
                     };
                 var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Transaction_CCMSSale_By_Card", parameters)
+               .MultipleResults("Usp_EDC_Transaction_CCMSSale_By_Card", parameters)
                .With<Database_Status>()
                .With<CCMSSaleByCard>()
                .Execute());
@@ -141,15 +142,17 @@ namespace HPCL_DP_Terminal.Controllers
                         { "Product", ObjClass.Product },
                         { "Amount", ObjClass.Amount },
                         { "Sale_Type", ObjClass.Sale_Type },
-                        { "TID", ObjClass.TID },
                         { "Terminal_Pin", ObjClass.Terminal_Pin },
                         { "Odometer_Reading", ObjClass.Odometer_Reading },
-                        { "OutletId", ObjClass.OutletId },
                         { "Type", ObjClass.Type },
-                        { "Batch_Id",ObjClass.Batch_Id}
+                        { "Transaction_Id", ObjClass.Transaction_Id },
+                        { "TID", ObjClass.TID },
+                        { "Outlet_Id", ObjClass.Outlet_Id },
+                        { "Batch_Id", ObjClass.Batch_Id }
                     };
                 var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Transaction_CCMSSale_By_Mobile_No", parameters)
+               .MultipleResults("Usp_EDC_Transaction_CCMSSale_By_Mobile_No", parameters)
+               .With<Database_Status>()
                .With<CCMSSaleByMobileNo>()
                .Execute());
                 //List<CCMSSaleByMobileNo> item = results[0].Cast<CCMSSaleByMobileNo>().ToList();
@@ -164,7 +167,7 @@ namespace HPCL_DP_Terminal.Controllers
 
 
         [HttpPost]
-        //[CustomAuthenticationFilter]
+        [CustomAuthenticationFilter]
         [Route("api/edc/transaction/reload_api_by_cash")]
         public async Task<Object> Reload_Api_By_Cash([FromBody] ReloadApiByCash_Input ObjClass)
         {
@@ -217,12 +220,12 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Card_No", ObjClass.Card_No },
                     { "Recharge_Amount", ObjClass.Recharge_Amount },
                     { "Sale_Type", ObjClass.Sale_Type },
-                    { "Transaction_Type", ObjClass.Transaction_Type },
+                    { "Transaction_Type", ObjClass.Transaction_Type },                    
+                    { "Cheque_No", ObjClass.Cheque_No },
+                    { "MICR_Code", ObjClass.MICR_Code },
                     { "Transaction_Id", ObjClass.Transaction_Id },
                     { "TID", ObjClass.TID },
                     { "Outlet_Id", ObjClass.Outlet_Id },
-                    { "Cheque_No", ObjClass.Cheque_No },
-                    { "MICR_Code", ObjClass.MICR_Code },
                     { "Batch_Id", ObjClass.Batch_Id }
                 };
 
@@ -308,13 +311,14 @@ namespace HPCL_DP_Terminal.Controllers
 
                 var results = await Task.Run(() => new DefaultContext()
                .MultipleResults("Usp_Terminal_Card_Sale_By_Card", parameters)
+               .With<Database_Status>()
                .With<CardSaleByCard>()
                .Execute());
 
-                if (results[0].Cast<CardSaleByCard>().ToList().Count > 0)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
+                if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[1]);
                 else
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
             }
 
         }

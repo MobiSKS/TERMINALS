@@ -171,6 +171,9 @@ namespace HPCL_DP_Terminal.Models
             public int Card_Pin { get; set; }
             public int Terminal_Pin { get; set; }
             public decimal Odometer_Reading { get; set; }
+
+            [Required(ErrorMessage = "Transaction Id Required")]
+            public string Transaction_Id { get; set; }
             public int TID { get; set; }
             public string OutletId { get; set; }
             public string Batch_Id { get; set; }
@@ -223,11 +226,15 @@ namespace HPCL_DP_Terminal.Models
             [JsonProperty("Odometer_Reading")]
             public decimal Odometer_Reading { get; set; }
 
-            [JsonProperty("TID")]
-            public int TID { get; set; }
+            [Required(ErrorMessage = "Transaction Id Required")]
+            public string Transaction_Id { get; set; }
 
-            [JsonProperty("OutletId")]
-            public string OutletId { get; set; }
+            [JsonProperty("TID")]
+            public Int64 TID { get; set; }
+
+            [JsonProperty("Outlet_Id")]
+            public Int64 Outlet_Id { get; set; }
+            public Int64 Batch_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -241,7 +248,7 @@ namespace HPCL_DP_Terminal.Models
             [JsonProperty("Type")]
             public int Type { get; set; }
 
-            public string Batch_Id { get; set; }
+            
         }
 
         public class CCMSSaleByMobileNo
@@ -275,6 +282,7 @@ namespace HPCL_DP_Terminal.Models
 
             [Required(ErrorMessage = "Transaction Type Required")]
             public string Transaction_Type { get; set; }
+
             [Required(ErrorMessage = "Transaction Id Required")]
             public string Transaction_Id { get; set; }
 
@@ -460,7 +468,7 @@ namespace HPCL_DP_Terminal.Models
             public string Transaction_Date { get; set; }
             public decimal Transaction_Amount { get; set; }
             public string Product { get; set; }
-            public string Batch_Id { get; set; }
+            public Int64 Batch_Id { get; set; }
         }
 
 
@@ -493,7 +501,7 @@ namespace HPCL_DP_Terminal.Models
             public string Transaction_Date { get; set; }
             public decimal Transaction_Amount { get; set; }
             public string Product { get; set; }
-            public string Batch_Id { get; set; }
+            public Int64 Batch_Id { get; set; }
         }
 
 
@@ -526,7 +534,7 @@ namespace HPCL_DP_Terminal.Models
             public string Transaction_Date { get; set; }
             public decimal Transaction_Amount { get; set; }
             public string Product { get; set; }
-            public string Batch_Id { get; set; }
+            public Int64 Batch_Id { get; set; }
         }
 
 
@@ -540,8 +548,8 @@ namespace HPCL_DP_Terminal.Models
             public int? Token_No { get; set; }
             public int? Terminal_Pin { get; set; }
             public string Odometer_Reading { get; set; }
-            public string TID { get; set; }
-            public string Outlet_Id { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 Outlet_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -559,15 +567,15 @@ namespace HPCL_DP_Terminal.Models
             public string Transaction_Date { get; set; }
             public decimal Transaction_Amount { get; set; }
             public string Product { get; set; }
-            public string Batch_Id { get; set; }
+            public Int64 Batch_Id { get; set; }
         }
 
         public class BalanceTransferByCard_Input
         {
-            public Int32 Card_No { get; set; }
+            public Int64 Card_No { get; set; }
             public decimal Amount { get; set; }
-            public Int32 TID { get; set; }
-            public Int32 Outlet_Id { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 Outlet_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -582,10 +590,10 @@ namespace HPCL_DP_Terminal.Models
 
         public class BalanceTransferByMobileNo_Input
         {
-            public Int32 Mobile_No { get; set; }
+            public Int64 Mobile_No { get; set; }
             public decimal Amount { get; set; }
-            public Int32 TID { get; set; }
-            public Int32 Outlet_Id { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 Outlet_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -599,11 +607,11 @@ namespace HPCL_DP_Terminal.Models
         }
         public class VoidByCard_Input
         {
-            public Int32 ROC_No { get; set; }
-            public Int32 Card_No { get; set; }
+            public Int64 ROC_No { get; set; }
+            public Int64 Card_No { get; set; }
             public decimal Amount { get; set; }
-            public Int32 TID { get; set; }
-            public Int32 Outlet_Id { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 Outlet_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -618,12 +626,12 @@ namespace HPCL_DP_Terminal.Models
 
         public class VoidByMobileNo_Input
         {
-            public Int32 ROC_No { get; set; }
-            public Int32 Mobile_No { get; set; }
+            public Int64 ROC_No { get; set; }
+            public Int64 Mobile_No { get; set; }
             public int OTP { get; set; }
             public decimal Amount { get; set; }
-            public Int32 TID { get; set; }
-            public Int32 Outlet_Id { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 Outlet_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -639,10 +647,10 @@ namespace HPCL_DP_Terminal.Models
 
         public class SaveTrackingDetailByCard_Input
         {
-            public Int32 Card_No { get; set; }
+            public Int64 Card_No { get; set; }
             public decimal Odometer_Reading { get; set; }
-            public Int32 TID { get; set; }
-            public Int32 Outlet_Id { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 Outlet_Id { get; set; }
             [JsonProperty("Userid")]
             public string Userid { get; set; }
 
@@ -657,11 +665,11 @@ namespace HPCL_DP_Terminal.Models
 
         public class SaveTrackingDetailByMobileNo_Input
         {
-            public Int32 Mobile_No { get; set; }
+            public Int64 Mobile_No { get; set; }
             public int OTP { get; set; }
             public decimal Odometer_Reading { get; set; }
-            public Int32 TID { get; set; }
-            public Int32 Outlet_Id { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 Outlet_Id { get; set; }
             [JsonProperty("Userid")]
             public string Userid { get; set; }
 
@@ -675,8 +683,8 @@ namespace HPCL_DP_Terminal.Models
         public class PayMerchantByPayCode_Input
         {
             public string Pay_Code { get; set; }
-            public Int32 TID { get; set; }
-            public Int32 Outlet_Id { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 Outlet_Id { get; set; }
             [JsonProperty("Userid")]
             public string Userid { get; set; }
 
@@ -689,11 +697,11 @@ namespace HPCL_DP_Terminal.Models
 
         public class ReversePayMerchantByPayCode_Input
         {
-            public Int32 ROC_No { get; set; }
+            public Int64 ROC_No { get; set; }
             public string Pay_Code { get; set; }
-            public string Batch_Id { get; set; }
-            public Int32 TID { get; set; }
-            public Int32 Outlet_Id { get; set; }
+            public Int64 Batch_Id { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 Outlet_Id { get; set; }
             [JsonProperty("Userid")]
             public string Userid { get; set; }
 
@@ -706,10 +714,10 @@ namespace HPCL_DP_Terminal.Models
 
         public class CreditSaleComplete_Input
         {
-            public Int32 Control_Card_No { get; set; }
+            public Int64 Control_Card_No { get; set; }
             public decimal Amount { get; set; }
-            public Int32 TID { get; set; }
-            public Int32 Outlet_Id { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 Outlet_Id { get; set; }
             [JsonProperty("Userid")]
             public string Userid { get; set; }
 
@@ -722,12 +730,12 @@ namespace HPCL_DP_Terminal.Models
 
         public class RedemptionApiByCard_Input
         {
-            public Int32 Card_No { get; set; }
+            public Int64 Card_No { get; set; }
             public string Fuel { get; set; }
             public int Points_to_Redeem { get; set; }
             public decimal Amount { get; set; }
-            public Int32 TID { get; set; }
-            public Int32 Outlet_Id { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 Outlet_Id { get; set; }
             [JsonProperty("Userid")]
             public string Userid { get; set; }
 
@@ -743,8 +751,8 @@ namespace HPCL_DP_Terminal.Models
         public class UnblockTerminalPin_Input
         {
             public int New_Pin { get; set; }
-            public Int32 TID { get; set; }
-            public Int32 Outlet_Id { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 Outlet_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -764,8 +772,8 @@ namespace HPCL_DP_Terminal.Models
             [Required(ErrorMessage = "No Of Cards Required")]
             public int No_Of_Cards { get; set; }
             public decimal Amount { get; set; }
-            public Int32 TID { get; set; }
-            public Int32 Outlet_Id { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 Outlet_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -780,11 +788,11 @@ namespace HPCL_DP_Terminal.Models
 
         public class SaveOperatorInfo_Ter_Input
         {
-            public Int32 Operator_Id { get; set; }
+            public Int64 Operator_Id { get; set; }
             public string Username { get; set; }
             public string Password { get; set; }
-            public Int32 TID { get; set; }
-            public Int32 Outlet_Id { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 Outlet_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -805,8 +813,8 @@ namespace HPCL_DP_Terminal.Models
             public Int64? Card_no { get; set; }
             public decimal? Amount { get; set; }
             public int? Terminal_Pin { get; set; }
-            public int? TID { get; set; }
-            public int? OutletId { get; set; }
+            public Int64? TID { get; set; }
+            public Int64? OutletId { get; set; }
             public string Userip { get; set; }
             public string Userid { get; set; }
             public string Useragent { get; set; }
@@ -815,7 +823,7 @@ namespace HPCL_DP_Terminal.Models
         public class SaveDTPLoyaltyByCard
         {
             public string TransactionDate { get; set; }
-            public string Batchid { get; set; }
+            public Int64 Batchid { get; set; }
             public decimal TransactionAmount { get; set; }
 
         }
@@ -828,8 +836,8 @@ namespace HPCL_DP_Terminal.Models
             public decimal Amount { get; set; }
             public int Terminal_Pin { get; set; }
             public int OTP { get; set; }
-            public int TID { get; set; }
-            public int OutletId { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 OutletId { get; set; }
             public string Userip { get; set; }
             public string Userid { get; set; }
             public string Useragent { get; set; }
@@ -838,7 +846,7 @@ namespace HPCL_DP_Terminal.Models
         public class SaveDTPLoyaltyByMobileNo
         {
             public string TransactionDate { get; set; }
-            public string Batchid { get; set; }
+            public Int64 Batchid { get; set; }
             public decimal TransactionAmount { get; set; }
         }
 
@@ -848,8 +856,8 @@ namespace HPCL_DP_Terminal.Models
             public Int64? Card_no { get; set; }
             public decimal? Amount { get; set; }
             public int? Terminal_Pin { get; set; }
-            public int? TID { get; set; }
-            public int? OutletId { get; set; }
+            public Int64? TID { get; set; }
+            public Int64? OutletId { get; set; }
             public string Userip { get; set; }
             public string Userid { get; set; }
             public string Useragent { get; set; }
@@ -859,7 +867,7 @@ namespace HPCL_DP_Terminal.Models
         public class SaveNonDTPLoyaltyByCard
         {
             public string TransactionDate { get; set; }
-            public string Batchid { get; set; }
+            public Int64 Batchid { get; set; }
             public decimal TransactionAmount { get; set; }
         }
 
@@ -868,8 +876,8 @@ namespace HPCL_DP_Terminal.Models
             public Int64 Mobile_No { get; set; }
             public decimal? Amount { get; set; }
             public int? Terminal_Pin { get; set; }
-            public int? TID { get; set; }
-            public int? OutletId { get; set; }
+            public Int64? TID { get; set; }
+            public Int64? OutletId { get; set; }
             public string Userip { get; set; }
             public string Userid { get; set; }
             public string Useragent { get; set; }
@@ -879,7 +887,7 @@ namespace HPCL_DP_Terminal.Models
         public class SaveNonDTPLoyaltyByMobileNo
         {
             public string TransactionDate { get; set; }
-            public string Batchid { get; set; }
+            public Int64 Batchid { get; set; }
             public decimal TransactionAmount { get; set; }
         }
 
@@ -889,8 +897,8 @@ namespace HPCL_DP_Terminal.Models
             public int Card_pin { get; set; }
             public string Fuel { get; set; }
             public int Pointstoredeem { get; set; }
-            public int TID { get; set; }
-            public int OutletId { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 OutletId { get; set; }
             public string Userip { get; set; }
             public string Userid { get; set; }
             public string Useragent { get; set; }
@@ -916,8 +924,8 @@ namespace HPCL_DP_Terminal.Models
         {
             public Int64 Controlcardno { get; set; }
             public int Controlpin { get; set; }
-            public int TID { get; set; }
-            public int OutletId { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 OutletId { get; set; }
             public string Userip { get; set; }
             public string Userid { get; set; }
             public string Useragent { get; set; }
@@ -933,8 +941,8 @@ namespace HPCL_DP_Terminal.Models
         {
             public Int64 Controlcardno { get; set; }
             public int Controlpin { get; set; }
-            public int TID { get; set; }
-            public int OutletId { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 OutletId { get; set; }
             public string Userip { get; set; }
             public string Userid { get; set; }
             public string Useragent { get; set; }
