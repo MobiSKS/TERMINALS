@@ -323,9 +323,6 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="Log\2021-07-16-webapi.log" />
-    <Content Include="Log\2021-07-17-webapi.log" />
-    <Content Include="Log\2021-07-19-webapi.log" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -350,6 +347,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Data\" />
+    <Folder Include="Log\" />
     <Folder Include="Views\GetCustomerTransInfo\" />
     <Folder Include="Views\Settings\" />
     <Folder Include="Views\vibhay\" />

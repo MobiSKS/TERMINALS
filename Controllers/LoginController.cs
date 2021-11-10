@@ -386,7 +386,7 @@ namespace HPCL_DP_Terminal.Controllers
                 Dictionary<string, object> Body = new Dictionary<string, object>();
 
                 DataSet ObjDataSet = CRUD.ReturnDataSet_Text("Usp_Login_Send_OTP @User_Mobile='" + ObjClass.User_Mobile + "',@TID='" + ObjClass.TID
-                    + "',@OutletId='" + ObjClass.OutletId + "'");
+                    + "',@OutletId='" + ObjClass.OutletId + "',@Role_id='" + ObjClass.Role_id + "',@User_Type='" + ObjClass.User_Type + "'");
 
                 int Status = Convert.ToInt32(ObjDataSet.Tables[0].Rows[0]["Status"].ToString());
                 string Reason = ObjDataSet.Tables[0].Rows[0]["Reason"].ToString();
@@ -450,7 +450,8 @@ namespace HPCL_DP_Terminal.Controllers
 
                             if (isSuccessAddOffer == true && SMSOutput != "Invalid Mobile No")
                             {
-                                CRUD.FunCRUD("insert into tbl_customer_get_otp(mobile_no,OTP) values('91" + ObjClass.User_Mobile + "','" + OTP + "')");
+                                CRUD.FunCRUD("insert into tbl_customer_get_otp(mobile_no,OTP,api_type) values('91" + ObjClass.User_Mobile + "','" + OTP
+                                    + "','" + ObjClass.Flag_Type + "')");
                                 Output_Status = true;
                                 Output_Id = 1000;
                                 Body.Add("OTP", OTP);
@@ -532,7 +533,10 @@ namespace HPCL_DP_Terminal.Controllers
                     { "User_Mobile", ObjClass.User_Mobile },
                     { "OTP", ObjClass.OTP },
                     { "TID", ObjClass.TID },
-                    { "OutletId", ObjClass.OutletId }
+                    { "OutletId", ObjClass.OutletId },
+                    { "User_Type", ObjClass.User_Type },
+                    { "Role_id", ObjClass.Role_id },
+                    { "Flag_Type", ObjClass.Flag_Type }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()

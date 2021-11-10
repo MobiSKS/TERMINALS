@@ -306,6 +306,7 @@ namespace HPCL_DP_Terminal.Models
         public class SendOTPInput
         {
 
+            [Required]
             [JsonProperty("User_Mobile")]
             public Int64 User_Mobile { get; set; }
 
@@ -323,6 +324,15 @@ namespace HPCL_DP_Terminal.Models
 
             [JsonProperty("Userip")]
             public string Userip { get; set; }
+
+            [JsonProperty("Flag_Type")]
+            public string Flag_Type { get; set; }
+
+            [JsonProperty("Role_id")]
+            public int Role_id { get; set; }
+
+            [JsonProperty("User_Type")]
+            public int User_Type { get; set; }
 
         }
         public class SendOTPOutput
@@ -352,6 +362,15 @@ namespace HPCL_DP_Terminal.Models
 
             [JsonProperty("Useragent")]
             public string Useragent { get; set; }
+
+            [JsonProperty("Role_id")]
+            public int Role_id { get; set; }
+
+            [JsonProperty("User_Type")]
+            public int User_Type { get; set; }
+
+            [JsonProperty("Flag_Type")]
+            public string Flag_Type { get; set; }
         }
         public class AuthenticateOutput
         {
