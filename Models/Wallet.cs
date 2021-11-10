@@ -385,7 +385,7 @@ namespace HPCL_DP_Terminal.Models
     {
         public Int64 Mobileno { get; set; }
         public Int64 TID { get; set; }
-        public string Outlet_id { get; set; }
+        public Int64 Outlet_id { get; set; }
         public string Userip { get; set; }
         public string Userid { get; set; }
         public string Useragent { get; set; }
@@ -393,12 +393,12 @@ namespace HPCL_DP_Terminal.Models
 
     public class SaveDTPLoyaltyByCard_Input
     {
-        public int? ROC_No { get; set; }
+        public Int64? ROC_No { get; set; }
         public Int64? Card_no { get; set; }
         public decimal? Amount { get; set; }
         public int? Terminal_Pin { get; set; }
-        public int? TID { get; set; }
-        public int? OutletId { get; set; }
+        public Int64? TID { get; set; }
+        public Int64? OutletId { get; set; }
         public string Userip { get; set; }
         public string Userid { get; set; }
         public string Useragent { get; set; }
@@ -415,13 +415,13 @@ namespace HPCL_DP_Terminal.Models
 
     public class SaveDTPLoyaltyByMobileNo_Input
     {
-        public int ROC_No { get; set; }
+        public Int64 ROC_No { get; set; }
         public Int64 Mobile_no { get; set; }
         public decimal Amount { get; set; }
         public int Terminal_Pin { get; set; }
         public int OTP { get; set; }
-        public int TID { get; set; }
-        public int OutletId { get; set; }
+        public Int64 TID { get; set; }
+        public Int64 OutletId { get; set; }
         public string Userip { get; set; }
         public string Userid { get; set; }
         public string Useragent { get; set; }
@@ -440,8 +440,8 @@ namespace HPCL_DP_Terminal.Models
         public Int64? Card_no { get; set; }
         public decimal? Amount { get; set; }
         public int? Terminal_Pin { get; set; }
-        public int? TID { get; set; }
-        public int? OutletId { get; set; }
+        public Int64? TID { get; set; }
+        public Int64? OutletId { get; set; }
         public string Userip { get; set; }
         public string Userid { get; set; }
         public string Useragent { get; set; }
@@ -460,8 +460,8 @@ namespace HPCL_DP_Terminal.Models
         public Int64 Mobile_No { get; set; }
         public decimal? Amount { get; set; }
         public int? Terminal_Pin { get; set; }
-        public int? TID { get; set; }
-        public int? OutletId { get; set; }
+        public Int64? TID { get; set; }
+        public Int64? OutletId { get; set; }
         public string Userip { get; set; }
         public string Userid { get; set; }
         public string Useragent { get; set; }
@@ -481,8 +481,8 @@ namespace HPCL_DP_Terminal.Models
         public int Card_pin { get; set; }
         public string Fuel { get; set; }
         public int Pointstoredeem { get; set; }
-        public int TID { get; set; }
-        public int OutletId { get; set; }
+        public Int64 TID { get; set; }
+        public Int64 OutletId { get; set; }
         public string Userip { get; set; }
         public string Userid { get; set; }
         public string Useragent { get; set; }
@@ -620,8 +620,8 @@ namespace HPCL_DP_Terminal.Models
     {
         public Int64 Card_No { get; set; }       
         public decimal Sale_Amount { get; set; }
-        public int TID { get; set; }
-        public int OutletId { get; set; }
+        public Int64 TID { get; set; }
+        public Int64 OutletId { get; set; }
         public string Userip { get; set; }
         public string Userid { get; set; }
         public string Useragent { get; set; }
