@@ -431,13 +431,14 @@ namespace HPCL_DP_Terminal.Controllers
 
                 var results = await Task.Run(() => new DefaultContext()
                .MultipleResults("Usp_Terminal_Card_Sale_By_MobileNo", parameters)
+               .With<Database_Status>()
                .With<CardSaleByMobileNo>()
                .Execute());
 
-                if (results[0].Cast<CardSaleByMobileNo>().ToList().Count > 0)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
+                if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[1]);
                 else
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
             }
 
         }
