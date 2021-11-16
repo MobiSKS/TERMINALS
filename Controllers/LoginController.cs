@@ -516,6 +516,40 @@ namespace HPCL_DP_Terminal.Controllers
 
         }
 
+
+        /*
+        [HttpPost]
+        [CustomAuthenticationFilter]
+        [Route("api/edc/login/validate_otp")]
+        public async Task<Object> Validate_OTP_Hppay([FromBody] Validate_OTP_Input ObjClass)
+        {
+
+            if (ObjClass == null)
+            {
+                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
+            }
+            else
+            {
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    { "User_Mobile", ObjClass.User_Mobile },
+                    { "OTP", ObjClass.OTP }
+                };
+
+                var results = await Task.Run(() => new DefaultContext()
+               .MultipleResults("Usp_Login_Validate_OTP_Terminal", parameters)
+               .With<Validate_OTP>()
+               .Execute());
+                if (results[0].Cast<Validate_OTP>().ToList()[0].Status == 1)
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
+                else
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
+            }
+
+        }
+
+        */
+
         [HttpPost]
         [CustomAuthenticationFilter]
         [Route("api/edc/login/authenticate")]

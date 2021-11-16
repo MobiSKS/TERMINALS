@@ -343,6 +343,82 @@ namespace HPCL_DP_Terminal.Models
             [JsonProperty("Reason")]
             public string Reason { get; set; }
         }
+
+
+        public class Validate_OTP_Input
+        {
+
+            [JsonProperty("User_Mobile")]
+            public Int64 User_Mobile { get; set; }
+
+            [JsonProperty("OTP")]
+            public Int64 OTP { get; set; }
+
+            [JsonProperty("Userid")]
+            public string Userid { get; set; }
+
+            [JsonProperty("Useragent")]
+            public string Useragent { get; set; }
+
+            [JsonProperty("Userip")]
+            public string Userip { get; set; }
+
+        }
+
+        public class Validate_OTP
+        {
+            [JsonProperty("Status")]
+            public int Status { get; set; }
+
+            [JsonProperty("Reason")]
+            public string Reason { get; set; }
+            [JsonProperty("Title")]
+            public string Title { get; set; }
+
+            [JsonProperty("First_name")]
+            public string First_name { get; set; }
+
+            [JsonProperty("Last_name")]
+            public string Last_name { get; set; }
+
+            [JsonProperty("User_email")]
+            public string User_email { get; set; }
+
+            [JsonProperty("User_mobile")]
+            public Int64 User_mobile { get; set; }
+
+            [JsonProperty("Dob")]
+            public string Dob { get; set; }
+
+            [JsonProperty("Pincode")]
+            public string Pincode { get; set; }
+
+            [JsonProperty("Gender")]
+            public string Gender { get; set; }
+
+            [JsonProperty("Address")]
+            public string Address { get; set; }
+
+            [JsonProperty("Vehicle_no")]
+            public string Vehicle_no { get; set; }
+
+            [JsonProperty("Fasttag_no")]
+            public string Fasttag_no { get; set; }
+
+            [JsonProperty("Payback_cardno")]
+            public string Payback_cardno { get; set; }
+
+            [JsonProperty("ReferralCode")]
+            public string ReferralCode { get; set; }
+
+            [JsonProperty("CustomerType")]
+            public string CustomerType { get; set; }
+
+            [JsonProperty("Active_Paycode_Balance")]
+            public Single Active_Paycode_Balance { get; set; }
+        }
+
+
         public class AunticateInput
         {
             [JsonProperty("User_Mobile")]

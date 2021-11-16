@@ -81,7 +81,7 @@ namespace HPCL_DP_Terminal.Controllers
 
 
         [HttpPost]
-        [CustomAuthenticationFilter]
+        //[CustomAuthenticationFilter]
         [Route("api/edc/transaction/ccms_sale_by_card")]
         public async Task<Object> CCMS_Sale_By_Card([FromBody] CCMSSaleByCard_Input ObjClass)
         {
@@ -114,7 +114,7 @@ namespace HPCL_DP_Terminal.Controllers
                 //List<CCMSSaleByCard> item = results[0].Cast<CCMSSaleByCard>().ToList();
                 //if (item.Count > 0)
                 if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[1]);
                 else
                     return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
             }
@@ -262,11 +262,12 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Card_No", ObjClass.Card_No },
                     { "Recharge_Amount", ObjClass.Recharge_Amount },
                     { "Sale_Type", ObjClass.Sale_Type },
-                    { "Transaction_Type", ObjClass.Transaction_Type },
-                    { "Transaction_Id", ObjClass.Transaction_Id },
+                    { "Transaction_Type", ObjClass.Transaction_Type },                    
                     { "TID", ObjClass.TID },
                     { "Outlet_Id", ObjClass.Outlet_Id },
-                    { "UTR_No", ObjClass.UTR_No }
+                    { "UTR_No", ObjClass.UTR_No },
+                    { "Batch_Id", ObjClass.Batch_Id },
+                    { "Transaction_Id", ObjClass.Transaction_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -435,10 +436,10 @@ namespace HPCL_DP_Terminal.Controllers
                .With<CardSaleByMobileNo>()
                .Execute());
 
-                if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
+                if (results[0].Cast<CardSaleByMobileNo>().ToList().Count > 0)
                     return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[1]);
                 else
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
             }
 
         }

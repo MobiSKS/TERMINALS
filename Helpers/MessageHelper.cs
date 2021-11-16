@@ -30,7 +30,7 @@ namespace HPCL_DP_Terminal.Helpers
                 Success = Success,
                 Status_Code = StatusCode,
                 Message = StatusCode==1026? Convert.ToString(customData):((StatusInformation)StatusCode).GetDisplayName(),
-                Data = StatusCode == 1026 ? "": customData,
+                Data = StatusCode == 1026 ? "[]": customData,
                 Model_State = ObjModelState,
 
             });

@@ -174,9 +174,9 @@ namespace HPCL_DP_Terminal.Models
 
             [Required(ErrorMessage = "Transaction Id Required")]
             public string Transaction_Id { get; set; }
-            public int TID { get; set; }
-            public string OutletId { get; set; }
-            public string Batch_Id { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 OutletId { get; set; }
+            public Int64 Batch_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -198,7 +198,7 @@ namespace HPCL_DP_Terminal.Models
 
             public string Product { get; set; }
 
-            public string Batch_Id { get; set; }
+            public Int64 Batch_Id { get; set; }
         }
 
 
