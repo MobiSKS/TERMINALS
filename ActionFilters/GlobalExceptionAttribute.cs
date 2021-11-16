@@ -38,41 +38,41 @@ namespace HPCL_DP_Terminal.ActionFilters
             }
             else if (exceptionType == typeof(UnauthorizedAccessException))
             {
-                httpResponseMessage = CreateHttpResponseMessage(context.Request, HttpStatusCode.Unauthorized, (int)StatusInformation.Exception_Code, "UnAuthorized", "UnAuthorized Access", "", "[]");
+                httpResponseMessage = CreateHttpResponseMessage(context.Request, HttpStatusCode.Unauthorized, (int)StatusInformation.Exception_Code, "UnAuthorized", "UnAuthorized Access", context.ActionContext.ActionDescriptor.ActionName, "[]");
             }
             else if (exceptionType == typeof(ApiException))
             {
                 if (context.Exception is ApiException webapiException)
-                    httpResponseMessage = CreateHttpResponseMessage(context.Request, webapiException.HttpStatus, (int)StatusInformation.Exception_Code, webapiException.ErrorDescription, webapiException.ReasonPhrase, "", "[]");
+                    httpResponseMessage = CreateHttpResponseMessage(context.Request, webapiException.HttpStatus, (int)StatusInformation.Exception_Code, webapiException.ErrorDescription, webapiException.ReasonPhrase, context.ActionContext.ActionDescriptor.ActionName, "[]");
             }
             else if (exceptionType == typeof(ApiBusinessException))
             {
                 if (context.Exception is ApiBusinessException businessException)
-                    httpResponseMessage = CreateHttpResponseMessage(context.Request, businessException.HttpStatus, (int)StatusInformation.Exception_Code, businessException.ErrorDescription, businessException.ReasonPhrase, "", "[]");
+                    httpResponseMessage = CreateHttpResponseMessage(context.Request, businessException.HttpStatus, (int)StatusInformation.Exception_Code, businessException.ErrorDescription, businessException.ReasonPhrase, context.ActionContext.ActionDescriptor.ActionName, "[]");
             }
             else if (exceptionType == typeof(ApiDataException))
             {
                 if (context.Exception is ApiDataException dataException)
-                    httpResponseMessage = CreateHttpResponseMessage(context.Request, dataException.HttpStatus, (int)StatusInformation.Exception_Code, dataException.ErrorDescription, dataException.ReasonPhrase, "", "[]");
+                    httpResponseMessage = CreateHttpResponseMessage(context.Request, dataException.HttpStatus, (int)StatusInformation.Exception_Code, dataException.ErrorDescription, dataException.ReasonPhrase, context.ActionContext.ActionDescriptor.ActionName, "[]");
             }
 
             else if (exceptionType == typeof(NullReferenceException))
             {
                 if (context.Exception is NullReferenceException)
                 {
-                    httpResponseMessage = CreateHttpResponseMessage(context.Request, HttpStatusCode.NotAcceptable, (int)StatusInformation.Request_JSON_Body_Is_Null, "Request body is null", "Request body is null", "", "[]");
+                    httpResponseMessage = CreateHttpResponseMessage(context.Request, HttpStatusCode.NotAcceptable, (int)StatusInformation.Request_JSON_Body_Is_Null, "Request body is null", "Request body is null", context.ActionContext.ActionDescriptor.ActionName, "[]");
                 }
             }
             else if (exceptionType == typeof(SqlException))
             {
                 if (context.Exception is SqlException)
                 {
-                    httpResponseMessage = CreateHttpResponseMessage(context.Request, HttpStatusCode.NotAcceptable, (int)StatusInformation.Exception_Code, "Something went wrong...", "Error in DB", "", "[]");
+                    httpResponseMessage = CreateHttpResponseMessage(context.Request, HttpStatusCode.NotAcceptable, (int)StatusInformation.Exception_Code, "Something went wrong...", "Error in DB", context.ActionContext.ActionDescriptor.ActionName, "[]");
                 }
             }
             else
             {
-                httpResponseMessage = CreateHttpResponseMessage(context.Request, HttpStatusCode.InternalServerError, (int)StatusInformation.Exception_Code, context.Exception.Message.ToString(), "UnAuthorized Access", "", "[]");
+                httpResponseMessage = CreateHttpResponseMessage(context.Request, HttpStatusCode.InternalServerError, (int)StatusInformation.Exception_Code, context.Exception.Message.ToString(), "UnAuthorized Access", context.ActionContext.ActionDescriptor.ActionName, "[]");
             }
 
             context.Response = httpResponseMessage;
