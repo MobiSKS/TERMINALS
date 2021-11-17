@@ -152,7 +152,7 @@ namespace HPCL_DP_Terminal.Controllers
                     };
                 var results = await Task.Run(() => new DefaultContext()
                .MultipleResults("Usp_EDC_Transaction_CCMSSale_By_Mobile_No", parameters)
-               .With<Database_Status>()
+               //.With<Database_Status>()
                .With<CCMSSaleByMobileNo>()
                .Execute());
                 //List<CCMSSaleByMobileNo> item = results[0].Cast<CCMSSaleByMobileNo>().ToList();
