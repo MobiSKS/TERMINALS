@@ -198,6 +198,7 @@ namespace HPCL_DP_Terminal.Models
         }
         public class ValidatePinOutput
         {
+            /*
             [JsonProperty("Id")]
             public string Id { get; set; }
 
@@ -302,6 +303,8 @@ namespace HPCL_DP_Terminal.Models
 
             [JsonProperty("DeactivatedCard_No")]
             public string DeactivatedCard_No { get; set; }
+            */
+            public bool Pin_Found { get; set; }
         }
         public class SendOTPInput
         {
