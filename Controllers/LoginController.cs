@@ -339,7 +339,7 @@ namespace HPCL_DP_Terminal.Controllers
 
 
         [HttpPost]
-        //[CustomAuthenticationFilter]
+        [CustomAuthenticationFilter]
         [Route("api/edc/login/validate_pin")]
         public async Task<Object> Validate_Pin([FromBody] ValidatePinInput ObjClass)
         {
