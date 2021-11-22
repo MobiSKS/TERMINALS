@@ -124,7 +124,7 @@ namespace HPCL_DP_Terminal.Controllers
 
 
         [HttpPost]
-        [CustomAuthenticationFilter]
+        //[CustomAuthenticationFilter]
         [Route("api/edc/transaction/ccms_sale_by_mobile_no")]
         public async Task<Object> CCMS_Sale_By_Mobile_No([FromBody] CCMSSaleByMobileNo_Input ObjClass)
         {

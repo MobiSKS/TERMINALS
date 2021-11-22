@@ -507,7 +507,7 @@ namespace HPCL_DP_Terminal.Models
 
         public class CreditSaleByMobileNo_Input
         {
-            public Int32 Mobile_No { get; set; }
+            public Int64 Mobile_No { get; set; }
             //public int OTP { get; set; }
             public string Product { get; set; }
             public decimal Amount { get; set; }
