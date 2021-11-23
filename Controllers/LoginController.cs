@@ -355,7 +355,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "CardNo", ObjClass.CardNo },
                     { "CardPin", ObjClass.CardPin },
                     { "TID", ObjClass.TID },
-                    { "OutletId", ObjClass.OutletId }
+                    { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -386,7 +386,7 @@ namespace HPCL_DP_Terminal.Controllers
                 Dictionary<string, object> Body = new Dictionary<string, object>();
 
                 DataSet ObjDataSet = CRUD.ReturnDataSet_Text("Usp_Login_Send_OTP @User_Mobile='" + ObjClass.User_Mobile + "',@TID='" + ObjClass.TID
-                    + "',@OutletId='" + ObjClass.OutletId + "',@Role_id='" + ObjClass.Role_id + "',@User_Type='" + ObjClass.User_Type + "'");
+                    + "',@Merchant_Id='" + ObjClass.Merchant_Id + "',@Role_id='" + ObjClass.Role_id + "',@User_Type='" + ObjClass.User_Type + "'");
 
                 int Status = Convert.ToInt32(ObjDataSet.Tables[0].Rows[0]["Status"].ToString());
                 string Reason = ObjDataSet.Tables[0].Rows[0]["Reason"].ToString();
@@ -499,7 +499,7 @@ namespace HPCL_DP_Terminal.Controllers
                 //{
                 //    { "User_Mobile", ObjClass.User_Mobile },
                 //    { "TID", ObjClass.TID },
-                //    { "OutletId", ObjClass.OutletId }
+                //    { "Merchant_Id", ObjClass.Merchant_Id }
                 //};
 
                 // var results = await Task.Run(() => new DefaultContext()
@@ -567,7 +567,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "User_Mobile", ObjClass.User_Mobile },
                     { "OTP", ObjClass.OTP },
                     { "TID", ObjClass.TID },
-                    { "OutletId", ObjClass.OutletId },
+                    { "Merchant_Id", ObjClass.Merchant_Id },
                     { "User_Type", ObjClass.User_Type },
                     { "Role_id", ObjClass.Role_id },
                     { "Flag_Type", ObjClass.Flag_Type }
@@ -661,7 +661,7 @@ namespace HPCL_DP_Terminal.Controllers
             {
                 Dictionary<string, object> parameters = new Dictionary<string, object>
                 {
-                    { "Outlet_Id", ObjClass.Outlet_Id },
+                    { "Merchant_Id", ObjClass.Merchant_Id },
                     { "TID", ObjClass.TID }
                 };
 

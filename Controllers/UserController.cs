@@ -1098,7 +1098,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "UserName", ObjClass.UserName },
                     { "Password", ObjClass.Password },
                     { "TerminalId", ObjClass.TerminalId },
-                    { "OutletId", ObjClass.OutletId },
+                    { "Merchant_Id", ObjClass.Merchant_Id },
                     { "Userid", ObjClass.Userid }
                 };
 

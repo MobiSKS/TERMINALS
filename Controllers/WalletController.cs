@@ -812,7 +812,7 @@ namespace HPCL_DP_Terminal.Controllers
             {
                 { "Card_no", ObjClass.Card_no }
                 //{ "tid", ObjClass.TID },
-                //{ "outletid", ObjClass.Outlet_id }
+                //{ "Merchant_Id", ObjClass.Merchant_Id }
 
             };
 
@@ -850,7 +850,7 @@ namespace HPCL_DP_Terminal.Controllers
             {
                 { "mobileno", ObjClass.Mobileno }
                 //{ "tid", ObjClass.TID },
-                //{ "outletid", ObjClass.Outlet_id }
+                //{ "Merchant_Id", ObjClass.Merchant_Id }
             };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -923,7 +923,7 @@ namespace HPCL_DP_Terminal.Controllers
         //        { "Controlcardno", ObjClass.Controlcardno },
         //        { "Controlpin", ObjClass.Controlpin },
         //        //{ "TID", ObjClass.TID },
-        //        //{ "OutletId", ObjClass.OutletId }
+        //        //{ "Merchant_Id", ObjClass.Merchant_Id }
 
         //    };
 
@@ -961,7 +961,7 @@ namespace HPCL_DP_Terminal.Controllers
         //        { "Controlcardno", ObjClass.Controlcardno },
         //        { "Controlpin", ObjClass.Controlpin }//,
         //        //{ "TID", ObjClass.TID },
-        //        //{ "OutletId", ObjClass.OutletId }
+        //        //{ "Merchant_Id", ObjClass.Merchant_Id }
 
         //    };
 
@@ -1111,7 +1111,7 @@ namespace HPCL_DP_Terminal.Controllers
                 { "fuel", ObjClass.Fuel },
                 { "pointstoredeem", ObjClass.Pointstoredeem }
                 //{ "tid", ObjClass.TID },
-                //{ "outletid", ObjClass.Outlet_id }
+                //{ "Merchant_Id", ObjClass.Merchant_Id }
 
             };
 

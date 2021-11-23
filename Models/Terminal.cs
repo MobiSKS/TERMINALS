@@ -18,7 +18,7 @@ namespace HPCL_DP_Terminal.Models
         public class GenerateBatchNo_Input
         {
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
 
             [JsonProperty("Useragent")]
             public string Useragent { get; set; }
@@ -35,7 +35,7 @@ namespace HPCL_DP_Terminal.Models
             public int Old_Pin { get; set; }
             public int New_Pin { get; set; }
             public Int32 TID { get; set; }
-            public Int32 Outlet_Id { get; set; }
+            public Int32 Merchant_Id { get; set; }
         }
 
         public class GenerateBatchNo
@@ -58,7 +58,7 @@ namespace HPCL_DP_Terminal.Models
             public int Sale_no_of_bills { get; set; }
             public decimal Sale_Amount { get; set; }
             public Int32 TID { get; set; }
-            public Int32 Outlet_Id { get; set; }
+            public Int32 Merchant_Id { get; set; }
 
         }
 
@@ -68,7 +68,7 @@ namespace HPCL_DP_Terminal.Models
             public List<Transaction_Details> Transaction_Details { get; set; }
             //public List<Unmatched_Trasnactions> Unmatched_Trasnactions { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
         }
 
         public class Transaction_Details

@@ -34,7 +34,7 @@ namespace HPCL_DP_Terminal.Controllers
                 Dictionary<string, object> parameters = new Dictionary<string, object>
                 {
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Merchant_Id", ObjClass.Merchant_Id }
 
                 };
 
@@ -72,7 +72,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Sale_no_of_bills", ObjClass.Sale_no_of_bills },
                     { "Sale_Amount", ObjClass.Sale_Amount },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -132,7 +132,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Transaction_Details", dtDBR },
                     //{ "Unmatched_Trasnactions", ObjClass.Unmatched_Trasnactions },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }                   
+                    { "Merchant_Id", ObjClass.Merchant_Id }                   
 
                 };
 
@@ -166,7 +166,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Old_Pin", ObjClass.Old_Pin },
                     { "New_Pin", ObjClass.New_Pin },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()

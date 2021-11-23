@@ -103,7 +103,7 @@ namespace HPCL_DP_Terminal.Controllers
                         { "Odometer_Reading", ObjClass.Odometer_Reading },
                         { "Transaction_Id", ObjClass.Transaction_Id },
                         { "TID", ObjClass.TID },
-                        { "OutletId", ObjClass.OutletId },
+                        { "Merchant_Id", ObjClass.Merchant_Id },
                         { "Batch_Id",ObjClass.Batch_Id}
                     };
                 var results = await Task.Run(() => new DefaultContext()
@@ -147,7 +147,7 @@ namespace HPCL_DP_Terminal.Controllers
                         { "Type", ObjClass.Type },
                         { "Transaction_Id", ObjClass.Transaction_Id },
                         { "TID", ObjClass.TID },
-                        { "Outlet_Id", ObjClass.Outlet_Id },
+                        { "Merchant_Id", ObjClass.Merchant_Id },
                         { "Batch_Id", ObjClass.Batch_Id }
                     };
                 var results = await Task.Run(() => new DefaultContext()
@@ -167,7 +167,7 @@ namespace HPCL_DP_Terminal.Controllers
 
 
         [HttpPost]
-        [CustomAuthenticationFilter]
+        //[CustomAuthenticationFilter]
         [Route("api/edc/transaction/reload_api_by_cash")]
         public async Task<Object> Reload_Api_By_Cash([FromBody] ReloadApiByCash_Input ObjClass)
         {
@@ -184,8 +184,8 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Transaction_Type", ObjClass.Transaction_Type },
                     { "Transaction_Id", ObjClass.Transaction_Id },
-                    { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id },
+                    { "Terminal_Id", ObjClass.TID },
+                    { "Merchant_Id", ObjClass.Merchant_Id },
                     { "Batch_Id", ObjClass.Batch_Id }
                 };
 
@@ -196,7 +196,7 @@ namespace HPCL_DP_Terminal.Controllers
                .Execute());
 
                 if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[1]);
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Transaction_Success, results[1]);
                 else
                     return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
             }
@@ -225,7 +225,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "MICR_Code", ObjClass.MICR_Code },
                     { "Transaction_Id", ObjClass.Transaction_Id },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id },
+                    { "Merchant_Id", ObjClass.Merchant_Id },
                     { "Batch_Id", ObjClass.Batch_Id }
                 };
 
@@ -236,7 +236,7 @@ namespace HPCL_DP_Terminal.Controllers
                .Execute());
 
                 if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[1]);
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Transaction_Success, results[1]);
                 else
                     return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
             }
@@ -264,7 +264,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Transaction_Type", ObjClass.Transaction_Type },                    
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id },
+                    { "Merchant_Id", ObjClass.Merchant_Id },
                     { "UTR_No", ObjClass.UTR_No },
                     { "Batch_Id", ObjClass.Batch_Id },
                     { "Transaction_Id", ObjClass.Transaction_Id }
@@ -277,7 +277,7 @@ namespace HPCL_DP_Terminal.Controllers
                .Execute());
 
                 if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[1]);
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Transaction_Success, results[1]);
                 else
                     return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
             }
@@ -305,7 +305,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Odometer_Reading", ObjClass.Odometer_Reading },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id },
+                    { "Merchant_Id", ObjClass.Merchant_Id },
                     { "Transaction_Id", ObjClass.Transaction_Id },
                     { "Batch_Id", ObjClass.Batch_Id }
                 };
@@ -384,7 +384,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Odometer_Reading", ObjClass.Odometer_Reading },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id },
+                    { "Merchant_Id", ObjClass.Merchant_Id },
                     { "Transaction_Id", ObjClass.Transaction_Id },
                     { "Batch_Id", ObjClass.Batch_Id }
                 };
@@ -425,7 +425,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Odometer_Reading", ObjClass.Odometer_Reading },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id },
+                    { "Merchant_Id", ObjClass.Merchant_Id },
                     { "Transaction_Id", ObjClass.Transaction_Id },
                     { "Batch_Id", ObjClass.Batch_Id }
                 };
@@ -466,7 +466,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Odometer_Reading", ObjClass.Odometer_Reading },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id },
+                    { "Merchant_Id", ObjClass.Merchant_Id },
                     { "Transaction_Id", ObjClass.Transaction_Id },
                     { "Batch_Id", ObjClass.Batch_Id }
                 };
@@ -502,7 +502,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Card_No", ObjClass.Card_No },
                     { "Amount", ObjClass.Amount },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -535,7 +535,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Card_No", ObjClass.Mobile_No },
                     { "Amount", ObjClass.Amount },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -569,7 +569,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Card_No", ObjClass.Card_No },
                     { "Amount", ObjClass.Amount },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -604,7 +604,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "OTP", ObjClass.OTP },
                     { "Amount", ObjClass.Amount },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -637,7 +637,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Card_No", ObjClass.Card_No },
                     { "Odometer_Reading", ObjClass.Odometer_Reading },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -672,7 +672,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "OTP", ObjClass.OTP },
                     { "Odometer_Reading", ObjClass.Odometer_Reading },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -705,7 +705,7 @@ namespace HPCL_DP_Terminal.Controllers
 
                     { "Pay_Code", ObjClass.Pay_Code },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -739,7 +739,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Pay_Code", ObjClass.Pay_Code },
                     { "Batch_Id", ObjClass.Batch_Id },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -773,7 +773,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Control_Card_No", ObjClass.Control_Card_No },
                     { "Amount", ObjClass.Amount },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -808,7 +808,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Points_to_Redeem", ObjClass.Points_to_Redeem },
                     { "Amount", ObjClass.Amount },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -843,7 +843,7 @@ namespace HPCL_DP_Terminal.Controllers
                 {
                     { "New_Pin", ObjClass.New_Pin },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -877,7 +877,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "No_Of_Cards", ObjClass.No_Of_Cards },
                     { "Amount", ObjClass.Amount },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id }
+                    { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -911,7 +911,7 @@ namespace HPCL_DP_Terminal.Controllers
         //            { "Username", ObjClass.Username },
         //            { "Password", ObjClass.Password },
         //            { "TID", ObjClass.TID },
-        //            { "Outlet_Id", ObjClass.Outlet_Id }
+        //            { "Merchant_Id", ObjClass.Merchant_Id }
         //        };
 
         //        var results = await Task.Run(() => new DefaultContext()
@@ -949,7 +949,7 @@ namespace HPCL_DP_Terminal.Controllers
                 { "Card_no", ObjClass.Card_no },
                 { "Amount", ObjClass.Amount },
                 { "TID", ObjClass.TID },
-                { "OutletId", ObjClass.OutletId }
+                { "Merchant_Id", ObjClass.Merchant_Id }
             };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -987,7 +987,7 @@ namespace HPCL_DP_Terminal.Controllers
                 { "Mobile_No", ObjClass.Mobile_no },
                 { "Amount", ObjClass.Amount },
                 { "TID", ObjClass.TID },
-                { "OutletId", ObjClass.OutletId }
+                { "Merchant_Id", ObjClass.Merchant_Id }
 
             };
 
@@ -1025,7 +1025,7 @@ namespace HPCL_DP_Terminal.Controllers
                 { "Card_no", ObjClass.Card_no },
                 { "Amount", ObjClass.Amount },
                 { "TID", ObjClass.TID },
-                { "OutletId", ObjClass.OutletId }
+                { "Merchant_Id", ObjClass.Merchant_Id }
             };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -1062,7 +1062,7 @@ namespace HPCL_DP_Terminal.Controllers
                 { "Mobile_No", ObjClass.Mobile_No },
                 { "Amount", ObjClass.Amount },
                 { "TID", ObjClass.TID },
-                { "OutletId", ObjClass.OutletId }
+                { "Merchant_Id", ObjClass.Merchant_Id }
             };
 
                 var results = await Task.Run(() => new DefaultContext()
@@ -1101,7 +1101,7 @@ namespace HPCL_DP_Terminal.Controllers
                 { "fuel", ObjClass.Fuel },
                 { "pointstoredeem", ObjClass.Pointstoredeem },
                 { "TID", ObjClass.TID },
-                { "OutletId", ObjClass.OutletId }
+                { "Merchant_Id", ObjClass.Merchant_Id }
 
             };
 
@@ -1139,7 +1139,7 @@ namespace HPCL_DP_Terminal.Controllers
                 { "Controlcardno", ObjClass.Controlcardno },
                 { "Controlpin", ObjClass.Controlpin },
                 { "TID", ObjClass.TID },
-                { "OutletId", ObjClass.OutletId }
+                { "Merchant_Id", ObjClass.Merchant_Id }
 
             };
 
@@ -1177,7 +1177,7 @@ namespace HPCL_DP_Terminal.Controllers
                 { "Controlcardno", ObjClass.Controlcardno },
                 { "Controlpin", ObjClass.Controlpin },
                 { "TID", ObjClass.TID },
-                { "OutletId", ObjClass.OutletId }
+                { "Merchant_Id", ObjClass.Merchant_Id }
 
             };
 

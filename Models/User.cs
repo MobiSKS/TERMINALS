@@ -1616,8 +1616,8 @@ namespace HPCL_DP_Terminal.Models
         }
         public class Operator_Login_Output
         {
-            [JsonProperty("OutletId")]
-            public string OutletId { get; set; }
+            [JsonProperty("Merchant_Id")]
+            public string Merchant_Id { get; set; }
 
             [JsonProperty("TID")]
             public string TID { get; set; }
@@ -1725,8 +1725,8 @@ namespace HPCL_DP_Terminal.Models
             [JsonProperty("TerminalId")]
             public Int64 TerminalId { get; set; }
 
-            [JsonProperty("OutletId")]
-            public Int64 OutletId { get; set; }
+            [JsonProperty("Merchant_Id")]
+            public Int64 Merchant_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }

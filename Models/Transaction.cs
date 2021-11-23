@@ -175,7 +175,7 @@ namespace HPCL_DP_Terminal.Models
             [Required(ErrorMessage = "Transaction Id Required")]
             public string Transaction_Id { get; set; }
             public Int64 TID { get; set; }
-            public Int64 OutletId { get; set; }
+            public Int64 Merchant_Id { get; set; }
             public Int64 Batch_Id { get; set; }
 
             [JsonProperty("Userid")]
@@ -232,8 +232,8 @@ namespace HPCL_DP_Terminal.Models
             [JsonProperty("TID")]
             public Int64 TID { get; set; }
 
-            [JsonProperty("Outlet_Id")]
-            public Int64 Outlet_Id { get; set; }
+            [JsonProperty("Merchant_Id")]
+            public Int64 Merchant_Id { get; set; }
             public Int64 Batch_Id { get; set; }
 
             [JsonProperty("Userid")]
@@ -288,8 +288,8 @@ namespace HPCL_DP_Terminal.Models
 
             [Required(ErrorMessage = "Terminal Id Required")]
             public Int64 TID { get; set; }
-            [Required(ErrorMessage = "Outlet Id Required")]
-            public Int64 Outlet_Id { get; set; }
+            [Required(ErrorMessage = "Merchant Id Required")]
+            public Int64 Merchant_Id { get; set; }
             [Required(ErrorMessage = "Batch Id Required")]
             public Int64 Batch_Id { get; set; }            
             public string Userid { get; set; }            
@@ -317,8 +317,8 @@ namespace HPCL_DP_Terminal.Models
             public string Transaction_Type { get; set; }
             public string Transaction_Id { get; set; }
             public Int64 TID { get; set; }
-            [Required(ErrorMessage = "Outlet Id Required")]
-            public Int64 Outlet_Id { get; set; }
+            [Required(ErrorMessage = "Merchant Id Required")]
+            public Int64 Merchant_Id { get; set; }
             [Required(ErrorMessage = "Batch Id Required")]
             public Int64 Batch_Id { get; set; }
             public string Cheque_No { get; set; }
@@ -353,7 +353,7 @@ namespace HPCL_DP_Terminal.Models
             public string Transaction_Type { get; set; }
             public string Transaction_Id { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
             [Required(ErrorMessage = "Batch Id Required")]
             public Int64 Batch_Id { get; set; }
             public Int32 UTR_No { get; set; }          
@@ -388,7 +388,7 @@ namespace HPCL_DP_Terminal.Models
             public string Sale_Type { get; set; }
             public string Odometer_Reading { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
             public string Transaction_Id { get; set; }
             public Int64 Batch_Id { get; set; }            
             public string Userid { get; set; }            
@@ -448,7 +448,7 @@ namespace HPCL_DP_Terminal.Models
             public int? Token_No { get; set; }
             public string Odometer_Reading { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
             public string Transaction_Id { get; set; }
             public Int64 Batch_Id { get; set; }
 
@@ -481,7 +481,7 @@ namespace HPCL_DP_Terminal.Models
             public string Sale_Type { get; set; }
             public string Odometer_Reading { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
             public string Transaction_Id { get; set; }
             public Int64 Batch_Id { get; set; }
 
@@ -514,7 +514,7 @@ namespace HPCL_DP_Terminal.Models
             public string Sale_Type { get; set; }
             public string Odometer_Reading { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
             public string Transaction_Id { get; set; }
             public Int64 Batch_Id { get; set; }
 
@@ -549,7 +549,7 @@ namespace HPCL_DP_Terminal.Models
             public int? Terminal_Pin { get; set; }
             public string Odometer_Reading { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -575,7 +575,7 @@ namespace HPCL_DP_Terminal.Models
             public Int64 Card_No { get; set; }
             public decimal Amount { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -593,7 +593,7 @@ namespace HPCL_DP_Terminal.Models
             public Int64 Mobile_No { get; set; }
             public decimal Amount { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -611,7 +611,7 @@ namespace HPCL_DP_Terminal.Models
             public Int64 Card_No { get; set; }
             public decimal Amount { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -631,7 +631,7 @@ namespace HPCL_DP_Terminal.Models
             public int OTP { get; set; }
             public decimal Amount { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -650,7 +650,7 @@ namespace HPCL_DP_Terminal.Models
             public Int64 Card_No { get; set; }
             public decimal Odometer_Reading { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
             [JsonProperty("Userid")]
             public string Userid { get; set; }
 
@@ -669,7 +669,7 @@ namespace HPCL_DP_Terminal.Models
             public int OTP { get; set; }
             public decimal Odometer_Reading { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
             [JsonProperty("Userid")]
             public string Userid { get; set; }
 
@@ -684,7 +684,7 @@ namespace HPCL_DP_Terminal.Models
         {
             public string Pay_Code { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
             [JsonProperty("Userid")]
             public string Userid { get; set; }
 
@@ -701,7 +701,7 @@ namespace HPCL_DP_Terminal.Models
             public string Pay_Code { get; set; }
             public Int64 Batch_Id { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
             [JsonProperty("Userid")]
             public string Userid { get; set; }
 
@@ -717,7 +717,7 @@ namespace HPCL_DP_Terminal.Models
             public Int64 Control_Card_No { get; set; }
             public decimal Amount { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
             [JsonProperty("Userid")]
             public string Userid { get; set; }
 
@@ -735,7 +735,7 @@ namespace HPCL_DP_Terminal.Models
             public int Points_to_Redeem { get; set; }
             public decimal Amount { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
             [JsonProperty("Userid")]
             public string Userid { get; set; }
 
@@ -752,7 +752,7 @@ namespace HPCL_DP_Terminal.Models
         {
             public int New_Pin { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -773,7 +773,7 @@ namespace HPCL_DP_Terminal.Models
             public int No_Of_Cards { get; set; }
             public decimal Amount { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -792,7 +792,7 @@ namespace HPCL_DP_Terminal.Models
             public string Username { get; set; }
             public string Password { get; set; }
             public Int64 TID { get; set; }
-            public Int64 Outlet_Id { get; set; }
+            public Int64 Merchant_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -814,7 +814,7 @@ namespace HPCL_DP_Terminal.Models
             public decimal? Amount { get; set; }
             public int? Terminal_Pin { get; set; }
             public Int64? TID { get; set; }
-            public Int64? OutletId { get; set; }
+            public Int64? Merchant_Id { get; set; }
             public string Userip { get; set; }
             public string Userid { get; set; }
             public string Useragent { get; set; }
@@ -837,7 +837,7 @@ namespace HPCL_DP_Terminal.Models
             public int Terminal_Pin { get; set; }
             public int OTP { get; set; }
             public Int64 TID { get; set; }
-            public Int64 OutletId { get; set; }
+            public Int64 Merchant_Id { get; set; }
             public string Userip { get; set; }
             public string Userid { get; set; }
             public string Useragent { get; set; }
@@ -857,7 +857,7 @@ namespace HPCL_DP_Terminal.Models
             public decimal? Amount { get; set; }
             public int? Terminal_Pin { get; set; }
             public Int64? TID { get; set; }
-            public Int64? OutletId { get; set; }
+            public Int64? Merchant_Id { get; set; }
             public string Userip { get; set; }
             public string Userid { get; set; }
             public string Useragent { get; set; }
@@ -877,7 +877,7 @@ namespace HPCL_DP_Terminal.Models
             public decimal? Amount { get; set; }
             public int? Terminal_Pin { get; set; }
             public Int64? TID { get; set; }
-            public Int64? OutletId { get; set; }
+            public Int64? Merchant_Id { get; set; }
             public string Userip { get; set; }
             public string Userid { get; set; }
             public string Useragent { get; set; }
@@ -898,7 +898,7 @@ namespace HPCL_DP_Terminal.Models
             public string Fuel { get; set; }
             public int Pointstoredeem { get; set; }
             public Int64 TID { get; set; }
-            public Int64 OutletId { get; set; }
+            public Int64 Merchant_Id { get; set; }
             public string Userip { get; set; }
             public string Userid { get; set; }
             public string Useragent { get; set; }
@@ -925,7 +925,7 @@ namespace HPCL_DP_Terminal.Models
             public Int64 Controlcardno { get; set; }
             public int Controlpin { get; set; }
             public Int64 TID { get; set; }
-            public Int64 OutletId { get; set; }
+            public Int64 Merchant_Id { get; set; }
             public string Userip { get; set; }
             public string Userid { get; set; }
             public string Useragent { get; set; }
@@ -942,7 +942,7 @@ namespace HPCL_DP_Terminal.Models
             public Int64 Controlcardno { get; set; }
             public int Controlpin { get; set; }
             public Int64 TID { get; set; }
-            public Int64 OutletId { get; set; }
+            public Int64 Merchant_Id { get; set; }
             public string Userip { get; set; }
             public string Userid { get; set; }
             public string Useragent { get; set; }

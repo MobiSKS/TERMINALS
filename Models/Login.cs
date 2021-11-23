@@ -184,8 +184,8 @@ namespace HPCL_DP_Terminal.Models
             [JsonProperty("TID")]
             public Int64 TID { get; set; }
 
-            [JsonProperty("OutletId")]
-            public string OutletId { get; set; }
+            [JsonProperty("Merchant_Id")]
+            public string Merchant_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -316,8 +316,8 @@ namespace HPCL_DP_Terminal.Models
             [JsonProperty("TID")]
             public Int64 TID { get; set; }
 
-            [JsonProperty("OutletId")]
-            public string OutletId { get; set; }
+            [JsonProperty("Merchant_Id")]
+            public string Merchant_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -433,8 +433,8 @@ namespace HPCL_DP_Terminal.Models
             [JsonProperty("TID")]
             public Int64 TID { get; set; }
 
-            [JsonProperty("OutletId")]
-            public string OutletId { get; set; }
+            [JsonProperty("Merchant_Id")]
+            public string Merchant_Id { get; set; }
 
             [JsonProperty("Userid")]
             public string Userid { get; set; }
@@ -487,8 +487,8 @@ namespace HPCL_DP_Terminal.Models
         public class Set_All_Configurations_For_Terminal_Input
         {
             [Required]
-            [JsonProperty("Outlet_Id")]
-            public Int64 Outlet_Id { get; set; }
+            [JsonProperty("Merchant_Id")]
+            public Int64 Merchant_Id { get; set; }
 
             [Required]
             [JsonProperty("TID")]

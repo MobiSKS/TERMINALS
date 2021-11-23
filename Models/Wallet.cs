@@ -375,7 +375,7 @@ namespace HPCL_DP_Terminal.Models
     {
         public Int64? Card_no { get; set; }
         //public Int64 TID { get; set; }
-        //public string Outlet_id { get; set; }
+        //public string Merchant_Id { get; set; }
         public string Userip { get; set; }
         public string Userid { get; set; }
         public string Useragent { get; set; }
@@ -385,7 +385,7 @@ namespace HPCL_DP_Terminal.Models
     {
         public Int64 Mobileno { get; set; }
         public Int64 TID { get; set; }
-        public Int64 Outlet_id { get; set; }
+        public Int64 Merchant_Id { get; set; }
         public string Userip { get; set; }
         public string Userid { get; set; }
         public string Useragent { get; set; }
@@ -398,7 +398,7 @@ namespace HPCL_DP_Terminal.Models
         public decimal? Amount { get; set; }
         public int? Terminal_Pin { get; set; }
         public Int64? TID { get; set; }
-        public Int64? OutletId { get; set; }
+        public Int64? Merchant_Id { get; set; }
         public string Userip { get; set; }
         public string Userid { get; set; }
         public string Useragent { get; set; }
@@ -421,7 +421,7 @@ namespace HPCL_DP_Terminal.Models
         public int Terminal_Pin { get; set; }
         public int OTP { get; set; }
         public Int64 TID { get; set; }
-        public Int64 OutletId { get; set; }
+        public Int64 Merchant_Id { get; set; }
         public string Userip { get; set; }
         public string Userid { get; set; }
         public string Useragent { get; set; }
@@ -441,7 +441,7 @@ namespace HPCL_DP_Terminal.Models
         public decimal? Amount { get; set; }
         public int? Terminal_Pin { get; set; }
         public Int64? TID { get; set; }
-        public Int64? OutletId { get; set; }
+        public Int64? Merchant_Id { get; set; }
         public string Userip { get; set; }
         public string Userid { get; set; }
         public string Useragent { get; set; }
@@ -461,7 +461,7 @@ namespace HPCL_DP_Terminal.Models
         public decimal? Amount { get; set; }
         public int? Terminal_Pin { get; set; }
         public Int64? TID { get; set; }
-        public Int64? OutletId { get; set; }
+        public Int64? Merchant_Id { get; set; }
         public string Userip { get; set; }
         public string Userid { get; set; }
         public string Useragent { get; set; }
@@ -482,7 +482,7 @@ namespace HPCL_DP_Terminal.Models
         public string Fuel { get; set; }
         public int Pointstoredeem { get; set; }
         public Int64 TID { get; set; }
-        public Int64 OutletId { get; set; }
+        public Int64 Merchant_Id { get; set; }
         public string Userip { get; set; }
         public string Userid { get; set; }
         public string Useragent { get; set; }
@@ -505,7 +505,7 @@ namespace HPCL_DP_Terminal.Models
     //    public Int64 Controlcardno { get; set; }
     //    public int Controlpin { get; set; }
     //    public int TID { get; set; }
-    //    public int OutletId { get; set; }
+    //    public int Merchant_Id { get; set; }
     //    public string Userip { get; set; }
     //    public string Userid { get; set; }
     //    public string Useragent { get; set; }
@@ -557,7 +557,7 @@ namespace HPCL_DP_Terminal.Models
     //    public Int64 Controlcardno { get; set; }
     //    public int Controlpin { get; set; }
     //    public int TID { get; set; }
-    //    public int OutletId { get; set; }
+    //    public int Merchant_Id { get; set; }
     //    public string Userip { get; set; }
     //    public string Userid { get; set; }
     //    public string Useragent { get; set; }
@@ -621,7 +621,7 @@ namespace HPCL_DP_Terminal.Models
         public Int64 Card_No { get; set; }       
         public decimal Sale_Amount { get; set; }
         public Int64 TID { get; set; }
-        public Int64 OutletId { get; set; }
+        public Int64 Merchant_Id { get; set; }
         public string Userip { get; set; }
         public string Userid { get; set; }
         public string Useragent { get; set; }
