@@ -17,7 +17,7 @@ namespace HPCL_DP_Terminal.Models
 
         public class GenerateBatchNo_Input
         {
-            public Int64 TID { get; set; }
+            public Int64 Terminal_Id { get; set; }
             public Int64 Merchant_Id { get; set; }
 
             [JsonProperty("Useragent")]

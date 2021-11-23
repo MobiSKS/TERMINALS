@@ -181,8 +181,8 @@ namespace HPCL_DP_Terminal.Models
             [JsonProperty("CardPin")]
             public int CardPin { get; set; }
 
-            [JsonProperty("TID")]
-            public Int64 TID { get; set; }
+            [JsonProperty("Terminal_Id")]
+            public Int64 Terminal_Id { get; set; }
 
             [JsonProperty("Merchant_Id")]
             public string Merchant_Id { get; set; }

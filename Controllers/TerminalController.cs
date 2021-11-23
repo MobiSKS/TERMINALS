@@ -33,7 +33,7 @@ namespace HPCL_DP_Terminal.Controllers
             {
                 Dictionary<string, object> parameters = new Dictionary<string, object>
                 {
-                    { "Terminal_Id", ObjClass.TID },
+                    { "Terminal_Id", ObjClass.Terminal_Id },
                     { "Merchant_Id", ObjClass.Merchant_Id }
 
                 };
