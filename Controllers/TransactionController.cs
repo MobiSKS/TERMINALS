@@ -81,7 +81,7 @@ namespace HPCL_DP_Terminal.Controllers
 
 
         [HttpPost]
-        //[CustomAuthenticationFilter]
+        [CustomAuthenticationFilter]
         [Route("api/edc/transaction/ccms_sale_by_card")]
         public async Task<Object> CCMS_Sale_By_Card([FromBody] CCMSSaleByCard_Input ObjClass)
         {
