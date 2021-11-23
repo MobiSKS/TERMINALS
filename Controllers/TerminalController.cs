@@ -33,7 +33,7 @@ namespace HPCL_DP_Terminal.Controllers
             {
                 Dictionary<string, object> parameters = new Dictionary<string, object>
                 {
-                    { "TID", ObjClass.TID },
+                    { "Terminal_Id", ObjClass.TID },
                     { "Merchant_Id", ObjClass.Merchant_Id }
 
                 };
@@ -71,7 +71,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Recharge_Amount", ObjClass.Recharge_Amount },
                     { "Sale_no_of_bills", ObjClass.Sale_no_of_bills },
                     { "Sale_Amount", ObjClass.Sale_Amount },
-                    { "TID", ObjClass.TID },
+                    { "Terminal_Id", ObjClass.TID },
                     { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 
@@ -131,7 +131,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Batch_Id", ObjClass.Batch_Id },
                     { "Transaction_Details", dtDBR },
                     //{ "Unmatched_Trasnactions", ObjClass.Unmatched_Trasnactions },
-                    { "TID", ObjClass.TID },
+                    { "Terminal_Id", ObjClass.TID },
                     { "Merchant_Id", ObjClass.Merchant_Id }                   
 
                 };
