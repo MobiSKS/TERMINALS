@@ -326,7 +326,7 @@ namespace HPCL_DP_Terminal.Controllers
 
 
         [HttpPost]
-        [CustomAuthenticationFilter]
+        //[CustomAuthenticationFilter]
         [Route("api/edc/transaction/credit_sale_by_card")]
         public async Task<Object> Credit_Sale_By_Card([FromBody] CreditSaleByCard_Input ObjClass)
         {
@@ -344,13 +344,13 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Odometer_Reading", ObjClass.Odometer_Reading },
                     { "TID", ObjClass.TID },
-                    { "Outlet_Id", ObjClass.Outlet_Id },
-                    //{ "Transaction_Id", ObjClass.Transaction_Id },
+                    { "Merchant_Id", ObjClass.Merchant_Id },
+                    { "Transaction_Id", ObjClass.Transaction_Id },
                     { "Batch_Id", ObjClass.Batch_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Terminal_Credit_Sale_By_Card", parameters)
+               .MultipleResults("Usp_EDC_Terminal_Credit_Sale_By_Card", parameters)
                .With<Database_Status>()
                .With<CreditSaleByCard>()
                .Execute());

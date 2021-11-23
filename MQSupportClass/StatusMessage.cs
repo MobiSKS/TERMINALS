@@ -39,6 +39,8 @@ namespace HPCL_DP_Terminal.MQSupportClass
             [Display(Name = "User was deactivated")] User_deactivate = 1027,
             [Display(Name = "Customer was deactivate")] Customer_deactivate = 1028,
             [Display(Name = "Merchant was deactivate")] Merchant_deactivate = 1029,
+            [Display(Name = "Transaction Success")] Transaction_Success = 1030,
+            [Display(Name = "Transaction Failed")] Transaction_Failed = 1031,
             None = int.MaxValue
         }
 
