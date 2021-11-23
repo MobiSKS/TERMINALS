@@ -306,7 +306,33 @@ namespace HPCL_DP_Terminal.Models
             public Int64 Card_No { get; set; }
             public string Transaction_Type { get; set; }
         }
+        public class ReloadApiByCashMobile_Input
+        {
+            [Required(ErrorMessage = "Mobile No Required")]
+            public Int64 Mobile_No { get; set; }
 
+            [Required(ErrorMessage = "Recharge Amount Required")]
+            public decimal Recharge_Amount { get; set; }
+
+            [Required(ErrorMessage = "Sale Type Required")]
+            public string Sale_Type { get; set; }
+
+            [Required(ErrorMessage = "Transaction Type Required")]
+            public string Transaction_Type { get; set; }
+
+            [Required(ErrorMessage = "Transaction Id Required")]
+            public string Transaction_Id { get; set; }
+
+            [Required(ErrorMessage = "Terminal Id Required")]
+            public Int64 TID { get; set; }
+            [Required(ErrorMessage = "Merchant Id Required")]
+            public Int64 Merchant_Id { get; set; }
+            [Required(ErrorMessage = "Batch Id Required")]
+            public Int64 Batch_Id { get; set; }
+            public string Userid { get; set; }
+            public string Useragent { get; set; }
+            public string Userip { get; set; }
+        }
 
         public class ReloadApiByCheque_Input
         {
@@ -344,7 +370,31 @@ namespace HPCL_DP_Terminal.Models
             public string Transaction_Type { get; set; }
         }
 
+        public class ReloadApiByChequeMobile_Input
+        {
+            [Required(ErrorMessage = "Mobile No Required")]
+            public Int64 Mobile_No { get; set; }
+            public decimal Recharge_Amount { get; set; }
+            public string Sale_Type { get; set; }
+            public string Transaction_Type { get; set; }
+            public string Transaction_Id { get; set; }
+            public Int64 TID { get; set; }
+            [Required(ErrorMessage = "Merchant Id Required")]
+            public Int64 Merchant_Id { get; set; }
+            [Required(ErrorMessage = "Batch Id Required")]
+            public Int64 Batch_Id { get; set; }
+            public string Cheque_No { get; set; }
+            public string MICR_Code { get; set; }
 
+            [JsonProperty("Userid")]
+            public string Userid { get; set; }
+
+            [JsonProperty("Useragent")]
+            public string Useragent { get; set; }
+
+            [JsonProperty("Userip")]
+            public string Userip { get; set; }
+        }
         public class ReloadApiByNEFTRTGS_Input
         {
             public Int64 Card_No { get; set; }
@@ -378,7 +428,28 @@ namespace HPCL_DP_Terminal.Models
             public string Transaction_Type { get; set; }
         }
 
+        public class ReloadApiByNEFTRTGSMobile_Input
+        {
+            public Int64 Mobile_No { get; set; }
+            public decimal Recharge_Amount { get; set; }
+            public string Sale_Type { get; set; }
+            public string Transaction_Type { get; set; }
+            public string Transaction_Id { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 Merchant_Id { get; set; }
+            [Required(ErrorMessage = "Batch Id Required")]
+            public Int64 Batch_Id { get; set; }
+            public Int32 UTR_No { get; set; }
 
+            [JsonProperty("Userid")]
+            public string Userid { get; set; }
+
+            [JsonProperty("Useragent")]
+            public string Useragent { get; set; }
+
+            [JsonProperty("Userip")]
+            public string Userip { get; set; }
+        }
 
         public class CardSaleByCard_Input
         {

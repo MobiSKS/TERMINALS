@@ -288,7 +288,7 @@ namespace HPCL_DP_Terminal.Controllers
         [HttpPost]
         [CustomAuthenticationFilter]
         [Route("api/edc/transaction/reload_api_by_cash_mobile")]
-        public async Task<Object> Reload_Api_By_Cash_Mobile([FromBody] ReloadApiByCash_Input ObjClass)
+        public async Task<Object> Reload_Api_By_Cash_Mobile([FromBody] ReloadApiByCashMobile_Input ObjClass)
         {
             if (ObjClass == null)
             {
@@ -298,7 +298,7 @@ namespace HPCL_DP_Terminal.Controllers
             {
                 Dictionary<string, object> parameters = new Dictionary<string, object>
                 {
-                    { "Card_No", ObjClass.Card_No },
+                    { "Mobile_No", ObjClass.Mobile_No },
                     { "Recharge_Amount", ObjClass.Recharge_Amount },
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Transaction_Type", ObjClass.Transaction_Type },
@@ -309,7 +309,7 @@ namespace HPCL_DP_Terminal.Controllers
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Terminal_Reload_Api_By_Cash", parameters)
+               .MultipleResults("Usp_Terminal_Reload_Api_By_Cash_Mobile", parameters)
                .With<Database_Status>()
                .With<ReloadApiByCash>()
                .Execute());
@@ -324,8 +324,8 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/edc/transaction/reload_api_by_cheque")]
-        public async Task<Object> Reload_Api_By_Cheque([FromBody] ReloadApiByCheque_Input ObjClass)
+        [Route("api/edc/transaction/reload_api_by_cheque_mobile")]
+        public async Task<Object> Reload_Api_By_Cheque_Mobile([FromBody] ReloadApiByChequeMobile_Input ObjClass)
         {
             if (ObjClass == null)
             {
@@ -335,7 +335,7 @@ namespace HPCL_DP_Terminal.Controllers
             {
                 Dictionary<string, object> parameters = new Dictionary<string, object>
                 {
-                    { "Card_No", ObjClass.Card_No },
+                    { "Mobile_No", ObjClass.Mobile_No },
                     { "Recharge_Amount", ObjClass.Recharge_Amount },
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Transaction_Type", ObjClass.Transaction_Type },
@@ -348,7 +348,7 @@ namespace HPCL_DP_Terminal.Controllers
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Terminal_Reload_Api_By_Cheque", parameters)
+               .MultipleResults("Usp_Terminal_Reload_Api_By_Cheque_Mobile", parameters)
                .With<Database_Status>()
                .With<ReloadApiByCheque>()
                .Execute());
@@ -366,8 +366,8 @@ namespace HPCL_DP_Terminal.Controllers
 
         [HttpPost]
         [CustomAuthenticationFilter]
-        [Route("api/edc/transaction/reload_api_by_neft_rtgs")]
-        public async Task<Object> Reload_Api_By_NEFT_RTGS([FromBody] ReloadApiByNEFTRTGS_Input ObjClass)
+        [Route("api/edc/transaction/reload_api_by_neft_rtgs_mobile")]
+        public async Task<Object> Reload_Api_By_NEFT_RTGS_Mobile([FromBody] ReloadApiByNEFTRTGSMobile_Input ObjClass)
         {
             if (ObjClass == null)
             {
@@ -377,7 +377,7 @@ namespace HPCL_DP_Terminal.Controllers
             {
                 Dictionary<string, object> parameters = new Dictionary<string, object>
                 {
-                    { "Card_No", ObjClass.Card_No },
+                    { "Mobile_No", ObjClass.Mobile_No },
                     { "Recharge_Amount", ObjClass.Recharge_Amount },
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Transaction_Type", ObjClass.Transaction_Type },
@@ -389,7 +389,7 @@ namespace HPCL_DP_Terminal.Controllers
                 };
 
                 var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Terminal_Reload_Api_By_NEFT_RTGS", parameters)
+               .MultipleResults("Usp_Terminal_Reload_Api_By_NEFT_RTGS_Mobile", parameters)
                .With<Database_Status>()
                .With<ReloadApiByNEFTRTGS>()
                .Execute());
