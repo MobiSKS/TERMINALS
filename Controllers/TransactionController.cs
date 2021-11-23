@@ -285,6 +285,124 @@ namespace HPCL_DP_Terminal.Controllers
         }
 
 
+        [HttpPost]
+        [CustomAuthenticationFilter]
+        [Route("api/edc/transaction/reload_api_by_cash_mobile")]
+        public async Task<Object> Reload_Api_By_Cash_Mobile([FromBody] ReloadApiByCash_Input ObjClass)
+        {
+            if (ObjClass == null)
+            {
+                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
+            }
+            else
+            {
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    { "Card_No", ObjClass.Card_No },
+                    { "Recharge_Amount", ObjClass.Recharge_Amount },
+                    { "Sale_Type", ObjClass.Sale_Type },
+                    { "Transaction_Type", ObjClass.Transaction_Type },
+                    { "Transaction_Id", ObjClass.Transaction_Id },
+                    { "Terminal_Id", ObjClass.TID },
+                    { "Merchant_Id", ObjClass.Merchant_Id },
+                    { "Batch_Id", ObjClass.Batch_Id }
+                };
+
+                var results = await Task.Run(() => new DefaultContext()
+               .MultipleResults("Usp_Terminal_Reload_Api_By_Cash", parameters)
+               .With<Database_Status>()
+               .With<ReloadApiByCash>()
+               .Execute());
+
+                if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Transaction_Success, results[1]);
+                else
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
+            }
+        }
+
+
+        [HttpPost]
+        [CustomAuthenticationFilter]
+        [Route("api/edc/transaction/reload_api_by_cheque")]
+        public async Task<Object> Reload_Api_By_Cheque([FromBody] ReloadApiByCheque_Input ObjClass)
+        {
+            if (ObjClass == null)
+            {
+                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
+            }
+            else
+            {
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    { "Card_No", ObjClass.Card_No },
+                    { "Recharge_Amount", ObjClass.Recharge_Amount },
+                    { "Sale_Type", ObjClass.Sale_Type },
+                    { "Transaction_Type", ObjClass.Transaction_Type },
+                    { "Cheque_No", ObjClass.Cheque_No },
+                    { "MICR_Code", ObjClass.MICR_Code },
+                    { "Transaction_Id", ObjClass.Transaction_Id },
+                    { "TID", ObjClass.TID },
+                    { "Merchant_Id", ObjClass.Merchant_Id },
+                    { "Batch_Id", ObjClass.Batch_Id }
+                };
+
+                var results = await Task.Run(() => new DefaultContext()
+               .MultipleResults("Usp_Terminal_Reload_Api_By_Cheque", parameters)
+               .With<Database_Status>()
+               .With<ReloadApiByCheque>()
+               .Execute());
+
+                if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Transaction_Success, results[1]);
+                else
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
+            }
+
+        }
+
+
+
+
+        [HttpPost]
+        [CustomAuthenticationFilter]
+        [Route("api/edc/transaction/reload_api_by_neft_rtgs")]
+        public async Task<Object> Reload_Api_By_NEFT_RTGS([FromBody] ReloadApiByNEFTRTGS_Input ObjClass)
+        {
+            if (ObjClass == null)
+            {
+                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
+            }
+            else
+            {
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    { "Card_No", ObjClass.Card_No },
+                    { "Recharge_Amount", ObjClass.Recharge_Amount },
+                    { "Sale_Type", ObjClass.Sale_Type },
+                    { "Transaction_Type", ObjClass.Transaction_Type },
+                    { "TID", ObjClass.TID },
+                    { "Merchant_Id", ObjClass.Merchant_Id },
+                    { "UTR_No", ObjClass.UTR_No },
+                    { "Batch_Id", ObjClass.Batch_Id },
+                    { "Transaction_Id", ObjClass.Transaction_Id }
+                };
+
+                var results = await Task.Run(() => new DefaultContext()
+               .MultipleResults("Usp_Terminal_Reload_Api_By_NEFT_RTGS", parameters)
+               .With<Database_Status>()
+               .With<ReloadApiByNEFTRTGS>()
+               .Execute());
+
+                if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Transaction_Success, results[1]);
+                else
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
+            }
+
+        }
+
+
 
         [HttpPost]
         [CustomAuthenticationFilter]
