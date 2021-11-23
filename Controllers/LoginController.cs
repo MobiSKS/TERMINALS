@@ -662,7 +662,7 @@ namespace HPCL_DP_Terminal.Controllers
                 Dictionary<string, object> parameters = new Dictionary<string, object>
                 {
                     { "Merchant_Id", ObjClass.Merchant_Id },
-                    { "TID", ObjClass.TID }
+                    { "Terminal_Id", ObjClass.Terminal_Id }
                 };
 
                 var results = await Task.Run(() => new DefaultContext()

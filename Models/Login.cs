@@ -491,8 +491,8 @@ namespace HPCL_DP_Terminal.Models
             public Int64 Merchant_Id { get; set; }
 
             [Required]
-            [JsonProperty("TID")]
-            public Int64 TID { get; set; }
+            [JsonProperty("Terminal_Id")]
+            public Int64 Terminal_Id { get; set; }
 
             [Required]
             [JsonProperty("Userid")]
