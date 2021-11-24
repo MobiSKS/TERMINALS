@@ -994,7 +994,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Form_No", ObjClass.Form_No },
                     { "No_Of_Cards", ObjClass.No_Of_Cards },
                     { "Amount", ObjClass.Amount },
-                    { "TID", ObjClass.TID },
+                    { "Terminal_Id", ObjClass.Terminal_Id },
                     { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 

@@ -843,7 +843,7 @@ namespace HPCL_DP_Terminal.Models
             [Required(ErrorMessage = "No Of Cards Required")]
             public int No_Of_Cards { get; set; }
             public decimal Amount { get; set; }
-            public Int64 TID { get; set; }
+            public Int64 Terminal_Id { get; set; }
             public Int64 Merchant_Id { get; set; }
 
             [JsonProperty("Userid")]
