@@ -81,7 +81,7 @@ namespace HPCL_DP_Terminal.Controllers
                .Execute());
 
                 if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[0]);
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Transaction_Success, results[0]);
                 else
                     return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
             }

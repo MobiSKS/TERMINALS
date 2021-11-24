@@ -405,7 +405,7 @@ namespace HPCL_DP_Terminal.Controllers
 
 
         [HttpPost]
-        [CustomAuthenticationFilter]
+        //[CustomAuthenticationFilter]
         [Route("api/edc/transaction/card_sale_by_card")]
         public async Task<Object> Card_Sale_By_Card([FromBody] CardSaleByCard_Input ObjClass)
         {
@@ -422,7 +422,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Amount", ObjClass.Amount },
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Odometer_Reading", ObjClass.Odometer_Reading },
-                    { "TID", ObjClass.TID },
+                    { "Terminal_Id", ObjClass.TID },
                     { "Merchant_Id", ObjClass.Merchant_Id },
                     { "Transaction_Id", ObjClass.Transaction_Id },
                     { "Batch_Id", ObjClass.Batch_Id }
@@ -435,7 +435,7 @@ namespace HPCL_DP_Terminal.Controllers
                .Execute());
 
                 if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[1]);
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Transaction_Success, results[1]);
                 else
                     return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
             }
@@ -542,7 +542,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Amount", ObjClass.Amount },
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Odometer_Reading", ObjClass.Odometer_Reading },
-                    { "TID", ObjClass.TID },
+                    { "Terminal_Id", ObjClass.TID },
                     { "Merchant_Id", ObjClass.Merchant_Id },
                     { "Transaction_Id", ObjClass.Transaction_Id },
                     { "Batch_Id", ObjClass.Batch_Id }
@@ -554,10 +554,10 @@ namespace HPCL_DP_Terminal.Controllers
                .With<CardSaleByMobileNo>()
                .Execute());
 
-                if (results[0].Cast<CardSaleByMobileNo>().ToList().Count > 0)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Success, results[1]);
+                if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Transaction_Success, results[1]);
                 else
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Fail, results[0]);
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
             }
 
         }

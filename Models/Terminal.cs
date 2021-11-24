@@ -50,15 +50,15 @@ namespace HPCL_DP_Terminal.Models
 
         public class BatchSettlement_Input
         {
-            public string Batch_Id { get; set; }
+            public Int64 Batch_Id { get; set; }
             public int Reload_no_of_bills { get; set; }
             public decimal Reload_Amount { get; set; }
             public int Recharge_no_of_bills { get; set; }
             public decimal Recharge_Amount { get; set; }
             public int Sale_no_of_bills { get; set; }
             public decimal Sale_Amount { get; set; }
-            public Int32 TID { get; set; }
-            public Int32 Merchant_Id { get; set; }
+            public Int64 TID { get; set; }
+            public Int64 Merchant_Id { get; set; }
 
         }
 
