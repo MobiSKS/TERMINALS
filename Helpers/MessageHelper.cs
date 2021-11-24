@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using static HPCL_DP_Terminal.MQSupportClass.StatusMessage;
 using HPCL_DP_Terminal.App_Start;
 using System.Web.Http.ModelBinding;
+using System.Collections.Generic;
 
 namespace HPCL_DP_Terminal.Helpers
 {
@@ -26,11 +27,12 @@ namespace HPCL_DP_Terminal.Helpers
         {
             return request.CreateResponse(httpstatusCode, new ApiResponseMessage()
             {
-                Method_Name = request.GetActionDescriptor().ActionName,
+               
+                 Method_Name = request.GetActionDescriptor().ActionName,
                 Success = Success,
                 Status_Code = StatusCode,
                 Message = StatusCode==1026? Convert.ToString(customData):((StatusInformation)StatusCode).GetDisplayName(),
-                Data = StatusCode == 1026 ? "[]": customData,
+                Data = StatusCode == 1026 ? new List<string>(): customData,
                 Model_State = ObjModelState,
 
             });
