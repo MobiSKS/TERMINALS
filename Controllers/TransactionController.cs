@@ -381,7 +381,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Recharge_Amount", ObjClass.Recharge_Amount },
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Transaction_Type", ObjClass.Transaction_Type },
-                    { "TID", ObjClass.TID },
+                    { "Terminal_Id", ObjClass.TID },
                     { "Merchant_Id", ObjClass.Merchant_Id },
                     { "UTR_No", ObjClass.UTR_No },
                     { "Batch_Id", ObjClass.Batch_Id },
@@ -856,7 +856,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "ROC_No", ObjClass.ROC_No },
                     { "Pay_Code", ObjClass.Pay_Code },
                     { "Batch_Id", ObjClass.Batch_Id },
-                    { "TID", ObjClass.TID },
+                    { "Terminal_Id", ObjClass.TID },
                     { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 

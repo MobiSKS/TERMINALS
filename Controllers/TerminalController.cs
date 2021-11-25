@@ -20,7 +20,7 @@ namespace HPCL_DP_Terminal.Controllers
 
 
         [HttpPost]
-        [CustomAuthenticationFilter]
+        //[CustomAuthenticationFilter]
         [Route("api/edc/terminals/generate_batch_no")]
         public async Task<Object> Generate_Batch_No([FromBody] GenerateBatchNo_Input ObjClass)
         {
@@ -71,7 +71,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Recharge_Amount", ObjClass.Recharge_Amount },
                     { "Sale_no_of_bills", ObjClass.Sale_no_of_bills },
                     { "Sale_Amount", ObjClass.Sale_Amount },
-                    { "Terminal_Id", ObjClass.TID },
+                    { "Terminal_Id", ObjClass.Terminal_Id },
                     { "Merchant_Id", ObjClass.Merchant_Id }
                 };
 
@@ -131,7 +131,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Batch_Id", ObjClass.Batch_Id },
                     { "Transaction_Details", dtDBR },
                     //{ "Unmatched_Trasnactions", ObjClass.Unmatched_Trasnactions },
-                    { "Terminal_Id", ObjClass.TID },
+                    { "Terminal_Id", ObjClass.Terminal_Id },
                     { "Merchant_Id", ObjClass.Merchant_Id }                   
 
                 };

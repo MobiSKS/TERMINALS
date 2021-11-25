@@ -45,6 +45,8 @@ namespace HPCL_DP_Terminal.Models
             public int Status { get; set; }
             
             public string Reason { get; set; }
+
+
         }
 
 
@@ -57,8 +59,16 @@ namespace HPCL_DP_Terminal.Models
             public decimal Recharge_Amount { get; set; }
             public int Sale_no_of_bills { get; set; }
             public decimal Sale_Amount { get; set; }
-            public Int64 TID { get; set; }
+            public Int64 Terminal_Id { get; set; }
             public Int64 Merchant_Id { get; set; }
+            [JsonProperty("Useragent")]
+            public string Useragent { get; set; }
+
+            [JsonProperty("Userip")]
+            public string Userip { get; set; }
+
+            [JsonProperty("Userid")]
+            public string Userid { get; set; }
 
         }
 
@@ -67,7 +77,7 @@ namespace HPCL_DP_Terminal.Models
             public string Batch_Id { get; set; }
             public List<Transaction_Details> Transaction_Details { get; set; }
             //public List<Unmatched_Trasnactions> Unmatched_Trasnactions { get; set; }
-            public Int64 TID { get; set; }
+            public Int64 Terminal_Id { get; set; }
             public Int64 Merchant_Id { get; set; }
         }
 
