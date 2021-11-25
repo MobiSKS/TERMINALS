@@ -52,7 +52,7 @@ namespace HPCL_DP_Terminal.Controllers
         }
 
         [HttpPost]
-        [CustomAuthenticationFilter]
+        //[CustomAuthenticationFilter]
         [Route("api/edc/transaction/batch_settlement")]
         public async Task<Object> Batch_Settlement([FromBody] BatchSettlement_Input ObjClass)
         {
