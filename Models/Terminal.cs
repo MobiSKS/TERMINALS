@@ -74,7 +74,7 @@ namespace HPCL_DP_Terminal.Models
 
         public class BatchUpload_Input
         {
-            public string Batch_Id { get; set; }
+            public Int64 Batch_Id { get; set; }
             public List<Transaction_Details> Transaction_Details { get; set; }
             //public List<Unmatched_Trasnactions> Unmatched_Trasnactions { get; set; }
             public Int64 Terminal_Id { get; set; }
