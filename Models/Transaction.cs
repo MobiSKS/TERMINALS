@@ -402,7 +402,7 @@ namespace HPCL_DP_Terminal.Models
             public string Sale_Type { get; set; }
             public string Transaction_Type { get; set; }
             public string Transaction_Id { get; set; }
-            public Int64 TID { get; set; }
+            public Int64 Terminal_Id { get; set; }
             public Int64 Merchant_Id { get; set; }
             [Required(ErrorMessage = "Batch Id Required")]
             public Int64 Batch_Id { get; set; }

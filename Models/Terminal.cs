@@ -40,7 +40,7 @@ namespace HPCL_DP_Terminal.Models
 
         public class GenerateBatchNo
         {
-            public int Batch_Id { get; set; }
+            public Int64 Batch_Id { get; set; }
 
             public int Status { get; set; }
             
@@ -80,6 +80,7 @@ namespace HPCL_DP_Terminal.Models
             public Int64 Terminal_Id { get; set; }
             public Int64 Merchant_Id { get; set; }
         }
+
 
         public class Transaction_Details
         {

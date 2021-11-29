@@ -247,7 +247,7 @@ namespace HPCL_DP_Terminal.Controllers
 
 
         [HttpPost]
-        [CustomAuthenticationFilter]
+        //[CustomAuthenticationFilter]
         [Route("api/edc/transaction/reload_api_by_neft_rtgs")]
         public async Task<Object> Reload_Api_By_NEFT_RTGS([FromBody] ReloadApiByNEFTRTGS_Input ObjClass)
         {
@@ -263,7 +263,7 @@ namespace HPCL_DP_Terminal.Controllers
                     { "Recharge_Amount", ObjClass.Recharge_Amount },
                     { "Sale_Type", ObjClass.Sale_Type },
                     { "Transaction_Type", ObjClass.Transaction_Type },                    
-                    { "TID", ObjClass.TID },
+                    { "Terminal_Id", ObjClass.Terminal_Id },
                     { "Merchant_Id", ObjClass.Merchant_Id },
                     { "UTR_No", ObjClass.UTR_No },
                     { "Batch_Id", ObjClass.Batch_Id },
