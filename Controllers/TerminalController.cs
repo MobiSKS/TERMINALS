@@ -89,7 +89,7 @@ namespace HPCL_DP_Terminal.Controllers
 
 
         [HttpPost]
-        [CustomAuthenticationFilter]
+        //[CustomAuthenticationFilter]
         [Route("api/edc/terminals/batch_upload")]
         public async Task<Object> Batch_Upload([FromBody] BatchUpload_Input ObjClass)
         {
