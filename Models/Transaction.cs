@@ -199,6 +199,12 @@ namespace HPCL_DP_Terminal.Models
             public string Product { get; set; }
 
             public Int64 Batch_Id { get; set; }
+            public string Merchant_Name { get; set; }
+            public string Vehicle_No { get; set; }
+            public string Card_Expiry_Date { get; set; }
+            public decimal Balance { get; set; }
+            public decimal RSP { get; set; }
+            public Int64 Volume { get; set; }
         }
 
 
