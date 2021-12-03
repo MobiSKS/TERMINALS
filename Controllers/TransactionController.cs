@@ -95,11 +95,11 @@ namespace HPCL_DP_Terminal.Controllers
                 Dictionary<string, object> parameters = new Dictionary<string, object>
                     {
                         { "Card_No", ObjClass.Card_No },
-                        { "Card_Pin", ObjClass.Card_Pin },
+                        //{ "Card_Pin", ObjClass.Card_Pin },
                         { "Product", ObjClass.Product },
                         { "Amount", ObjClass.Amount },
                         { "Sale_Type", ObjClass.Sale_Type },                        
-                        { "Terminal_Pin", ObjClass.Terminal_Pin },
+                        //{ "Terminal_Pin", ObjClass.Terminal_Pin },
                         { "Odometer_Reading", ObjClass.Odometer_Reading },
                         { "Transaction_Id", ObjClass.Transaction_Id },
                         { "TID", ObjClass.TID },
@@ -138,13 +138,13 @@ namespace HPCL_DP_Terminal.Controllers
                 Dictionary<string, object> parameters = new Dictionary<string, object>
                     {
                         { "Mobile_No", ObjClass.Mobile_No },
-                        { "OTP", ObjClass.OTP },
+                        //{ "OTP", ObjClass.OTP },
                         { "Product", ObjClass.Product },
                         { "Amount", ObjClass.Amount },
                         { "Sale_Type", ObjClass.Sale_Type },
-                        { "Terminal_Pin", ObjClass.Terminal_Pin },
+                        //{ "Terminal_Pin", ObjClass.Terminal_Pin },
                         { "Odometer_Reading", ObjClass.Odometer_Reading },
-                        { "Type", ObjClass.Type },
+                        //{ "Type", ObjClass.Type },
                         { "Transaction_Id", ObjClass.Transaction_Id },
                         { "TID", ObjClass.TID },
                         { "Merchant_Id", ObjClass.Merchant_Id },

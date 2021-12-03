@@ -168,8 +168,8 @@ namespace HPCL_DP_Terminal.Models
             public string Product { get; set; }
             public decimal Amount { get; set; }
             public string Sale_Type { get; set; }
-            public int Card_Pin { get; set; }
-            public int Terminal_Pin { get; set; }
+            //public int Card_Pin { get; set; }
+            //public int Terminal_Pin { get; set; }
             public decimal Odometer_Reading { get; set; }
 
             [Required(ErrorMessage = "Transaction Id Required")]
