@@ -444,6 +444,46 @@ namespace HPCL_DP_Terminal.Controllers
 
 
         [HttpPost]
+        [CustomAuthenticationFilter]
+        [Route("api/edc/transaction/card_sale_by_mobileno")]
+        public async Task<Object> Card_Sale_By_MobileNo([FromBody] CardSaleByMobileNo_Input ObjClass)
+        {
+            if (ObjClass == null)
+            {
+                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
+            }
+            else
+            {
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    { "Mobile_No", ObjClass.Mobile_No },
+                    //{ "OTP", ObjClass.OTP },
+                    { "Product", ObjClass.Product },
+                    { "Amount", ObjClass.Amount },
+                    { "Sale_Type", ObjClass.Sale_Type },
+                    { "Odometer_Reading", ObjClass.Odometer_Reading },
+                    { "Terminal_Id", ObjClass.TID },
+                    { "Merchant_Id", ObjClass.Merchant_Id },
+                    { "Transaction_Id", ObjClass.Transaction_Id },
+                    { "Batch_Id", ObjClass.Batch_Id }
+                };
+
+                var results = await Task.Run(() => new DefaultContext()
+               .MultipleResults("Usp_Terminal_Card_Sale_By_MobileNo", parameters)
+               .With<Database_Status>()
+               .With<CardSaleByMobileNo>()
+               .Execute());
+
+                if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Transaction_Success, results[1]);
+                else
+                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
+            }
+
+        }
+
+
+        [HttpPost]
         //[CustomAuthenticationFilter]
         [Route("api/edc/transaction/credit_sale_by_card")]
         public async Task<Object> Credit_Sale_By_Card([FromBody] CreditSaleByCard_Input ObjClass)
@@ -523,44 +563,7 @@ namespace HPCL_DP_Terminal.Controllers
 
 
 
-        [HttpPost]
-        [CustomAuthenticationFilter]
-        [Route("api/edc/transaction/card_sale_by_mobileno")]
-        public async Task<Object> Card_Sale_By_MobileNo([FromBody] CardSaleByMobileNo_Input ObjClass)
-        {
-            if (ObjClass == null)
-            {
-                return MessageHelper.Message(Request, HttpStatusCode.NotAcceptable, false, (int)StatusInformation.Request_JSON_Body_Is_Null, null);
-            }
-            else
-            {
-                Dictionary<string, object> parameters = new Dictionary<string, object>
-                {
-                    { "Mobile_No", ObjClass.Mobile_No },
-                    //{ "OTP", ObjClass.OTP },
-                    { "Product", ObjClass.Product },
-                    { "Amount", ObjClass.Amount },
-                    { "Sale_Type", ObjClass.Sale_Type },
-                    { "Odometer_Reading", ObjClass.Odometer_Reading },
-                    { "Terminal_Id", ObjClass.TID },
-                    { "Merchant_Id", ObjClass.Merchant_Id },
-                    { "Transaction_Id", ObjClass.Transaction_Id },
-                    { "Batch_Id", ObjClass.Batch_Id }
-                };
-
-                var results = await Task.Run(() => new DefaultContext()
-               .MultipleResults("Usp_Terminal_Card_Sale_By_MobileNo", parameters)
-               .With<Database_Status>()
-               .With<CardSaleByMobileNo>()
-               .Execute());
-
-                if (results[0].Cast<Database_Status>().ToList()[0].Status == 1)
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, true, (int)StatusInformation.Transaction_Success, results[1]);
-                else
-                    return MessageHelper.Message(Request, HttpStatusCode.OK, false, (int)StatusInformation.Database_Response, results[0].Cast<Database_Status>().ToList()[0].Reason);
-            }
-
-        }
+        
 
 
 
